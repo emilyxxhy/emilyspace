@@ -1,17 +1,28 @@
 /* Custom CSS for main.min.css */
 
-/* Base Styles */
+/* --- Tailwind Directives (Must be at the top) --- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- Base Typography & Reset --- */
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #FFFBF5;
     color: #1F2937;
+    -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Bricolage Grotesque', sans-serif;
 }
 
-/* Nav Link Active State (Sticky Header Highlight) */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Backup for sticky header */
+}
+
+/* --- Navigation Active State --- */
 .nav-link-active {
     font-weight: 700;
     color: #1E00D9; /* brand-blue */
@@ -23,29 +34,41 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
     width: 60%;
     height: 3px;
-    background-color: #1E00D9; /* brand-blue */
+    background-color: #F97316; /* Orange accent */
     border-radius: 2px;
     position: absolute;
-    bottom: -8px; /* Adjusted for better spacing in sticky header */
+    bottom: -6px;
     left: 50%;
     transform: translateX(-50%);
 }
 
-/* Typing Animation & Cursor */
-/* The main typing animation is handled by Tailwind config, this provides the cursor style */
-.typing-cursor {
-    overflow: hidden; 
-    white-space: nowrap; 
-    /* This border is controlled by JS class on completion */
-    border-right: .15em solid #F97316; /* brand-orange cursor */
+/* --- Glassmorphism Utilities --- */
+.glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Section Fade-In (Scroll Animation) */
+/* --- Animation Utilities --- */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+
+/* --- Animations --- */
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    transition-delay: var(--animation-delay, 0s); /* For staggered load */
     will-change: opacity, transform;
 }
 
@@ -54,16 +77,76 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(0);
 }
 
-/* Tech Chip Styling */
-.tech-chip {
-    @apply text-xs font-medium py-1 px-3 rounded-full shadow-sm;
+.animate-fadeInUp {
+    animation: fadeInUp 0.8s ease-out forwards;
 }
 
-/* Reduced Motion Support (Accessibility) */
+/* --- Rotating Text Cursor --- */
+#rotating-text-small {
+    min-height: 1.2em;
+    display: inline-block;
+}
+
+#rotating-text-small::after {
+    content: '|';
+    display: inline-block;
+    color: #F97316;
+    animation: blink 0.75s step-end infinite;
+    font-weight: 700;
+    margin-left: 4px;
+    vertical-align: middle;
+}
+
+/* --- Timeline Styling --- */
+.timeline-item {
+    position: relative;
+    padding-left: 2.5rem;
+    border-left: 2px solid #E5E7EB; /* Light gray line */
+    padding-bottom: 2rem;
+}
+
+.timeline-item:last-child {
+    border-left: transparent;
+    padding-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -9px;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #1E00D9;
+    border: 3px solid #FFFBF5; /* Creates a gap effect */
+    z-index: 10;
+}
+
+/* --- Tech Chip Base --- */
+.tech-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    white-space: nowrap;
+}
+
+/* --- Accessibility (Combined) --- */
 @media (prefers-reduced-motion) {
-    .animate-typing, .fade-in {
-        animation: none !important;
-        transition: none !important;
+    html {
+        scroll-behavior: auto;
+    }
+    
+    *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .fade-in {
         opacity: 1 !important;
         transform: none !important;
     }

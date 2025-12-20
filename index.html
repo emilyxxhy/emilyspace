@@ -4,611 +4,470 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emily Huynh | Data Storyteller & Analytics Architect Portfolio</title>
-    <meta name="description" content="Emily Huynh's data science and business analytics portfolio. Transforming complex data into actionable insights and strategic outcomes.">
+    <meta name="description" content="Emily Huynh's data science and business analytics portfolio. Transforming complex data into actionable insights.">
     
-    <meta property="og:title" content="Emily Huynh | Data Storyteller & Analytics Architect Portfolio">
-    <meta property="og:description" content="Transforming complex data into actionable insights and strategic outcomes.">
-    <meta property="og:image" content="/assets/img/profile.webp">
-    <meta property="og:url" content="https://www.yourportfolio.com">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:creator" content="@YourTwitterHandle">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        // Tailwind Configuration
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'brand-bg': '#FFFBF5',
+                        'brand-bg': '#FDFCF8',
+                        'brand-blue': '#1E00D9', 
+                        'brand-blue-dark': '#15009E',
+                        'brand-orange': '#F97316',
                         'brand-pink': '#F7B5D5',
                         'brand-pink-light': '#FEF6FA',
-                        'brand-blue': '#1E00D9', 
-                        'brand-orange': '#F97316',
-                        'text-primary': '#1F2937', 
                     },
                     fontFamily: {
                         heading: ['"Bricolage Grotesque"', 'sans-serif'],
                         body: ['Montserrat', 'sans-serif'],
                     },
-                    keyframes: {
-                        wave: { '0%, 100%': { transform: 'rotate(0deg)' }, '50%': { transform: 'rotate(15deg)' } },
-                        fadeInUp: { from: { opacity: '0', transform: 'translateY(20px)' }, to: { opacity: '1', transform: 'translateY(0)' } },
-                        blink: { '50%': { opacity: 0 } }, 
-                    },
                     animation: {
-                        wave: 'wave 0.5s ease-in-out',
-                        fadeInUp: 'fadeInUp 0.6s ease-out forwards',
+                        'blob': 'blob 7s infinite',
+                        'fadeInUp': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeInUp: {
+                            'from': { opacity: '0', transform: 'translateY(20px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' },
+                        }
                     }
                 },
             },
         };
     </script>
-    <style>
-        /* CSS Cần Thiết cho Hiệu ứng Xoay Chữ/Con trỏ & Timeline (giữ nguyên) */
-        #rotating-text-small::after {
-            content: '|';
-            display: inline-block;
-            color: #F97316; /* brand-orange */
-            animation: blink 0.75s step-end infinite;
-            font-weight: 700; 
-        }
-        @keyframes fadeInUp {
-             from { opacity: 0; transform: translateY(20px); }
-             to { opacity: 1; transform: translateY(0); }
-        }
-        #rotating-text-small {
-            min-height: 1.1em;
-        }
-        
-        /* Custom CSS cho Timeline Experience */
-        .timeline-item {
-            position: relative;
-            padding-left: 2rem;
-            border-left: 2px solid #ccc;
-        }
-        .timeline-item:last-child {
-            border-left: none; /* Dấu chấm hết không có đường kẻ */
-        }
-        .timeline-dot {
-            position: absolute;
-            left: -8px;
-            top: 0.5rem;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background-color: #1E00D9; /* brand-blue */
-            z-index: 10;
-        }
-        .fade-in {
-             opacity: 0;
-             animation: fadeInUp 0.6s ease-out forwards;
-        }
-    </style>
+    
     <link rel="stylesheet" href="assets/css/main.min.css">
+    <style>
+        .glass-header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        /* Fix navigation jump */
+        section { scroll-margin-top: 100px; }
+    </style>
 </head>
-<body class="text-text-primary bg-brand-bg antialiased">
-    <a href="#main-content" class="absolute top-0 left-0 bg-brand-blue text-white p-3 transform -translate-y-full focus:translate-y-0 z-[100]">Skip to Content</a>
+<body class="text-gray-800 bg-brand-bg antialiased selection:bg-brand-pink selection:text-brand-blue relative">
+    
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-pink/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+        <div class="absolute top-0 right-1/4 w-96 h-96 bg-blue-200/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob" style="animation-delay: 2s"></div>
+        <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-purple-200/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob" style="animation-delay: 4s"></div>
+    </div>
 
-    <header id="site-header" class="bg-brand-bg/95 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-200 shadow-sm transition-all duration-300">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center" aria-label="Main Navigation">
-            <a href="#welcome" class="font-heading text-3xl font-bold text-brand-blue" aria-label="Go to Home Section">Emily H.</a>
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-brand-blue text-white p-4 rounded-lg z-50 shadow-xl font-bold">Skip to Content</a>
+
+    <header id="site-header" class="fixed w-full top-0 z-50 transition-all duration-300 glass-header">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+            <a href="#welcome" class="font-heading text-2xl md:text-3xl font-bold text-brand-blue tracking-tight hover:opacity-80 transition-opacity">
+                Emily H.
+            </a>
             
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#welcome" class="nav-link text-gray-700 hover:text-brand-blue transition-colors duration-300 font-semibold" data-target="welcome">Home</a>
-                <a href="#projects" class="nav-link text-gray-700 hover:text-brand-blue transition-colors duration-300 font-semibold" data-target="projects">Projects</a>
-                <a href="#experience" class="nav-link text-gray-700 hover:text-brand-blue transition-colors duration-300" data-target="experience">Experience</a>
-                <a href="#skills-tech" class="nav-link text-gray-700 hover:text-brand-blue transition-colors duration-300" data-target="skills">Skill Tech</a>
-                <a href="#domain-acumen" class="nav-link text-gray-700 hover:text-brand-blue transition-colors duration-300" data-target="domain">Domain Acumen</a>
-                <a href="#about" class="nav-link text-gray-700 hover:text-brand-blue transition-colors duration-300" data-target="about">About Me</a>
-
-                <a href="#contact" class="nav-link bg-brand-orange text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-colors duration-300 font-semibold" data-target="contact">Contact</a>
+            <div class="hidden md:flex items-center space-x-1">
+                <a href="#welcome" class="nav-link px-3 py-2 text-sm font-bold text-gray-600 hover:text-brand-blue rounded-full hover:bg-blue-50/50 transition-all">Home</a>
+                <a href="#about" class="nav-link px-3 py-2 text-sm font-bold text-gray-600 hover:text-brand-blue rounded-full hover:bg-blue-50/50 transition-all">About</a>
+                <a href="#projects" class="nav-link px-3 py-2 text-sm font-bold text-gray-600 hover:text-brand-blue rounded-full hover:bg-blue-50/50 transition-all">Projects</a>
+                <a href="#experience" class="nav-link px-3 py-2 text-sm font-bold text-gray-600 hover:text-brand-blue rounded-full hover:bg-blue-50/50 transition-all">Experience</a>
+                <a href="#leadership" class="nav-link px-3 py-2 text-sm font-bold text-gray-600 hover:text-brand-blue rounded-full hover:bg-blue-50/50 transition-all">Leadership</a>
+                <a href="#skills-tech" class="nav-link px-3 py-2 text-sm font-bold text-gray-600 hover:text-brand-blue rounded-full hover:bg-blue-50/50 transition-all">Skills</a>
+                <a href="#contact" class="ml-2 px-5 py-2.5 text-sm font-bold text-white bg-brand-orange rounded-full shadow-lg shadow-orange-200 hover:bg-orange-600 hover:shadow-orange-300 hover:-translate-y-0.5 transition-all">Contact</a>
             </div>
 
-            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-900 hover:bg-gray-100 transition-colors" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Toggle menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </nav>
 
-        <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 space-y-3 transition-all duration-300 ease-in-out bg-brand-bg border-t border-gray-200">
-            <a href="#welcome" class="nav-link block text-gray-700 hover:text-brand-blue transition-colors duration-300 py-1" data-target="welcome">Home</a>
-            <a href="#projects" class="nav-link block text-gray-700 hover:text-brand-blue transition-colors duration-300 py-1" data-target="projects">Projects</a>
-            <a href="#experience" class="nav-link block text-gray-700 hover:text-brand-blue transition-colors duration-300 py-1" data-target="experience">Experience</a>
-            <a href="#skills-tech" class="nav-link block text-gray-700 hover:text-brand-blue transition-colors duration-300 py-1" data-target="skills">Skill Tech</a>
-            <a href="#domain-acumen" class="nav-link block text-gray-700 hover:text-brand-blue transition-colors duration-300 py-1" data-target="domain">Domain Acumen</a>
-            <a href="#about" class="nav-link block text-gray-700 hover:text-brand-blue transition-colors duration-300 py-1" data-target="about">About Me</a>
-            <a href="#contact" class="nav-link block text-brand-orange hover:text-brand-blue transition-colors duration-300 py-1 font-semibold" data-target="contact">Contact Me</a>
+        <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-white/95 backdrop-blur-xl border-b border-gray-100 px-4 pb-6 pt-2 shadow-2xl">
+            <div class="flex flex-col space-y-2">
+                <a href="#welcome" class="mobile-link block py-3 px-4 rounded-xl hover:bg-blue-50 text-gray-700 font-bold">Home</a>
+                <a href="#projects" class="mobile-link block py-3 px-4 rounded-xl hover:bg-blue-50 text-gray-700 font-bold">Projects</a>
+                <a href="#experience" class="mobile-link block py-3 px-4 rounded-xl hover:bg-blue-50 text-gray-700 font-bold">Experience</a>
+                <a href="#leadership" class="mobile-link block py-3 px-4 rounded-xl hover:bg-blue-50 text-gray-700 font-bold">Leadership</a>
+                <a href="#skills-tech" class="mobile-link block py-3 px-4 rounded-xl hover:bg-blue-50 text-gray-700 font-bold">Skill Tech</a>
+                <a href="#about" class="mobile-link block py-3 px-4 rounded-xl hover:bg-blue-50 text-gray-700 font-bold">About Me</a>
+                <a href="#contact" class="mobile-link block py-3 px-4 mt-2 rounded-xl bg-brand-orange/10 text-brand-orange font-bold">Contact Me</a>
+            </div>
         </div>
     </header>
-<section id="welcome" class="h-screen flex flex-col items-center justify-center bg-brand-bg text-center snap-start">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-        <h1 class="text-7xl md:text-8xl lg:text-9xl font-heading font-extrabold text-brand-blue mb-4 opacity-0 animate-fadeInUp">
-            Hi, I'm Emily! 
-            <span class="inline-block text-6xl md:text-7xl lg:text-8xl align-middle animate-waving-hand" style="font-size: 1em;">
-                👋
-            </span>
-        </h1>
+
+    <main id="main-content" class="relative">
         
-        <h2 id="rotating-text-small" class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-brand-orange mb-12 relative inline-block opacity-0 animate-fadeInUp" style="animation-delay: 0.3s;">
-        </h2>
-
-        <div class="flex justify-center space-x-4 opacity-0 animate-fadeInUp" style="animation-delay: 0.6s;">
-            <a href="PLACEHOLDER_LINK_TO_RESUME.pdf" target="_blank" class="px-8 py-3 text-lg font-bold rounded-xl bg-brand-blue text-white shadow-lg hover:bg-brand-blue/90 transition-colors transform hover:scale-105">
-                My Resume
-            </a>
-            <a href="#contact" class="px-8 py-3 text-lg font-bold rounded-xl border-2 border-brand-blue text-brand-blue shadow-lg hover:bg-brand-blue/10 transition-colors transform hover:scale-105">
-                Contact me!
-            </a>
-        </div>
-    </div>
-</section>
-        
-        <hr class="border-gray-300 max-w-7xl mx-auto">
-        <body class="scroll-smooth snap-y snap-mandatory">
-        <section id="about" class="bg-brand-bg py-20 md:py-32">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-16 fade-in">
-            <span class="inline-block bg-brand-pink text-brand-blue font-heading text-sm font-bold px-6 py-2 rounded-full shadow-md uppercase tracking-wider">
-                My Story
-            </span>
-        </div>
-        <div class="flex flex-col md:flex-row items-start gap-12 md:gap-16 fade-in" style="animation-delay: 0.2s;">
-            <div class="md:w-1/3 w-full">
-            <img 
-    src="assets/img/profile.webp" 
-    alt="Portrait of Emily Huynh"
-    loading="lazy"
-    onerror="this.src='https://placehold.co/400x450/F7B5D5/1E00D9?text=Emily+Huynh'; this.onerror=null;"
-    class="w-full max-w-sm mx-auto h-auto rounded-xl shadow-2xl object-cover transform hover:scale-[1.02] transition-transform duration-500" 
->
-            </div>
-
-            <div class="md:w-2/3">
-                <h2 class="text-4xl font-heading font-bold text-gray-900 mb-6">About Me</h2>
-                <div class="font-body text-lg text-gray-700 space-y-5 leading-relaxed">
-                    <p>
-                        Hi! I’m Emily Huynh, a <span class="font-bold bg-brand-pink/50">sophomore at DePauw University</span>, majoring in <span class="font-bold bg-brand-pink/50">Computer Science</span> and <span class="font-bold bg-brand-pink/50">Business Analytics</span>. I’m passionate about uncovering insights hidden in data and turning them into decisions that create real impact.
-                    </p>
-
-                    <p>
-                        I’m skilled in data analysis</span>, business intelligence, and machine learning, using tools like Python, SQL, and Excel to explore complex datasets and translate them into meaningful insights. As the Founder and President of the DePauw Data Science Club, I’ve learned how to combine analytical thinking with <span class="font-bold bg-brand-pink/50">leadership, collaboration, and creativity</span> to bring ideas to life.
-                    </p>
-                    <p class="pt-2 border-t border-gray-200">
-                        Outside of academics, I love exploring astrology and studying world charts, which deepens my fascination with <span class="font-bold bg-brand-pink/50">patterns and human behavior</span>. I also love making coffee, which actually inspired my recent data project analyzing Starbucks drink nutrition and healthier alternatives.
-                    </p>That’s pretty much about me. I’d love to connect with people who are passionate about using data to make a difference and turn curiosity into <span class="font-bold bg-brand-pink/50">real-world change</span>.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section id="projects" class="bg-brand-bg py-20 md:py-32">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-16 opacity-0 animate-fadeInUp">
-            <span class="inline-block bg-brand-pink text-brand-blue font-heading text-sm font-bold px-6 py-2 rounded-full shadow-md uppercase tracking-wider">
-                Impact-Driven Analytics
-            </span>
-            <h2 class="text-4xl lg:text-5xl font-heading font-bold text-gray-900 mt-6">Selected Case Studies</h2>
-            <p class="text-gray-600 font-body mt-2 max-w-3xl mx-auto">Interactive dashboards, ML applications, and deep dive reports that showcase the entire data pipeline.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-            
-            <div class="project-card bg-white p-6 rounded-xl shadow-2xl hover:shadow-brand-blue/30 transition-shadow duration-300 transform hover:translate-y-[-4px] opacity-0 animate-fadeInUp" style="animation-delay: 0.2s;">
-                <span class="text-xl font-heading font-bold text-brand-blue block mb-2">
-                    01. Banking Churn Model
-                </span>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                    <a href="projects/banking-churn-prediction.html" class="hover:text-brand-blue transition-colors duration-200">
-                        Customer Retention & XGBoost Classification
-                    </a>
-                </h3>
-                <p class="text-gray-600 mb-4">Developed a high-accuracy XGBoost model to predict customer churn, achieving >91% accuracy and driving a targeted retention strategy.</p>
+        <section id="welcome" class="min-h-screen flex items-center justify-center pt-20 pb-10">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h1 class="text-6xl md:text-8xl lg:text-9xl font-heading font-extrabold text-brand-blue mb-6 tracking-tight leading-none opacity-0 animate-fadeInUp">
+                    Hi, I'm Emily! 
+                    <span class="inline-block animate-pulse origin-bottom-right">👋</span>
+                </h1>
                 
-                <div class="flex gap-3 mb-4 mt-6"> 
-                    <a href="https://github.com/emilyxxhy/churn-modelling" target="_blank" rel="noopener noreferrer" 
-                        class="text-xs font-semibold px-3 py-1 rounded-lg bg-brand-blue text-white hover:bg-opacity-90 transition-colors shadow-md">
-                        View GitHub
+                <h2 id="rotating-text-small" class="h-12 md:h-16 font-heading text-3xl md:text-5xl font-bold text-brand-orange mb-8 opacity-0 animate-fadeInUp" style="animation-delay: 0.2s;"></h2>
+
+                <div class="flex flex-col sm:flex-row justify-center gap-4 opacity-0 animate-fadeInUp" style="animation-delay: 0.4s;">
+                    <a href="assets/docs/resume.pdf" target="_blank" class="px-8 py-4 text-lg font-bold text-white bg-brand-blue rounded-xl shadow-xl shadow-blue-200 hover:bg-brand-blue-dark hover:-translate-y-1 transition-all">
+    My Resume
+</a>
+                    <a href="#contact" class="px-8 py-4 text-lg font-bold text-brand-blue bg-white border-2 border-brand-blue/10 rounded-xl hover:border-brand-blue hover:bg-blue-50 transition-all">
+                        Contact me!
                     </a>
-                    <a href="PLACEHOLDER_LINK_TO_DEMO_01" target="_blank" rel="noopener noreferrer" 
-                        class="text-xs font-semibold px-3 py-1 rounded-lg border-2 border-brand-blue text-brand-blue hover:bg-brand-blue/10 transition-colors shadow-md">
-                        View Demo
-                    </a>
-                </div>
-                <div class="flex flex-wrap gap-2">
-                    <span class="tech-chip bg-blue-100 text-blue-800">Python</span>
-                    <span class="tech-chip bg-blue-100 text-blue-800">XGBoost</span>
-                    <span class="tech-chip bg-blue-100 text-blue-800">Feature Engineering</span>
                 </div>
             </div>
+        </section>
 
-            <div class="project-card bg-white p-6 rounded-xl shadow-2xl hover:shadow-brand-blue/30 transition-shadow duration-300 transform hover:translate-y-[-4px] opacity-0 animate-fadeInUp" style="animation-delay: 0.3s;">
-                <span class="text-xl font-heading font-bold text-brand-blue block mb-2">
-                    02. Starbucks Nutrition Analysis
-                </span>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                    <a href="projects/starbucks-nutrition-analysis.html" class="hover:text-brand-blue transition-colors duration-200">
-                        K-Means Clustering & Streamlit Recommender
-                    </a>
-                </h3>
-                <p class="text-gray-600 mb-4">Segmented 160+ drinks using K-Means and deployed an interactive Streamlit app with KNN to recommend healthier alternatives.</p>
-
-                <div class="flex gap-3 mb-4 mt-6">
-                    <a href="https://github.com/emilyxxhy/starbucks_portfolio_app" target="_blank" rel="noopener noreferrer" 
-                        class="text-xs font-semibold px-3 py-1 rounded-lg bg-brand-blue text-white hover:bg-opacity-90 transition-colors shadow-md">
-                        View GitHub
-                    </a>
-                    <a href="https://starbucksportfolioapp-67oaqbtqc77lls7gz2fvjy.streamlit.app/" target="_blank" rel="noopener noreferrer" 
-                        class="text-xs font-semibold px-3 py-1 rounded-lg border-2 border-brand-blue text-brand-blue hover:bg-brand-blue/10 transition-colors shadow-md">
-                        View Demo
-                    </a>
-                </div>
-                <div class="flex flex-wrap gap-2">
-                    <span class="tech-chip bg-green-100 text-green-800">Clustering</span>
-                    <span class="tech-chip bg-green-100 text-green-800">Streamlit</span>
-                    <span class="tech-chip bg-green-100 text-green-800">PCA</span>
-                </div>
-            </div>
-
-            <div class="project-card bg-white p-6 rounded-xl shadow-2xl hover:shadow-brand-blue/30 transition-shadow duration-300 transform hover:translate-y-[-4px] opacity-0 animate-fadeInUp" style="animation-delay: 0.4s;">
-                <span class="text-xl font-heading font-bold text-brand-blue block mb-2">
-                    03. Coffee Retail Dashboard
-                </span>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                    <a href="projects/coffee-retail-dashboard.html" class="hover:text-brand-blue transition-colors duration-200">
-                        150K Transaction Data & Excel Power Query BI
-                    </a>
-                </h3>
-                <p class="text-gray-600 mb-4">Transformed raw data into a dynamic Excel BI Dashboard using Power Query, identifying peak sales windows and increasing ATV by 5%.</p>
-
-                <div class="flex gap-3 mb-4 mt-6">
-                    <a href="PLACEHOLDER_LINK_TO_GITHUB_03" target="_blank" rel="noopener noreferrer" 
-                        class="text-xs font-semibold px-3 py-1 rounded-lg bg-brand-blue text-white hover:bg-opacity-90 transition-colors shadow-md">
-                        View Dashboard
-                    </a>
-                    <a href="https://starbucksportfolioapp-67oaqbtqc77lls7gz2fvjy.streamlit.app/" target="_blank" rel="noopener noreferrer" 
-                        class="text-xs font-semibold px-3 py-1 rounded-lg border-2 border-brand-blue text-brand-blue hover:bg-brand-blue/10 transition-colors shadow-md">
-                        View Dataset
-                    </a>
-                </div>
-                <div class="flex flex-wrap gap-2">
-                    <span class="tech-chip bg-yellow-100 text-yellow-800">Excel BI</span>
-                    <span class="tech-chip bg-yellow-100 text-yellow-800">Power Query</span>
-                    <span class="tech-chip bg-yellow-100 text-yellow-800">KPIs</span>
-                </div>
-            </div>
-
-            <div class="project-card bg-white p-6 rounded-xl shadow-2xl hover:shadow-brand-blue/30 transition-shadow duration-300 transform hover:translate-y-[-4px] opacity-0 animate-fadeInUp" style="animation-delay: 0.5s;">
-                <span class="text-xl font-heading font-bold text-brand-blue block mb-2">
-                    04. Seattle EV Population Dashboard
-                </span>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                    <a href="projects/ev-population-dashboard.html" class="hover:text-brand-blue transition-colors duration-200">
-                        Geo-Spatial Analysis on 150K+ EV Records
-                    </a>
-                </h3>
-                <p class="text-gray-600 mb-4">Visualized EV adoption trends across Seattle using Power BI/Tableau, guiding strategic placement for public charging infrastructure.</p>
-
-                <div class="flex gap-3 mb-4 mt-6">
-                    <a href="https://drive.google.com/file/d/1mkLFYlgLVlaBLLbTvuB74XVIIClnt-8Q/view?usp=sharing" target="_blank" rel="noopener noreferrer" 
-                        class="text-xs font-semibold px-3 py-1 rounded-lg bg-brand-blue text-white hover:bg-opacity-90 transition-colors shadow-md">
-                        View Dashboard
-                    </a>
-                    <a href="PLACEHOLDER_LINK_TO_DEMO_04" target="_blank" rel="noopener noreferrer" 
-                        class="text-xs font-semibold px-3 py-1 rounded-lg border-2 border-brand-blue text-brand-blue hover:bg-brand-blue/10 transition-colors shadow-md">
-                        View Dataset
-                    </a>
-                </div>
-                <div class="flex flex-wrap gap-2">
-                    <span class="tech-chip bg-purple-100 text-purple-800">Power BI/Tableau</span>
-                    <span class="tech-chip bg-purple-100 text-purple-800">Geo-Spatial</span>
-                    <span class="tech-chip bg-purple-100 text-purple-800">150K+ Data Points</span>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-        
-        <hr class="border-gray-300 max-w-7xl mx-auto">
-
-<section id="experience" class="bg-brand-bg py-20 md:py-32">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-16 opacity-0 animate-fadeInUp">
-            <span class="inline-block bg-brand-pink text-brand-blue font-heading text-sm font-bold px-6 py-2 rounded-full shadow-md uppercase tracking-wider">
-                Career Trajectory
-            </span>
-            <h2 class="text-4xl lg:text-5xl font-heading font-bold text-gray-900 mt-6">Professional Experience</h2>
-            <p class="text-gray-600 font-body mt-2">Translating data into tangible business outcomes.</p>
-        </div>
-        <div class="space-y-12">
-            
-            <article class="timeline-item opacity-0 animate-fadeInUp" style="animation-delay: 0.1s;">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content bg-white p-6 rounded-xl shadow-lg">
-                    <h3 class="text-2xl font-heading font-bold text-brand-blue">IT Help Desk Intern</h3>
-                    <h4 class="text-lg font-semibold text-gray-800 mt-1">DePauw University</h4>
-                    <p class="text-sm text-gray-500">September 2025 – Present</p>
-                    <ul class="list-disc space-y-3 mt-4 text-gray-700 pl-5">
-                        <li>Deliver responsive technical support to students, faculty, and staff, efficiently resolving <span class="font-semibold bg-brand-pink/50">100+ hardware, software, and account issues</span> through in-person assistance and the university’s ticketing system.</li>
-                        <li>Analyze and document recurring technical problems, proposing process improvements that <span class="font-semibold bg-brand-pink/50">reduced average response time by ~20%</span>.</li>
-                        <li>Support system maintenance, device configuration, and troubleshooting across academic labs and administrative offices, ensuring minimal downtime and smooth campus operations.</li>
-                    </ul>
-                </div>
-            </article>
-            <article class="timeline-item opacity-0 animate-fadeInUp" style="animation-delay: 0.2s;">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content bg-white p-6 rounded-xl shadow-lg">
-                    <h3 class="text-2xl font-heading font-bold text-brand-blue">Financial Analyst Intern</h3>
-                    <h4 class="text-lg font-semibold text-gray-800 mt-1">AASCS Company | <span class="text-sm font-normal text-gray-600">A leading financial services and consulting firm</span></h4>
-                    <p class="text-sm text-gray-500">June 2025 – August 2025</p>
-                    <ul class="list-disc space-y-3 mt-4 text-gray-700 pl-5">
-                        <li>Collected and analyzed financial data from income statements, balance sheets, and cash flow statements of <span class="font-semibold bg-brand-pink/50">20+ publicly listed companies</span> to identify performance trends.</li>
-                        <li>Applied statistical methods in Excel (variance analysis, trend analysis, and ratio comparisons) to clean and structure <span class="font-semibold bg-brand-pink/50">10,000+ data points</span>, improving reporting efficiency by <span class="font-semibold bg-brand-pink/50">35%</span>.</li>
-                        <li>Prepared client-ready summaries and visualizations using Excel, supporting audit teams in evaluating company performance and strengthening client relationships.</li>
-                    </ul>
-                </div>
-            </article>
-
-            <article class="timeline-item opacity-0 animate-fadeInUp" style="animation-delay: 0.4s;">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content bg-white p-6 rounded-xl shadow-lg">
-                    <h3 class="text-2xl font-heading font-bold text-brand-blue">Media & Data Analytics Intern</h3>
-                    <h4 class="text-lg font-semibold text-gray-800 mt-1">Voice of Ho Chi Minh City | <span class="text-sm font-normal text-gray-600">A leading media and broadcasting organization in Vietnam</span></h4>
-                    <p class="text-sm text-gray-500">June 2024 – August 2024</p>
-                    <ul class="list-disc space-y-3 mt-4 text-gray-700 pl-5">
-                        <li>Analyzed audience engagement metrics and social media data, providing feedback on program formats that influenced <span class="font-semibold bg-brand-pink/50">3+ editorial adjustments</span> and increased viewer interaction by <span class="font-semibold bg-brand-pink/50">15%</span>.</li>
-                        <li>Collaborated with producers to brainstorm new program ideas informed by trend analysis and performance metrics, supporting the launch of <span class="font-semibold bg-brand-pink/50">2 pilot segments</span> with higher-than-average engagement.</li>
-                        <li>Contributed data-driven insights that improved program development processes, enabling the team to align content more closely with audience demand and strengthen overall viewership growth.</li>
-                    </ul>
-                </div>
-            </article>
-        </div>
-    </div>
-</section>
-
-        <hr class="border-gray-300 max-w-7xl mx-auto">
-        
-<section id="skills" class="bg-brand-bg py-20 md:py-32 snap-start">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-16 opacity-0 animate-fadeInUp" data-aos="fade-up">
-            <span class="inline-block bg-brand-pink text-brand-blue font-heading text-sm font-bold px-6 py-2 rounded-full shadow-md uppercase tracking-wider">
-                My Toolkit
-            </span>
-            <h2 class="text-4xl lg:text-5xl font-heading font-bold text-gray-900 mt-6">Skills & Technologies</h2>
-            <p class="text-gray-600 font-body mt-2">Proficient in a diverse range of data, analytics, and development tools.</p>
-        </div>
-
-        <div class="space-y-12">
-            
-            <div class="opacity-0 animate-fadeInUp" data-aos="fade-up" style="animation-delay: 0.1s;">
-                <h3 class="text-3xl font-heading font-bold text-gray-900 mb-6 flex items-center">
-                    <span class="mr-3 text-brand-blue">📊</span> Core & Modeling
-                </h3>
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-                    
-                    <div class="skill-card bg-white p-4 rounded-lg shadow-md flex flex-col items-center hover:shadow-lg transition-shadow transform hover:scale-105">
-                        <svg class="h-12 w-12 mb-2" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M41.7 13.9C36.9 8.2 30.1 5 24 5c-7.7 0-14.7 4.1-19.1 10.7-3 4.4-3.5 9.7-1.5 14.3C5.9 35 12 39 20 39c6.4 0 12-2.3 16-6.4 4.5-4.8 6.5-11.4 5.7-17.5z" fill="#00758F"/>
-                            <path d="M24 5c-7.2 0-13.8 3.5-18.1 9.4-3.1 4.3-3.7 9.5-1.7 14.1C5.7 35 12 39 20 39c6.3 0 11.8-2.3 15.8-6.3 4.4-4.6 6.5-11.1 5.8-17.2C38.3 12.5 31 5 24 5z" stroke="#00758F" stroke-width="2"/>
-                            <ellipse cx="24" cy="27" rx="16" ry="10" fill="#E48E00"/>
-                            <ellipse cx="24" cy="27" rx="16" ry="10" stroke="#00758F" stroke-width="2"/>
-                            <ellipse cx="24" cy="27" rx="11" ry="6" fill="#FFFFFF"/>
-                            <path d="M24 21c-6.1 0-11 2.7-11 6s4.9 6 11 6 11-2.7 11-6-4.9-6-11-6z" fill="none" stroke="#00758F" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                        <span class="text-sm font-semibold text-gray-800">MySQL</span>
-                    </div>
-                    
-                    <div class="skill-card bg-white p-4 rounded-lg shadow-md flex flex-col items-center hover:shadow-lg transition-shadow transform hover:scale-105">
-                        <svg class="h-12 w-12 mb-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#306998"/>
-                            <path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#FFD43B"/>
-                            <path d="M15.4 12.3c0 .7-.6 1.3-1.3 1.3h-4.2c-.7 0-1.3-.6-1.3-1.3V8.7c0-.7.6-1.3 1.3-1.3h4.2c.7 0 1.3.6 1.3 1.3v3.6z" fill="#306998"/>
-                            <path d="M8.6 11.7c0-.7.6-1.3 1.3-1.3h4.2c.7 0 1.3.6 1.3 1.3v3.6c0 .7-.6 1.3-1.3 1.3h-4.2c-.7 0-1.3-.6-1.3-1.3v-3.6z" fill="#FFD43B"/>
-                        </svg>
-                        <span class="text-sm font-semibold text-gray-800">Python</span>
-                    </div>
-                    
-                    <div class="skill-card bg-white p-4 rounded-lg shadow-md flex flex-col items-center hover:shadow-lg transition-shadow transform hover:scale-105">
-                        <svg class="h-12 w-12 mb-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="0" y="0" width="24" height="24" rx="4" fill="#377EB8"/>
-                            <path d="M12 18c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z" fill="#FFFFFF"/>
-                            <path d="M12 15.5c-1.933 0-3.5-1.567-3.5-3.5S10.067 8.5 12 8.5s3.5 1.567 3.5 3.5-1.567 3.5-3.5 3.5z" fill="#377EB8"/>
-                        </svg>
-                        <span class="text-sm font-semibold text-gray-800">R / RStudio</span>
-                    </div>
-                    
-                    <div class="skill-card bg-white p-4 rounded-lg shadow-md flex flex-col items-center hover:shadow-lg transition-shadow transform hover:scale-105">
-                        <svg class="h-12 w-12 mb-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="0" y="0" width="24" height="24" fill="#F7931E"/>
-                            <path d="M12 19.5c-4.142 0-7.5-3.358-7.5-7.5S7.858 4.5 12 4.5s7.5 3.358 7.5 7.5-3.358 7.5-7.5 7.5z" fill="#FFFFFF"/>
-                            <path d="M14.5 10.5h-5v4h5v-4z" fill="#306998"/>
-                            <circle cx="12" cy="12" r="7.5" fill="none" stroke="#306998" stroke-width="1.5"/>
-                        </svg>
-                        <span class="text-sm font-semibold text-gray-800">Scikit-learn</span>
-                    </div>
-                    
-                    <div class="skill-card bg-white p-4 rounded-lg shadow-md flex flex-col items-center hover:shadow-lg transition-shadow transform hover:scale-105">
-                        <svg class="h-12 w-12 mb-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="0" y="0" width="24" height="24" fill="#150458"/>
-                            <path d="M12 5.5l-6.5 13h13L12 5.5z" fill="#306998"/>
-                            <path d="M12 7l-5.5 11h11L12 7z" fill="#FFFFFF"/>
-                            <path d="M12 8.5l-4.5 9h9L12 8.5z" fill="#150458"/>
-                        </svg>
-                        <span class="text-sm font-semibold text-gray-800">Pandas</span>
+        <section id="about" class="py-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="bg-white/60 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-sm border border-white/50 fade-in">
+                    <div class="flex flex-col md:flex-row items-start gap-12">
+                        <div class="md:w-5/12 relative group">
+                            <div class="absolute inset-0 bg-brand-pink/50 rounded-2xl transform rotate-3 transition-transform group-hover:rotate-6"></div>
+                            <img src="assets/img/profile.webp" alt="Emily Huynh" class="relative w-full rounded-2xl shadow-lg transform transition-transform group-hover:-translate-y-2 object-cover aspect-[4/5]">
+                        </div>
+                        <div class="md:w-7/12 space-y-6">
+                            <h2 class="text-4xl font-heading font-bold text-gray-900">About Me</h2>
+                            <div class="space-y-4 text-lg text-gray-700 leading-relaxed font-body">
+                                <p>
+                                    Hi! I’m Emily Huynh, a <span class="font-bold text-brand-blue bg-blue-50 px-1 rounded">sophomore at DePauw University</span>, majoring in Computer Science and Business Analytics. I’m passionate about uncovering insights hidden in data and turning them into decisions that create real impact.
+                                </p>
+                                <p>
+                                    I’m skilled in data analysis, business intelligence, and machine learning, using tools like Python, SQL, and Excel to explore complex datasets. As the Founder and President of the <span class="font-bold text-gray-900">DePauw Data Science Club</span>, I’ve learned how to combine analytical thinking with leadership and creativity.
+                                </p>
+                                <p class="pt-4 border-t border-gray-200">
+                                    Outside of academics, I love exploring astrology and studying world charts, which deepens my fascination with <span class="italic text-brand-pink font-bold">patterns and human behavior</span>. I also love making coffee, which actually inspired my recent data project analyzing Starbucks drink nutrition.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="opacity-0 animate-fadeInUp" data-aos="fade-up" style="animation-delay: 0.3s;">
-                <h3 class="text-3xl font-heading font-bold text-gray-900 mb-6 flex items-center">
-                    <span class="mr-3 text-brand-blue">📈</span> Visualization & BI
-                </h3>
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-                    
-                    <div class="skill-card bg-white p-4 rounded-lg shadow-md flex flex-col items-center hover:shadow-lg transition-shadow transform hover:scale-105">
-                        <svg class="h-12 w-12 mb-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="0" y="0" width="24" height="24" fill="#007F9E"/>
-                            <path d="M12 2l-10 10h5v10h10v-10h5L12 2z" fill="#FFFFFF"/>
-                        </svg>
-                        <span class="text-sm font-semibold text-gray-800">Tableau</span>
+        <section id="projects" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-16 fade-in">
+                    <span class="inline-block bg-brand-pink text-brand-blue font-heading text-sm font-bold px-6 py-2 rounded-full shadow-md uppercase tracking-wider">Impact-Driven Analytics</span>
+                    <h2 class="text-4xl lg:text-5xl font-heading font-bold text-gray-900 mt-6">Selected Case Studies</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <article class="group bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-2xl hover:shadow-blue-100/50 transition-all duration-300 hover:-translate-y-1 fade-in">
+                        <span class="text-xl font-heading font-bold text-brand-blue block mb-2">01. Banking Churn Model</span>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-brand-blue transition-colors">
+                            <a href="projects/banking-churn-prediction.html" class="block">Customer Retention & XGBoost Classification</a>
+                        </h3>
+                        <p class="text-gray-600 mb-6">Developed a high-accuracy XGBoost model to predict customer churn, achieving >91% accuracy and driving a targeted retention strategy.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tech-chip bg-blue-50 text-blue-800">Python</span>
+                            <span class="tech-chip bg-blue-50 text-blue-800">XGBoost</span>
+                            <span class="tech-chip bg-blue-50 text-blue-800">SHAP</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="https://github.com/emilyxxhy/churn-modelling" target="_blank" class="text-sm font-bold text-brand-blue hover:text-brand-orange transition-colors">View GitHub</a>
+                        </div>
+                    </article>
+
+                    <article class="group bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-2xl hover:shadow-green-100/50 transition-all duration-300 hover:-translate-y-1 fade-in delay-100">
+                        <span class="text-xl font-heading font-bold text-brand-blue block mb-2">02. Starbucks Nutrition</span>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-brand-blue transition-colors">
+                            <a href="projects/starbucks-nutrition-analysis.html" class="block">K-Means Clustering & Streamlit App</a>
+                        </h3>
+                        <p class="text-gray-600 mb-6">Segmented 160+ drinks using K-Means and deployed an interactive Streamlit app with KNN to recommend healthier alternatives.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tech-chip bg-green-50 text-green-800">Clustering</span>
+                            <span class="tech-chip bg-green-50 text-green-800">Streamlit</span>
+                            <span class="tech-chip bg-green-50 text-green-800">PCA</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="https://starbucksportfolioapp-67oaqbtqc77lls7gz2fvjy.streamlit.app/" target="_blank" class="text-sm font-bold text-brand-blue hover:text-brand-orange transition-colors">View Live App</a>
+                        </div>
+                    </article>
+
+                    <article class="group bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-2xl hover:shadow-yellow-100/50 transition-all duration-300 hover:-translate-y-1 fade-in">
+                        <span class="text-xl font-heading font-bold text-brand-blue block mb-2">03. Coffee Retail Dashboard</span>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-brand-blue transition-colors">
+                            <a href="projects/coffee-retail-bi-dashboard.html" class="block">150K Transaction Data & Excel BI</a>
+                        </h3>
+                        <p class="text-gray-600 mb-6">Transformed raw data into a dynamic Excel BI Dashboard using Power Query, identifying peak sales windows and increasing ATV by 5%.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tech-chip bg-yellow-50 text-yellow-800">Excel BI</span>
+                            <span class="tech-chip bg-yellow-50 text-yellow-800">Power Query</span>
+                            <span class="tech-chip bg-yellow-50 text-yellow-800">KPIs</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-sm font-bold text-brand-blue hover:text-brand-orange transition-colors">View Dashboard</a>
+                        </div>
+                    </article>
+
+                    <article class="group bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-2xl hover:shadow-purple-100/50 transition-all duration-300 hover:-translate-y-1 fade-in delay-100">
+                        <span class="text-xl font-heading font-bold text-brand-blue block mb-2">04. Seattle EV Dashboard</span>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-brand-blue transition-colors">
+                            <a href="projects/ev-population-dashboard.html" class="block">Geo-Spatial Analysis on 150K+ Records</a>
+                        </h3>
+                        <p class="text-gray-600 mb-6">Visualized EV adoption trends across Seattle using Power BI/Tableau, guiding strategic placement for public charging infrastructure.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tech-chip bg-purple-50 text-purple-800">Power BI</span>
+                            <span class="tech-chip bg-purple-50 text-purple-800">Geo-Spatial</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="https://drive.google.com/file/d/1mkLFYlgLVlaBLLbTvuB74XVIIClnt-8Q/view?usp=sharing" target="_blank" class="text-sm font-bold text-brand-blue hover:text-brand-orange transition-colors">View Dashboard</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-20 bg-white/50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-4xl lg:text-5xl font-heading font-bold text-gray-900">Experience</h2>
+                </div>
+                
+                <div class="space-y-12 relative border-l-2 border-brand-blue/20 ml-4 md:ml-0">
+                    <article class="relative pl-8 md:pl-12 fade-in">
+                        <div class="absolute -left-[9px] top-6 w-5 h-5 rounded-full bg-brand-blue border-4 border-white shadow-sm"></div>
+                        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
+                            <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
+                                <h3 class="text-2xl font-heading font-bold text-brand-blue">IT Help Desk Intern</h3>
+                                <div class="text-sm font-bold text-gray-500 mt-1 sm:mt-0">Sept 2025 – Present</div>
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-4">DePauw University</h4>
+                            <ul class="list-disc space-y-3 pl-5 text-gray-700">
+                                <li>Deliver responsive technical support to students, faculty, and staff, resolving <strong>100+ hardware & software issues</strong>.</li>
+                                <li>Analyze recurring technical problems, proposing improvements that <strong>reduced response time by ~20%</strong>.</li>
+                                <li>Support system maintenance, device configuration, and troubleshooting across academic labs.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="relative pl-8 md:pl-12 fade-in">
+                        <div class="absolute -left-[9px] top-6 w-5 h-5 rounded-full bg-brand-orange border-4 border-white shadow-sm"></div>
+                        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
+                            <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
+                                <h3 class="text-2xl font-heading font-bold text-brand-blue">Financial Analyst Intern</h3>
+                                <div class="text-sm font-bold text-gray-500 mt-1 sm:mt-0">June 2025 – August 2025</div>
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-4">AASCS Company</h4>
+                            <ul class="list-disc space-y-3 pl-5 text-gray-700">
+                                <li>Analyzed financial data from income statements and balance sheets of <strong>20+ publicly listed companies</strong>.</li>
+                                <li>Applied statistical methods in Excel to clean <strong>10,000+ data points</strong>, improving reporting efficiency by <strong>35%</strong>.</li>
+                                <li>Prepared client-ready summaries and visualizations using Excel for audit teams.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="relative pl-8 md:pl-12 fade-in">
+                        <div class="absolute -left-[9px] top-6 w-5 h-5 rounded-full bg-brand-pink border-4 border-white shadow-sm"></div>
+                        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
+                            <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
+                                <h3 class="text-2xl font-heading font-bold text-brand-blue">Media & Data Analytics Intern</h3>
+                                <div class="text-sm font-bold text-gray-500 mt-1 sm:mt-0">June 2024 – August 2024</div>
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-4">Voice of Ho Chi Minh City</h4>
+                            <ul class="list-disc space-y-3 pl-5 text-gray-700">
+                                <li>Analyzed audience engagement metrics, influencing <strong>3+ editorial adjustments</strong> and increasing interaction by <strong>15%</strong>.</li>
+                                <li>Collaborated with producers to brainstorm new program ideas informed by trend analysis.</li>
+                                <li>Contributed data-driven insights that improved program development processes.</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="leadership" class="py-20 bg-white/50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-16 fade-in">
+                    <span class="inline-block bg-brand-pink text-brand-blue font-heading text-sm font-bold px-6 py-2 rounded-full shadow-md uppercase tracking-wider">
+                        Community & Impact
+                    </span>
+                    <h2 class="text-4xl lg:text-5xl font-heading font-bold text-gray-900 mt-6">Leadership</h2>
+                    <p class="text-gray-600 font-body mt-2">Leading initiatives and building communities.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all fade-in">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="p-3 bg-brand-blue/10 rounded-full text-brand-blue text-2xl">🚀</div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">Founder & President</h3>
+                                <div class="text-sm font-semibold text-gray-500">DePauw Data Science Club</div>
+                            </div>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-600 text-sm">
+                            <li>Founded the university's first student-led data science community, bridging the gap between technical curriculum and real-world application.</li>
+                            <li>Organize weekly workshops and guest speaker sessions to enhance student proficiency in Python, SQL, and Machine Learning.</li>
+                        </ul>
                     </div>
-                    
-                    <div class="skill-card bg-white p-4 rounded-lg shadow-md flex flex-col items-center hover:shadow-lg transition-shadow transform hover:scale-105">
-                        <svg class="h-12 w-12 mb-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="0" y="0" width="24" height="24" fill="#F2C811"/>
-                            <path d="M12 2l-10 10h5v10h10v-10h5L12 2z" fill="#306998"/>
-                        </svg>
-                        <span class="text-sm font-semibold text-gray-800">Power BI</span>
-                    </div>
-                    
-                    <div class="skill-card bg-white p-4 rounded-lg shadow-md flex flex-col items-center hover:shadow-lg transition-shadow transform hover:scale-105">
-                        <svg class="h-12 w-12 mb-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="0" y="0" width="24" height="24" rx="4" fill="#217346"/>
-                            <path d="M12 4l-6 6h4v10h4V10h4L12 4z" fill="#FFFFFF"/>
-                            <path d="M10 12h4v8h-4v-8z" fill="#217346"/>
-                        </svg>
-                        <span class="text-sm font-semibold text-gray-800">Excel/VBA</span>
-                    </div>
-                    
-                    <div class="skill-card bg-white p-4 rounded-lg shadow-md flex flex-col items-center hover:shadow-lg transition-shadow transform hover:scale-105">
-                        <svg class="h-12 w-12 mb-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="0" y="0" width="24" height="24" rx="4" fill="#E37400"/>
-                            <path d="M12 4l-8 8h4v8h8v-8h4L12 4z" fill="#FFFFFF"/>
-                            <path d="M8 12h8v8H8v-8z" fill="#E37400"/>
-                        </svg>
-                        <span class="text-sm font-semibold text-gray-800">GA4</span>
-                    </div>
-                    
-                    <div class="skill-card bg-white p-4 rounded-lg shadow-md flex flex-col items-center hover:shadow-lg transition-shadow transform hover:scale-105">
-                        <svg class="h-12 w-12 mb-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="0" y="0" width="24" height="24" rx="4" fill="#4285F4"/>
-                            <path d="M10 14h4v4h-4z" fill="#EA4335"/>
-                            <path d="M10 6h4v4h-4z" fill="#FBBC04"/>
-                            <path d="M6 10h4v4H6z" fill="#34A853"/>
-                            <path d="M14 10h4v4h-4z" fill="#4285F4"/>
-                        </svg>
-                        <span class="text-sm font-semibold text-gray-800">Google Suite</span>
+
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all fade-in delay-100">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="p-3 bg-brand-orange/10 rounded-full text-brand-orange text-2xl">🤝</div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">Head of External Relations</h3>
+                                <div class="text-sm font-semibold text-gray-500">LQD Business Research Club</div>
+                            </div>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-600 text-sm">
+                            <li>Spearhead outreach strategies to establish partnerships with industry professionals and alumni for mentorship opportunities.</li>
+                            <li>Coordinate external communications and networking events to expand the club's professional reach and impact.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
+        </section>
 
-        </div>
-    </div>
-</section>
-        <hr class="border-gray-300 max-w-7xl mx-auto">
-        
-<section id="domain-knowledge" class="bg-gray-100 py-20 md:py-32 snap-start">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        
-        <div class="text-center mb-16 opacity-0 animate-fadeInUp" data-aos="fade-up">
-            <span class="inline-block bg-brand-orange text-white font-heading text-sm font-bold px-6 py-2 rounded-full shadow-md uppercase tracking-wider">
-                STRATEGIC INSIGHTS
-            </span>
-            <h2 class="text-4xl lg:text-5xl font-heading font-bold text-gray-900 mt-6">Domain & Business Acumen</h2>
-            <p class="text-gray-600 font-body mt-2">Short reflections on data, technology, and how I see the world through analytics.</p>
-        </div>
+        <section id="skills-tech" class="py-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-16 fade-in">
+                    <span class="inline-block bg-brand-pink text-brand-blue font-heading text-sm font-bold px-6 py-2 rounded-full shadow-md uppercase tracking-wider">My Toolkit</span>
+                    <h2 class="text-4xl lg:text-5xl font-heading font-bold text-gray-900 mt-6">Skills & Technologies</h2>
+                </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
-            <div class="domain-card bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-brand-blue/20 transition-all duration-300 transform hover:translate-y-[-4px] opacity-0 animate-fadeInUp" data-aos="fade-up" style="animation-delay: 0.1s;">
-                <span class="text-3xl mb-4 block" title="Compass Icon">🧭</span>
-                <h3 class="text-2xl font-heading font-bold text-gray-900 mb-2">How I Got Here (My Journey into Data)</h3>
-                <p class="text-gray-600 font-body text-sm leading-relaxed mb-4">
-                    I didn’t start with code. I started with curiosity. I’ve always loved asking why — why people buy, why systems fail, why numbers behave the way they do.
-                </p>
-                <a href="PLACEHOLDER_LINK_TO_FULL_POST_1" class="text-brand-blue font-semibold text-sm hover:text-brand-orange transition-colors">
-                    Read More →
-                </a>
+                <div class="space-y-16">
+                    <div class="fade-in">
+                        <h3 class="text-3xl font-heading font-bold text-gray-900 mb-8">📊 Core & Modeling</h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-7 gap-4">
+                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-10 h-10 mb-3">
+                                <span class="font-bold text-sm text-gray-700">Python</span>
+                            </div>
+                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="w-10 h-10 mb-3">
+                                <span class="font-bold text-sm text-gray-700">MySQL</span>
+                            </div>
+                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
+                                <img src="https://cdn.worldvectorlogo.com/logos/tableau-software.svg" alt="Tableau" class="w-10 h-10 mb-3">
+                                <span class="font-bold text-sm text-gray-700">Tableau</span>
+                            </div>
+                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI" class="w-10 h-10 mb-3">
+                                <span class="font-bold text-sm text-gray-700">Power BI</span>
+                            </div>
+                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rstudio/rstudio-original.svg" alt="RStudio" class="w-10 h-10 mb-3">
+                                <span class="font-bold text-sm text-gray-700">RStudio</span>
+                            </div>
+                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg" alt="Excel" class="w-10 h-10 mb-3">
+                                <span class="font-bold text-sm text-gray-700">Excel</span>
+                            </div>
+                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
+                                <img src="https://www.vectorlogo.zone/logos/google_analytics/google_analytics-icon.svg" alt="G.Analytics" class="w-10 h-10 mb-3">
+                                <span class="font-bold text-sm text-gray-700 text-center">Analytics</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fade-in delay-100">
+                        <h3 class="text-3xl font-heading font-bold text-gray-900 mb-8">🎨 Design & Studio Tools</h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-7 gap-4">
+                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" class="w-10 h-10 mb-3">
+                                <span class="font-bold text-sm text-gray-700">Figma</span>
+                            </div>
+                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Google_Workspace_Logo.svg" alt="Workspace" class="w-10 h-10 mb-3">
+                                <span class="font-bold text-sm text-gray-700">Workspace</span>
+                            </div>
+                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-line.svg" alt="Illustrator" class="w-10 h-10 mb-3">
+                                <span class="font-bold text-sm text-gray-700">Illustrator</span>
+                            </div>
+                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-line.svg" alt="Photoshop" class="w-10 h-10 mb-3">
+                                <span class="font-bold text-sm text-gray-700">Photoshop</span>
+                            </div>
+                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" alt="Premiere" class="w-10 h-10 mb-3">
+                                <span class="font-bold text-sm text-gray-700">Premiere</span>
+                            </div>
+                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
+                                <img src="https://seeds.sproutsocial.com/static/f58d20364952044320b3323c21389868/3b320/logo-sprout-icon.png" alt="Sprout" class="w-10 h-10 mb-3 object-contain">
+                                <span class="font-bold text-sm text-gray-700">Sprout</span>
+                            </div>
+                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Meta_Spark_Studio_Logo.png" alt="Meta Spark" class="w-10 h-10 mb-3 object-contain">
+                                <span class="font-bold text-sm text-gray-700">Meta Spark</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="domain-card bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-brand-blue/20 transition-all duration-300 transform hover:translate-y-[-4px] opacity-0 animate-fadeInUp" data-aos="fade-up" style="animation-delay: 0.3s;">
-                <span class="text-3xl mb-4 block" title="Meditation Icon">🧘‍♀️</span>
-                <h3 class="text-2xl font-heading font-bold text-gray-900 mb-2">When Buddhism Meets Artificial Intelligence</h3>
-                <p class="text-gray-600 font-body text-sm leading-relaxed mb-4">
-                    Artificial intelligence often aims to predict and control, while Buddhism teaches awareness and acceptance. I find the intersection fascinating: what if AI could be designed not just to anticipate human behavior, but to encourage self-understanding?
-                </p>
-                <a href="PLACEHOLDER_LINK_TO_FULL_POST_2" class="text-brand-blue font-semibold text-sm hover:text-brand-orange transition-colors">
-                    Read More →
-                </a>
+        <section id="domain-acumen" class="bg-white/60 py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-16 fade-in">
+                    <span class="inline-block bg-brand-orange text-white font-heading text-sm font-bold px-6 py-2 rounded-full shadow-md uppercase tracking-wider">STRATEGIC INSIGHTS</span>
+                    <h2 class="text-4xl lg:text-5xl font-heading font-bold text-gray-900 mt-6">Domain & Business Acumen</h2>
+                    <p class="text-gray-600 font-body mt-2">Reflections on data, technology, and analytics.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group fade-in">
+                        <span class="text-3xl mb-4 block transform group-hover:scale-110 transition-transform">🧭</span>
+                        <h3 class="text-2xl font-heading font-bold text-gray-900 mb-2 group-hover:text-brand-blue transition-colors">How I Got Here</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">I didn’t start with code. I started with curiosity. I’ve always loved asking why — why people buy, why systems fail, why numbers behave the way they do.</p>
+                        <a href="#" class="text-brand-blue font-bold text-sm hover:text-brand-orange transition-colors">Read More →</a>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group fade-in">
+                        <span class="text-3xl mb-4 block transform group-hover:scale-110 transition-transform">🧘‍♀️</span>
+                        <h3 class="text-2xl font-heading font-bold text-gray-900 mb-2 group-hover:text-brand-blue transition-colors">When Buddhism Meets AI</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Artificial intelligence often aims to predict and control, while Buddhism teaches awareness and acceptance. I find the intersection fascinating.</p>
+                        <a href="#" class="text-brand-blue font-bold text-sm hover:text-brand-orange transition-colors">Read More →</a>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group fade-in">
+                        <span class="text-3xl mb-4 block transform group-hover:scale-110 transition-transform">📊</span>
+                        <h3 class="text-2xl font-heading font-bold text-gray-900 mb-2 group-hover:text-brand-blue transition-colors">Machine Learning in Product Analytics</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Every click, scroll, and pause tells a story about user intent. Machine learning transforms that behavior into insight.</p>
+                        <a href="#" class="text-brand-blue font-bold text-sm hover:text-brand-orange transition-colors">Read More →</a>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group fade-in">
+                        <span class="text-3xl mb-4 block transform group-hover:scale-110 transition-transform">🦉</span>
+                        <h3 class="text-2xl font-heading font-bold text-gray-900 mb-2 group-hover:text-brand-blue transition-colors">Duolingo and Data-Driven Learning</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Duolingo’s success isn’t just about fun gamification; it’s powered by machine learning. Every exercise and mistake feeds into adaptive algorithms.</p>
+                        <a href="#" class="text-brand-blue font-bold text-sm hover:text-brand-orange transition-colors">Read More →</a>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="domain-card bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-brand-blue/20 transition-all duration-300 transform hover:translate-y-[-4px] opacity-0 animate-fadeInUp" data-aos="fade-up" style="animation-delay: 0.5s;">
-                <span class="text-3xl mb-4 block" title="Analytics Icon">📊</span>
-                <h3 class="text-2xl font-heading font-bold text-gray-900 mb-2">Machine Learning in Product Analytics</h3>
-                <p class="text-gray-600 font-body text-sm leading-relaxed mb-4">
-                    Every click, scroll, and pause tells a story about user intent. Machine learning transforms that behavior into insight — identifying user segments, predicting churn, and personalizing experiences.
-                </p>
-                <a href="PLACEHOLDER_LINK_TO_FULL_POST_3" class="text-brand-blue font-semibold text-sm hover:text-brand-orange transition-colors">
-                    Read More →
-                </a>
-            </div>
-            
-            <div class="domain-card bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-brand-blue/20 transition-all duration-300 transform hover:translate-y-[-4px] opacity-0 animate-fadeInUp" data-aos="fade-up" style="animation-delay: 0.7s;">
-                <span class="text-3xl mb-4 block" title="Owl Icon">🦉</span>
-                <h3 class="text-2xl font-heading font-bold text-gray-900 mb-2">Duolingo and the Rise of Data-Driven Learning</h3>
-                <p class="text-gray-600 font-body text-sm leading-relaxed mb-4">
-                    Duolingo’s success isn’t just about fun gamification; it’s powered by machine learning. Every exercise, mistake, and streak feeds into adaptive algorithms that personalize learning paths.
-                </p>
-                <a href="PLACEHOLDER_LINK_TO_FULL_POST_4" class="text-brand-blue font-semibold text-sm hover:text-brand-orange transition-colors">
-                    Read More →
-                </a>
-            </div>
-
-        </div>
-        
-        <p class="text-center text-xs text-gray-500 mt-20 font-body opacity-0 animate-fadeInUp" data-aos="fade-up" style="animation-delay: 0.9s;">
-            <strong class="text-gray-700">Inspiration:</strong> Stanford HAI, Tricycle Magazine, Amplitude Blog, and Duolingo’s ML Research Blog.
-        </p>
-        
-    </div>
-</section>
-        
-    </div>
-</section>
-        <hr class="border-gray-300 max-w-7xl mx-auto">
-
-        <hr class="border-gray-300 max-w-7xl mx-auto">
-
-        <section id="contact" class="bg-brand-bg py-20 md:py-32">
+        <section id="contact" class="py-20">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 fade-in">
                 <div class="text-center mb-16">
-                    <span class="inline-block bg-brand-orange text-white font-heading text-sm font-bold px-6 py-2 rounded-full shadow-md uppercase tracking-wider">
-                        Let's Connect
-                    </span>
+                    <span class="inline-block bg-brand-orange text-white font-heading text-sm font-bold px-6 py-2 rounded-full shadow-md uppercase tracking-wider">Let's Connect</span>
                     <h2 class="text-4xl lg:text-5xl font-heading font-bold text-gray-900 mt-6">Ready to Collaborate?</h2>
-                    <p class="text-gray-600 font-body mt-2">I'm currently seeking a Summer 2026 Analytics Internship. Reach out below!</p>
+                    <p class="text-gray-600 font-body mt-2">I'm currently seeking a Summer 2026 Analytics Internship.</p>
                 </div>
 
-                <form id="contact-form" action="mailto:emily@placeholder.com" method="POST" class="bg-white p-8 rounded-xl shadow-2xl space-y-6" novalidate>
-                    <div role="alert" id="form-message" aria-live="polite" class="hidden p-3 rounded-lg text-center font-semibold"></div>
-                    
-                    <div>
-                        <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Name <span class="text-red-500">*</span></label>
-                        <input type="text" id="name" name="name" required aria-required="true" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-brand-blue focus:border-brand-blue transition duration-200" placeholder="Your Full Name">
-                        <p class="text-xs text-red-500 mt-1 hidden" id="name-error">Please enter your name.</p>
+                <form id="contact-form" action="https://formspree.io/f/YOUR_ID" method="POST" class="bg-white p-8 rounded-xl shadow-2xl space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Name</label>
+                            <input type="text" id="name" name="name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-brand-blue">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-brand-blue">
+                        </div>
                     </div>
-
                     <div>
-                        <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email <span class="text-red-500">*</span></label>
-                        <input type="email" id="email" name="email" required aria-required="true" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-brand-blue focus:border-brand-blue transition duration-200" placeholder="your.email@example.com">
-                        <p class="text-xs text-red-500 mt-1 hidden" id="email-error">Please enter a valid email address.</p>
+                        <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-brand-blue"></textarea>
                     </div>
-
-                    <div>
-                        <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Message <span class="text-red-500">*</span></label>
-                        <textarea id="message" name="message" rows="5" required aria-required="true" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-brand-blue focus:border-brand-blue transition duration-200" placeholder="Tell me about your project or opportunity..."></textarea>
-                        <p class="text-xs text-red-500 mt-1 hidden" id="message-error">Please include a message.</p>
-                    </div>
-
                     <div class="pt-4">
-                        <button type="submit" class="w-full bg-brand-blue text-white font-heading font-bold px-8 py-3 rounded-xl shadow-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-[1.01]">
-                            Send Message
-                        </button>
+                        <button type="submit" class="w-full bg-brand-blue text-white font-heading font-bold px-8 py-3 rounded-xl shadow-lg hover:bg-opacity-90 transition-all transform hover:scale-[1.01]">Send Message</button>
                     </div>
                 </form>
             </div>
@@ -617,202 +476,44 @@
     </main>
 
     <footer class="bg-gray-900 text-gray-300 py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
-            
-            <div class="fade-in" style="animation-delay: 0.1s;">
-                <h3 class="font-heading text-2xl font-bold text-white mb-4 border-b-2 border-brand-blue/50 pb-2 inline-block">About</h3>
-                <p class="font-body text-sm leading-relaxed mb-4">
-                    I love discovering the world hidden within raw data. Transforming complex datasets into clear, actionable insights that drive meaningful business outcomes.
-                </p>
-                <h4 class="font-semibold text-white mb-2 mt-4">Social Links</h4>
-                <div class="flex justify-center md:justify-start space-x-5 text-xl">
-                    <a href="PLACEHOLDER_LINK_TO_LINKEDIN" target="_blank" rel="noopener noreferrer" class="hover:text-brand-pink transition-colors" aria-label="LinkedIn Profile">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.211-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    </a>
-                    <a href="PLACEHOLDER_LINK_TO_GITHUB" target="_blank" rel="noopener noreferrer" class="hover:text-brand-pink transition-colors" aria-label="GitHub Profile">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.087-.731.084-.717.084-.717 1.205.084 1.838 1.838 1.236 1.838 1.236 1.07 1.835 2.784 1.305 3.46.998.108-.77.419-1.
-                    305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.381 1.235-3.221-.101-.3-.423-1.523.1-.1.321-1.01 1.21-3.22 3.295-2.321-1.01.282 2.38.384 3.09.384.71-.384 1.698-3.085 3.784-2.32.743-.78.966-.7 1.235-3.22.77-.84 1.235-1.91 1.235-3.22 0-4.598-2.801-5.628-5.476-5.928.412-.49.772-1.084.772-2.091v-2.234c0-.316.194-.686.793-.577c4.769 1.587 8.207 6.085 8.207 11.387 0 6.627-5.373 12-12 12z"/></svg>
-                    </a>
-                    <a href="PLACEHOLDER_LINK_TO_MEDIUM" target="_blank" rel="noopener noreferrer" class="hover:text-brand-pink transition-colors text-3xl" aria-label="Medium Profile" title="Medium Profile">
-                        <span class="font-heading font-extrabold -mt-2 inline-block">M</span> 
-                    </a>
-                </div>
-            </div>
-
-            <div class="fade-in" style="animation-delay: 0.2s;">
-                <h3 class="font-heading text-2xl font-bold text-white mb-4 border-b-2 border-brand-blue/50 pb-2 inline-block">Links</h3>
-                <ul class="space-y-3 font-body text-sm">
-                    <li><a href="#welcome" class="hover:text-brand-pink transition-colors">- Home</a></li>
-                    <li><a href="#about" class="hover:text-brand-pink transition-colors">- About</a></li>
-                    <li><a href="PLACEHOLDER_LINK_TO_RESUME.pdf" target="_blank" class="hover:text-brand-pink transition-colors">- Resume</a></li>
-                    <li><a href="#projects" class="hover:text-brand-pink transition-colors">- Projects</a></li>
-                    <li><a href="#contact" class="hover:text-brand-pink transition-colors">- Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="fade-in" style="animation-delay: 0.3s;">
-                <h3 class="font-heading text-2xl font-bold text-white mb-4 border-b-2 border-brand-blue/50 pb-2 inline-block">Have a Question?</h3>
-                <div class="space-y-3 font-body text-sm mt-6">
-                    <div class="flex items-center justify-center md:justify-start">
-                        <span class="text-xl mr-3 text-brand-pink">📞</span>
-                        <a href="tel:PLACEHOLDER_PHONE_NUMBER" class="hover:text-brand-pink transition-colors">PLACEHOLDER_PHONE_NUMBER</a>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+                <div class="fade-in">
+                    <h3 class="font-heading text-2xl font-bold text-white mb-4">About</h3>
+                    <p class="font-body text-sm leading-relaxed mb-4">I love discovering the world hidden within raw data. Transforming complex datasets into clear, actionable insights.</p>
+                    <div class="flex justify-center md:justify-start space-x-5 text-xl">
+                        <a href="PLACEHOLDER_LINK_TO_LINKEDIN" target="_blank" class="hover:text-brand-pink transition-colors">LinkedIn</a>
+                        <a href="PLACEHOLDER_LINK_TO_GITHUB" target="_blank" class="hover:text-brand-pink transition-colors">GitHub</a>
+                        <a href="PLACEHOLDER_LINK_TO_MEDIUM" target="_blank" class="hover:text-brand-pink transition-colors">Medium</a>
                     </div>
-                    <div class="flex items-center justify-center md:justify-start">
-                        <span class="text-xl mr-3 text-brand-pink">📧</span>
-                        <a href="mailto:emily@placeholder.com" class="hover:text-brand-pink transition-colors">emily@placeholder.com</a>
+                </div>
+                <div class="fade-in">
+                    <h3 class="font-heading text-2xl font-bold text-white mb-4">Links</h3>
+                    <ul class="space-y-3 font-body text-sm">
+                        <li><a href="#welcome" class="hover:text-brand-pink">- Home</a></li>
+                        <li><a href="#about" class="hover:text-brand-pink">- About</a></li>
+                        <li><a href="#projects" class="hover:text-brand-pink">- Projects</a></li>
+                        <li><a href="#contact" class="hover:text-brand-pink">- Contact</a></li>
+                    </ul>
+                </div>
+                <div class="fade-in">
+                    <h3 class="font-heading text-2xl font-bold text-white mb-4">Contact</h3>
+                    <div class="space-y-3 font-body text-sm">
+                        <div class="flex items-center justify-center md:justify-start">
+                            <span class="text-xl mr-3 text-brand-pink">📞</span> <a href="tel:765-301-8735">765-301-8735</a>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start">
+                            <span class="text-xl mr-3 text-brand-pink">📧</span> <a href="mailto:contact.emilyhuynh@gmail.com">contact.emilyhuynh@gmail.com</a>
+                        </div>
                     </div>
                 </div>
             </div>
-
-        </div>
-
-        <div class="pt-12 mt-12 border-t border-gray-700 text-center">
-            <div class="text-3xl mb-4 text-brand-pink">
-                <span title="Monster">👾</span> 
-                <span title="Heart">❤️</span> 
-                <span title="Monster">👾</span>
+            <div class="pt-12 mt-12 border-t border-gray-700 text-center">
+                <p class="font-body text-sm text-gray-500">© 2025 Emily Huynh.</p>
             </div>
-            <p class="font-body text-sm text-gray-500">
-                © 2025 Emily Huynh. Built with Tailwind CSS and a lot of coffee ☕️.
-            </p>
         </div>
-    </div>
-</footer>
+    </footer>
 
-    <button id="back-to-top" aria-label="Back to top" class="fixed bottom-6 right-6 p-3 bg-brand-blue text-white rounded-full shadow-lg hover:bg-opacity-80 transition-opacity duration-300 opacity-0 z-40">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
-    </button>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // --- 1. Logic cho Hiệu ứng Xoay Chữ ở H2 ---
-            const rotatingTextElement = document.getElementById('rotating-text-small');
-            const phrases = [
-                "Sophomore @ DePauw",
-                "Data Analyst",
-                "Analytics Architect",
-                "Coffee Lover",
-                "Ready to Dive In"
-            ];
-            let phraseIndex = 0;
-            let charIndex = 0;
-            let isDeleting = false;
-            const typingSpeed = 100;
-            const deleteSpeed = 50;
-            const delayBetweenPhrases = 1500;
-
-            function type() {
-                const fullText = phrases[phraseIndex];
-                
-                if (isDeleting) {
-                    rotatingTextElement.textContent = fullText.substring(0, charIndex - 1);
-                    charIndex--;
-                } else {
-                    rotatingTextElement.textContent = fullText.substring(0, charIndex + 1);
-                    charIndex++;
-                }
-
-                let speed = isDeleting ? deleteSpeed : typingSpeed;
-
-                if (!isDeleting && charIndex === fullText.length) {
-                    isDeleting = true;
-                    speed = delayBetweenPhrases;
-                } else if (isDeleting && charIndex === 0) {
-                    isDeleting = false;
-                    phraseIndex = (phraseIndex + 1) % phrases.length;
-                    speed = 500; 
-                }
-
-                setTimeout(type, speed);
-            }
-            setTimeout(() => {
-                if (rotatingTextElement) {
-                    type();
-                }
-            }, 1000); 
-
-
-            // --- 2. Logic Mobile Menu ---
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (mobileMenuBtn && mobileMenu) {
-                mobileMenuBtn.addEventListener('click', () => {
-                    const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true' || false;
-                    mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
-                    mobileMenu.classList.toggle('hidden');
-                });
-
-                // Tự động đóng menu khi nhấp vào liên kết trên di động
-                document.querySelectorAll('#mobile-menu a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.add('hidden');
-                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                    });
-                });
-            }
-            
-            // --- 3. Logic Tech Chip Styling (Optional) ---
-            const techChips = document.querySelectorAll('.tech-chip');
-            techChips.forEach(chip => {
-                chip.classList.add('inline-block', 'px-3', 'py-1', 'text-xs', 'font-semibold', 'rounded-full');
-            });
-
-            // --- 4. Logic Back to Top Button ---
-            const backToTopButton = document.getElementById('back-to-top');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) {
-                    backToTopButton.classList.remove('opacity-0');
-                    backToTopButton.classList.add('opacity-100');
-                } else {
-                    backToTopButton.classList.remove('opacity-100');
-                    backToTopButton.classList.add('opacity-0');
-                }
-            });
-            backToTopButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-
-            // --- 5. Form Validation Cơ Bản (cho Contact Form) ---
-            const contactForm = document.getElementById('contact-form');
-            const formMessage = document.getElementById('form-message');
-
-            contactForm.addEventListener('submit', function(e) {
-                let hasError = false;
-                const requiredFields = ['name', 'email', 'message'];
-                formMessage.classList.add('hidden');
-                formMessage.textContent = '';
-
-                requiredFields.forEach(fieldId => {
-                    const field = document.getElementById(fieldId);
-                    const errorElement = document.getElementById(`${fieldId}-error`);
-                    
-                    if (!field.value.trim()) {
-                        errorElement.classList.remove('hidden');
-                        hasError = true;
-                    } else {
-                        errorElement.classList.add('hidden');
-                    }
-                });
-
-                if (hasError) {
-                    e.preventDefault();
-                    formMessage.textContent = 'Vui lòng điền đầy đủ và chính xác các trường bắt buộc.';
-                    formMessage.classList.remove('hidden');
-                    formMessage.classList.add('bg-red-100', 'text-red-800');
-                    formMessage.classList.remove('bg-green-100', 'text-green-800');
-                } else {
-                    // Nếu gửi thành công (sau khi form submit đi):
-                    // Lưu ý: Do action="mailto:..." nên trình duyệt sẽ cố gắng mở ứng dụng mail
-                    formMessage.textContent = 'Cảm ơn bạn đã liên hệ! Tôi sẽ trả lời sớm nhất có thể.';
-                    formMessage.classList.remove('hidden');
-                    formMessage.classList.add('bg-green-100', 'text-green-800');
-                    formMessage.classList.remove('bg-red-100', 'text-red-800');
-                }
-            });
-        });
-    </script>
+    <script src="assets/js/app.min.js"></script>
 </body>
 </html>

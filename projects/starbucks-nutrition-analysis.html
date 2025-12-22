@@ -5,85 +5,319 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Case Study: Starbucks Drinks Nutrition Analysis | Emily Huynh</title>
     <meta name="description" content="K-Means Clustering and PCA visualization for 160+ Starbucks beverages, integrated into a Streamlit recommendation system.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../assets/css/main.min.css"></head>
-<body class="text-text-primary bg-brand-bg antialiased">
-    <header class="bg-white sticky top-0 z-50 border-b border-gray-200">
-        </header>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-bg': '#FFFBF5',
+                        'brand-blue': '#1E00D9', 
+                        'brand-orange': '#F97316',
+                        'brand-pink': '#F7B5D5',
+                        'brand-green': '#00704A',
+                        'brand-slate': '#12151C',
+                        'text-primary': '#1F2937', 
+                    },
+                    fontFamily: {
+                        heading: ['"Bricolage Grotesque"', 'sans-serif'],
+                        body: ['Montserrat', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        }
+                    }
+                },
+            },
+        };
+    </script>
+    <style>
+        .fade-in { opacity: 0; transform: translateY(30px); transition: all 1s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        
+        .glass-panel { 
+            background: rgba(255, 255, 255, 0.6); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 112, 74, 0.05);
+        }
 
-    <main class="py-16 md:py-24">
-        <article class="max-w-4xl mx-auto px-4 sm:px-6">
-            <header class="text-center mb-12 fade-in">
-                <h1 class="font-heading text-5xl md:text-6xl font-bold text-gray-900 mb-4">Starbucks Drinks Nutrition Analysis</h1>
-                <p class="text-xl text-gray-600">Uncovering Ingredient-Level Insights and Developing a Healthier Drink Recommender.</p>
-                <div class="flex justify-center flex-wrap gap-2 mt-4">
-                    <span class="tech-chip bg-green-100 text-green-800">#Clustering</span>
-                    <span class="tech-chip bg-green-100 text-green-800">#Streamlit</span>
-                    <span class="tech-chip bg-green-100 text-green-800">#KMeans</span>
-                    <span class="tech-chip bg-green-100 text-green-800">#PCA</span>
-                </div>
-            </header>
+        .chart-placeholder {
+            background: linear-gradient(135deg, #F0FDF4 0%, #FFFBF5 100%);
+            border: 1px dashed #BBF7D0;
+            position: relative;
+            overflow: hidden;
+        }
 
-            <section class="mb-12 fade-in" style="animation-delay: 0.2s;">
-                <h2 class="font-heading text-3xl font-bold text-brand-blue mb-4 border-b pb-2 border-brand-pink">1. Project Overview & Problem</h2>
-                <p class="text-lg text-gray-700 leading-relaxed">
-                    Consumers often struggle to make informed choices when faced with a large menu. The goal was to analyze nutritional data for **over 160 Starbucks beverages** using unsupervised learning techniques to group similar drinks and build a **K-Nearest Neighbors (KNN)** recommendation system that suggests healthier alternatives based on a user’s initial selection.
-                </p>
-                <figure class="my-6">
-                    <img src="../assets/img/project-thumbnails/project-2-starbucks.webp" alt="PCA visualization of Starbucks drinks clustered by nutritional profile" loading="lazy" class="w-full h-auto rounded-xl shadow-lg">
-                    <figcaption class="text-center text-sm text-gray-500 mt-2">Fig 1.1: PCA plot showing K-Means clusters (e.g., 'Low-Calorie Coffee' vs. 'High-Sugar Blended Drinks').</figcaption>
-                </figure>
-            </section>
+        .chart-placeholder::before {
+            content: 'CLUSTERING VISUALIZATION LAYER';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            color: #86EFAC;
+        }
 
-            <section class="mb-12 fade-in" style="animation-delay: 0.4s;">
-                <h2 class="font-heading text-3xl font-bold text-brand-blue mb-4 border-b pb-2 border-brand-pink">2. Data & Methodology</h2>
-                <ul class="text-lg text-gray-700 space-y-4 list-disc pl-5 leading-relaxed">
-                    <li>**Data Source:** Web scraped nutritional data (Calories, Fat, Sugar, Caffeine) for 160+ unique beverages.</li>
-                    <li>**Data Prep:** Performed **EDA** to identify correlations between nutrients and applied **Feature Engineering** to create nutrient ratios. Data was standardized before clustering.</li>
-                    <li>**Modeling:** Used **K-Means Clustering** ($K=5$) to segment the menu into meaningful categories. **PCA (Principal Component Analysis)** was applied to reduce dimensionality and visualize the clusters effectively.</li>
-                    <li>**Deployment:** Integrated the Clustering and a **KNN Recommendation System** into a user-friendly **Streamlit** multi-page web application, allowing interactive data exploration.</li>
-                </ul>
-            </section>
+        .gradient-text-green {
+            background: linear-gradient(to right, #00704A, #1E00D9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-            <section class="mb-12 fade-in" style="animation-delay: 0.6s;">
-                <h2 class="font-heading text-3xl font-bold text-brand-blue mb-4 border-b pb-2 border-brand-pink">3. Key Results & Impact</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center text-white">
-                    <div class="bg-brand-blue p-6 rounded-xl shadow-lg">
-                        <p class="text-4xl font-heading font-bold">5</p>
-                        <p class="text-sm font-semibold mt-1">Optimal K-Means Clusters</p>
-                    </div>
-                    <div class="bg-brand-orange p-6 rounded-xl shadow-lg">
-                        <p class="text-4xl font-heading font-bold">85%</p>
-                        <p class="text-sm font-semibold mt-1">Variance Explained by PCA</p>
-                    </div>
-                    <div class="bg-brand-pink p-6 rounded-xl shadow-lg">
-                        <p class="text-4xl font-heading font-bold">Streamlit</p>
-                        <p class="text-sm font-semibold mt-1">Interactive App Deployment</p>
-                    </div>
-                </div>
-                <p class="text-lg text-gray-700 leading-relaxed mt-6">
-                    **Actionable Insight:** The PCA visualization clearly demonstrated that the two most separated clusters were 'Black Coffee/Espresso' and 'Frappuccinos/Blended Drinks'. The KNN recommender, running in the Streamlit app, successfully suggested highly similar yet nutritionally superior alternatives (e.g., swapping a high-sugar item for a lower-sugar equivalent in the same cluster).
-                </p>
-            </section>
+        .bento-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .bento-card:hover { transform: scale(1.02); }
+    </style>
+</head>
+<body class="text-text-primary bg-brand-bg antialiased selection:bg-brand-green/20">
 
-            <section class="mb-12 fade-in" style="animation-delay: 0.8s;">
-                <h2 class="font-heading text-3xl font-bold text-brand-blue mb-4 border-b pb-2 border-brand-pink">4. Lessons Learned</h2>
-                <ul class="text-lg text-gray-700 space-y-4 list-disc pl-5 leading-relaxed">
-                    <li>**PCA** was vital; without it, visualizing the differences between 10+ nutritional features would have been impossible, making the clusters difficult to interpret for the business user.</li>
-                    <li>Deploying the analysis via **Streamlit** was key to transforming a static notebook into an interactive tool, immediately increasing the project’s user value.</li>
-                </ul>
-            </section>
-
-            <div class="flex gap-4 justify-center mt-12 fade-in" style="animation-delay: 1.0s;">
-                <a href="PLACEHOLDER_LINK_TO_LIVE_STREAMLIT_APP" target="_blank" class="bg-brand-blue text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-opacity-90 transition-all duration-200" aria-label="View the live Streamlit recommendation application">
-                    View Live Streamlit App
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-gray-100">
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="font-heading text-2xl font-bold text-brand-blue tracking-tighter hover:opacity-70 transition-all">Emily H.</a>
+            <div class="flex items-center gap-8">
+                <a href="../index.html#projects" class="group flex items-center text-[10px] font-bold text-gray-500 hover:text-brand-green transition-colors uppercase tracking-widest">
+                    <svg class="w-3 h-3 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                    Projects
                 </a>
-                <a href="../index.html" class="bg-white border-2 border-brand-blue text-brand-blue font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-gray-50 transition-all duration-200" aria-label="Return to the main portfolio page">
-                    Back to Portfolio
-                </a>
+                <a href="https://starbucksportfolioapp-67oaqbtqc77lls7gz2fvjy.streamlit.app/" target="_blank" class="bg-brand-green text-white px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg shadow-green-100 hover:-translate-y-0.5 transition-all">Launch App</a>
             </div>
-        </article>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Strategy Section -->
+        <section class="relative pt-24 pb-20 overflow-hidden">
+            <div class="absolute inset-0 -z-10">
+                <div class="absolute top-10 left-1/4 w-72 h-72 bg-brand-green/10 rounded-full blur-[100px] animate-pulse-slow"></div>
+                <div class="absolute bottom-10 right-1/4 w-96 h-96 bg-brand-blue/5 rounded-full blur-[120px]"></div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-6 text-center">
+                <div class="fade-in">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-brand-green/5 text-brand-green text-[10px] font-bold uppercase tracking-[0.3em] mb-8 border border-brand-green/10">Case Study 02</span>
+                    <h1 class="font-heading text-6xl md:text-8xl font-bold text-brand-slate mb-8 leading-[0.9]">
+                        Nutritional <br/> <span class="gradient-text-green tracking-tighter">Architecture.</span>
+                    </h1>
+                    <p class="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed font-body font-medium">
+                        Uncovering the hidden dimensions of 160+ beverages. A deep dive into K-Means Clustering and PCA to build a personalized, healthier recommendation engine.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Executive Summary: Bento Grid -->
+        <section class="py-12">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="grid md:grid-cols-4 gap-6 fade-in">
+                    <!-- The Challenge -->
+                    <div class="md:col-span-2 bento-card glass-panel rounded-[2.5rem] p-10 relative overflow-hidden group">
+                        <div class="absolute -right-10 -top-10 w-40 h-40 bg-brand-green/5 rounded-full group-hover:scale-110 transition-transform duration-700"></div>
+                        <h3 class="text-brand-green font-bold uppercase text-[10px] tracking-[0.3em] mb-6 flex items-center">
+                            <span class="w-2 h-2 bg-brand-green rounded-full mr-3"></span> The User Problem
+                        </h3>
+                        <p class="text-2xl font-heading font-bold text-brand-slate leading-tight mb-4">
+                            "How do customers make healthy choices in a menu of 160+ complex items?"
+                        </p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            With thousands of combinations, nutritional transparency is often lost. I aimed to categorize beverages by their "Nutritional DNA" to suggest smarter swaps without sacrificing the user's taste preference.
+                        </p>
+                    </div>
+
+                    <!-- Tech Profile -->
+                    <div class="bento-card bg-brand-slate rounded-[2.5rem] p-10 text-white flex flex-col justify-between shadow-2xl">
+                        <h3 class="text-brand-pink font-bold uppercase text-[10px] tracking-[0.3em]">Technical Stack</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between border-b border-white/10 pb-2">
+                                <span class="text-gray-400 text-xs">Clustering</span>
+                                <span class="text-xs font-bold">K-Means</span>
+                            </div>
+                            <div class="flex justify-between border-b border-white/10 pb-2">
+                                <span class="text-gray-400 text-xs">Vis</span>
+                                <span class="text-xs font-bold">PCA / Plotly</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400 text-xs">App</span>
+                                <span class="text-xs font-bold">Streamlit</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Market Context -->
+                    <div class="bento-card bg-white border border-gray-100 rounded-[2.5rem] p-10 shadow-sm flex flex-col justify-between">
+                        <h3 class="text-brand-blue font-bold uppercase text-[10px] tracking-[0.3em]">Dataset</h3>
+                        <div>
+                            <span class="text-3xl font-heading font-bold text-brand-green block mb-1">160+</span>
+                            <p class="text-gray-400 text-[10px] font-bold uppercase tracking-widest leading-relaxed">Unique Beverages <br/> Scraped & Analyzed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Process: The Pipeline -->
+        <section class="py-24 bg-white/50">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="flex flex-col md:flex-row gap-20 items-center">
+                    <div class="md:w-1/2 fade-in">
+                        <h2 class="font-heading text-5xl font-bold text-brand-slate mb-8 tracking-tighter">The Clustering <br/>Workflow.</h2>
+                        <div class="space-y-12">
+                            <div class="relative pl-12 border-l border-brand-green/20">
+                                <div class="absolute -left-[5px] top-0 w-2.5 h-2.5 bg-brand-green rounded-full"></div>
+                                <h4 class="text-lg font-bold text-brand-slate mb-3">01. Feature Standardization</h4>
+                                <p class="text-gray-500 text-sm leading-relaxed font-body">
+                                    Since Calories and Caffeine have vastly different scales, I applied <strong>StandardScaler</strong> to prevent the model from being biased toward high-magnitude features.
+                                </p>
+                            </div>
+                            <div class="relative pl-12 border-l border-brand-green/20">
+                                <div class="absolute -left-[5px] top-0 w-2.5 h-2.5 bg-brand-blue rounded-full"></div>
+                                <h4 class="text-lg font-bold text-brand-slate mb-3">02. K-Means Optimal K</h4>
+                                <p class="text-gray-500 text-sm leading-relaxed font-body">
+                                    Identified <strong>K=5</strong> as the optimal elbow point, segmenting the menu into logical groups like 'Low-Cal Espresso' vs. 'Indulgent Blended Treats'.
+                                </p>
+                            </div>
+                            <div class="relative pl-12 border-l border-brand-green/20">
+                                <div class="absolute -left-[5px] top-0 w-2.5 h-2.5 bg-brand-pink rounded-full"></div>
+                                <h4 class="text-lg font-bold text-brand-slate mb-3">03. PCA for Visualization</h4>
+                                <p class="text-gray-500 text-sm leading-relaxed font-body">
+                                    Reduced 10+ dimensions down to 2 principal components to plot the clusters, explaining <strong>85% of the variance</strong> in the menu's nutritional profile.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2">
+                        <div class="glass-panel p-8 rounded-[3rem] shadow-2xl relative overflow-hidden group">
+                            <div class="absolute inset-0 bg-brand-green/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div class="chart-placeholder rounded-2xl h-[450px] shadow-inner">
+                                <!-- PCA CHART VISUAL GOES HERE -->
+                            </div>
+                            <p class="mt-6 text-[10px] text-gray-400 font-bold text-center uppercase tracking-widest">Fig 2.1: PCA Cluster Map showing beverage separation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Metrics: The Results -->
+        <section class="py-24 bg-brand-slate relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-green/10 rounded-full blur-[180px]"></div>
+            
+            <div class="max-w-6xl mx-auto px-6 relative z-10">
+                <div class="text-center mb-20 fade-in">
+                    <h2 class="font-heading text-5xl font-bold text-white mb-4 tracking-tighter">Projected Results.</h2>
+                    <div class="w-16 h-1 bg-brand-green mx-auto rounded-full"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 fade-in">
+                    <div class="relative p-10 bg-white/5 border border-white/10 rounded-[2.5rem] text-center group hover:bg-white/10 transition-all">
+                        <div class="text-brand-green text-6xl font-heading font-extrabold mb-4 group-hover:scale-110 transition-transform">5</div>
+                        <h4 class="text-xs font-bold text-gray-400 uppercase tracking-[0.3em] mb-4">Optimal Segments</h4>
+                        <p class="text-gray-500 text-xs leading-relaxed italic">Distinct profiles ranging from metabolic boosters to high-sugar treats.</p>
+                    </div>
+                    <div class="relative p-10 bg-white/5 border border-white/10 rounded-[2.5rem] text-center translate-y-6 group hover:bg-white/10 transition-all">
+                        <div class="text-brand-orange text-6xl font-heading font-extrabold mb-4 group-hover:scale-110 transition-transform">85%</div>
+                        <h4 class="text-xs font-bold text-gray-400 uppercase tracking-[0.3em] mb-4">Variance Captured</h4>
+                        <p class="text-gray-500 text-xs leading-relaxed italic">High confidence in the lower-dimensional cluster representation.</p>
+                    </div>
+                    <div class="relative p-10 bg-white/5 border border-white/10 rounded-[2.5rem] text-center group hover:bg-white/10 transition-all">
+                        <div class="text-brand-blue text-6xl font-heading font-extrabold mb-4 group-hover:scale-110 transition-transform">KNN</div>
+                        <h4 class="text-xs font-bold text-gray-400 uppercase tracking-[0.3em] mb-4">Logic Engine</h4>
+                        <p class="text-gray-500 text-xs leading-relaxed italic">Suggesting the closest 'Healthy Neighbor' for every selection.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deep Dive: The Streamlit Experience -->
+        <section class="py-24 bg-white">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="bg-brand-bg rounded-[3.5rem] p-12 md:p-20 flex flex-col md:flex-row gap-16 items-center shadow-sm border border-gray-100">
+                    <div class="md:w-1/2">
+                        <span class="inline-block px-3 py-1 rounded-lg bg-brand-green/10 text-brand-green text-[10px] font-extrabold uppercase tracking-widest mb-6">Interactive Deployment</span>
+                        <h3 class="font-heading text-4xl md:text-5xl font-bold text-brand-slate mb-8 tracking-tighter">The Healthy <br/>Swap Engine.</h3>
+                        <p class="text-gray-600 leading-relaxed mb-8 font-body">
+                            The final deliverable was a **Streamlit application** where users can input their favorite drink and receive 3 "Smart Swaps." These swaps are calculated using <strong>Cosine Similarity</strong> within the user's specific drink cluster, ensuring the taste profile remains consistent while the calorie count drops.
+                        </p>
+                        <div class="flex gap-6">
+                            <div class="flex items-center gap-3">
+                                <div class="w-3 h-3 bg-brand-green rounded-full"></div>
+                                <span class="text-xs font-bold text-gray-700">Health Optimized</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-3 h-3 bg-brand-blue rounded-full"></div>
+                                <span class="text-xs font-bold text-gray-700">User Centric</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 relative group">
+                        <!-- Chart/App Visual Placeholder -->
+                        <div class="chart-placeholder rounded-[2.5rem] h-[400px] shadow-2xl relative z-10 bg-white">
+                            <!-- STREAMLIT APP SCREENSHOT GOES HERE -->
+                        </div>
+                        <div class="absolute -top-6 -right-6 w-40 h-40 bg-brand-green/10 rounded-full blur-3xl group-hover:scale-125 transition-transform duration-1000"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reflections & Actions -->
+        <section class="py-24">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h2 class="font-heading text-4xl font-bold text-brand-slate mb-12 underline decoration-brand-green decoration-4 underline-offset-8">Project Reflections.</h2>
+                <div class="grid md:grid-cols-2 gap-12 text-left">
+                    <div class="space-y-4">
+                        <h4 class="font-bold text-brand-green text-xs uppercase tracking-widest">Scientific Lesson</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">
+                            <strong>PCA</strong> was the hero of this project. Without reducing dimensions, explaining why a drink belonged to a certain cluster would have been an abstract nightmare for a non-technical audience.
+                        </p>
+                    </div>
+                    <div class="space-y-4">
+                        <h4 class="font-bold text-brand-blue text-xs uppercase tracking-widest">UX Intuition</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">
+                            Data is useless if it's trapped in a notebook. Deploying to <strong>Streamlit</strong> transformed a static clustering analysis into a tool that actually helps people make healthier breakfast decisions.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-20 flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="https://starbucksportfolioapp-67oaqbtqc77lls7gz2fvjy.streamlit.app/" target="_blank" class="px-12 py-5 bg-brand-slate text-white font-bold rounded-2xl shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center group">
+                        <svg class="w-5 h-5 mr-3 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                        Launch Interactive App
+                    </a>
+                    <a href="../index.html#projects" class="px-12 py-5 bg-white border-2 border-brand-green text-brand-green font-bold rounded-2xl hover:bg-green-50 transition-all flex items-center justify-center">
+                        Back to Portfolio
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
-    <script src="../assets/js/app.min.js" defer></script>
+
+    <footer class="py-20 bg-white border-t border-gray-100 text-center">
+        <p class="text-[9px] text-gray-400 font-extrabold uppercase tracking-[0.5em]">Menu Intelligence • Emily Huynh • 2025</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>

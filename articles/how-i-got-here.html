@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Architecture of a Pivot | Emily Huynh</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;800&family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-bg': '#FFFBF5',
+                        'brand-blue': '#1E00D9', 
+                        'brand-orange': '#F97316',
+                        'brand-pink': '#F7B5D5',
+                        'brand-slate': '#12151C',
+                        'text-primary': '#1F2937', 
+                    },
+                    fontFamily: {
+                        heading: ['"Bricolage Grotesque"', 'sans-serif'],
+                        body: ['Montserrat', 'sans-serif'],
+                    }
+                },
+            },
+        };
+    </script>
+    <style>
+        .fade-in { opacity: 0; transform: translateY(20px); transition: all 1s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        
+        .glass-header { background: rgba(255, 251, 245, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        
+        .article-content { font-size: 1.15rem; line-height: 1.9; color: #374151; }
+        .article-content p { margin-bottom: 2rem; }
+        .article-content h2 { 
+            font-family: 'Bricolage Grotesque'; 
+            font-weight: 800; 
+            font-size: 2.25rem; 
+            color: #12151C; 
+            margin-top: 4.5rem; 
+            margin-bottom: 1.5rem; 
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+        
+        .drop-cap::first-letter {
+            float: left;
+            font-size: 5.5rem;
+            line-height: 0.7;
+            padding-top: 8px;
+            padding-right: 14px;
+            font-family: 'Bricolage Grotesque';
+            font-weight: 800;
+            color: #1E00D9;
+        }
+
+        .progress-bar { height: 3px; background: linear-gradient(to right, #1E00D9, #F97316); width: 0%; position: fixed; top: 0; left: 0; z-index: 100; transition: width 0.1s ease-out; }
+        
+        .image-caption { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; color: #9CA3AF; margin-top: 1rem; text-align: center; }
+        
+        .pull-quote {
+            font-family: 'Bricolage Grotesque';
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            color: #12151C;
+            border-left: 8px solid #F7B5D5;
+            padding-left: 2rem;
+            margin: 4.5rem 0;
+            font-style: italic;
+            letter-spacing: -0.01em;
+        }
+
+        .article-img { transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        .article-img-container:hover .article-img { transform: scale(1.04); }
+        
+        .thought-bubble {
+            background: #fef2f2;
+            padding: 2rem;
+            border-radius: 2rem;
+            border: 1px solid #fee2e2;
+            margin: 3rem 0;
+        }
+    </style>
+</head>
+<body class="text-text-primary bg-brand-bg antialiased selection:bg-brand-pink">
+
+    <div class="progress-bar" id="reading-progress"></div>
+
+    <header class="sticky top-0 z-50 glass-header">
+        <nav class="max-w-5xl mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="../index.html" class="font-heading text-2xl font-bold text-brand-blue tracking-tighter hover:opacity-70 transition-opacity">Emily H.</a>
+            <a href="../index.html#domain-acumen" class="group flex items-center text-[10px] font-bold text-gray-500 hover:text-brand-blue transition-colors uppercase tracking-[0.2em]">
+                <svg class="w-3 h-3 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                Back to Insights
+            </a>
+        </nav>
+    </header>
+
+    <main class="relative">
+        <article class="pt-24 pb-32">
+            <!-- Hero Header -->
+            <div class="max-w-4xl mx-auto px-6 mb-20 text-center">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-[10px] font-bold uppercase tracking-[0.3em] mb-8 fade-in">The Quantitative Journey</span>
+                <h1 class="font-heading text-6xl md:text-8xl font-bold text-brand-slate mb-10 leading-[0.85] tracking-tighter fade-in">
+                    The Triple Pivot & <br/> <span class="italic text-brand-blue underline decoration-brand-pink/50">The Big Why.</span>
+                </h1>
+                <div class="flex items-center justify-center gap-6 fade-in" style="animation-delay: 0.2s;">
+                    <div class="flex items-center gap-3 text-left text-brand-slate">
+                        <img src="../assets/img/profile.webp" alt="Emily Huynh" class="w-10 h-10 rounded-full object-cover grayscale border border-gray-200" onerror="this.src='https://placehold.co/100x100?text=Emily'">
+                        <div>
+                            <p class="text-xs font-bold tracking-widest uppercase m-0 leading-none">Emily Huynh</p>
+                            <p class="text-[9px] text-gray-400 font-bold uppercase tracking-widest mt-1">Founding Story</p>
+                        </div>
+                    </div>
+                    <div class="h-4 w-px bg-gray-200"></div>
+                    <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest italic">8 Min Read</span>
+                </div>
+            </div>
+
+            <!-- Feature Image -->
+            <div class="max-w-6xl mx-auto px-6 mb-24 fade-in" style="animation-delay: 0.4s;">
+                <div class="article-img-container rounded-[3rem] overflow-hidden shadow-2xl h-[550px] relative">
+                    <div class="absolute inset-0 bg-brand-blue/5 z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1493612276216-ee3925520721?auto=format&fit=crop&w=1600&q=80" 
+                         alt="Abstract reflection" class="article-img w-full h-full object-cover">
+                </div>
+                <p class="image-caption">Deconstructing the noise of expectation to find personal resonance.</p>
+            </div>
+
+            <!-- Content Container -->
+            <div class="max-w-2xl mx-auto px-6 article-content">
+                <p class="drop-cap fade-in">
+                    I used to look at my transcript with a sense of quiet shame. Three major changes. Three times where I stood in front of an advisor and admitted that the path I was on—the one I had argued for just months prior—no longer felt real. To an outsider, it looked like indecision. To me, it was a psychological survival tactic.
+                </p>
+
+                <p class="fade-in">
+                    I spent a year within the <strong>Management Fellows</strong> program, a community designed for the high-achievers of business. On the surface, I was succeeding. I was learning the vernacular of the corporate elite. But inside, I was experiencing a profound cognitive disconnect. I was in a room full of people who knew <em>how</em> to act, but I was the only one paralyzed because I didn't understand <em>why</em>.
+                </p>
+
+                <div class="pull-quote fade-in">
+                    "As a cognitive function enthusiast, I realized early on that my brain is wired for 'Introverted Intuition'. I cannot move until I see the pattern. I cannot execute until I find the motive."
+                </div>
+
+                <h2 class="fade-in">The Friction of the "Lost" Era</h2>
+                
+                <p class="fade-in">
+                    During this "lost" era, I felt like a machine without an engine. I moved from Economics to Actuarial Science, searching for a language that didn't feel like a costume. I needed a field that honored my natural obsession with <em>patterns and human behavior</em>, but one that was grounded in the absolute truth of logic.
+                </p>
+
+                <p class="fade-in">
+                    Business felt too abstract—stories without proof. Pure coding felt too cold—syntax without soul. I was looking for the intersection, the motive behind the system. I needed to know why a 2% shift in a specific variable caused a 20% shift in human action.
+                </p>
+
+                <!-- In-text Image -->
+                <div class="my-16 fade-in">
+                    <div class="article-img-container rounded-3xl overflow-hidden shadow-xl h-96 relative">
+                        <div class="absolute inset-0 bg-brand-orange/5 z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" 
+                             alt="Data patterns" class="article-img w-full h-full object-cover">
+                    </div>
+                    <p class="image-caption">The moment noise becomes a narrative.</p>
+                </div>
+
+                <h2 class="fade-in">The Homecoming</h2>
+                
+                <p class="fade-in">
+                    Everything changed during a conversation with a friend. They were showing me a project involving data visualization, and for the first time, I felt a spark of pure, unforced curiosity. It wasn't just "tech"—it was a <strong>magnifying glass</strong> for the world.
+                </p>
+
+                <div class="thought-bubble fade-in">
+                    <h4 class="font-heading font-bold text-brand-slate mb-4 uppercase text-xs tracking-widest">Internal Realization</h4>
+                    <p class="text-sm italic text-gray-600 m-0">
+                        Suddenly, the 'Triple Pivot' made sense. I wasn't running away from business; I was searching for the evidence of it. I wasn't running toward CS; I was looking for the tools to prove my intuitions. Data was the bridge.
+                    </p>
+                </div>
+
+                <p class="fade-in">
+                    Data gave me my <strong>Big Why</strong>. It turned "management" into "optimization." It turned "feeling" into "probability." It allowed my brain to finally operate at full capacity because the motive was built into the methodology: to find the truth hidden in the data.
+                </p>
+
+                <h2 class="fade-in">The Analytics Architect</h2>
+                
+                <p class="fade-in">
+                    Today, I call myself an <strong>Analytics Architect</strong>. I chose this title because it implies both the <em>structure</em> (CS) and the <em>purpose</em> (Business). I don't just want to build dashboards; I want to build the motives that drive them. 
+                </p>
+
+                <p class="fade-in">
+                    I no longer look at my three major changes with regret. They were the iterations of a data scientist before I even knew the term existed. I am no longer lost, because I found the only language that can actually explain the world I see. 
+                </p>
+            </div>
+
+            <!-- Footer CTA -->
+            <div class="max-w-4xl mx-auto px-6 mt-32 fade-in">
+                <div class="bg-brand-slate rounded-[3rem] p-12 md:p-20 text-white relative overflow-hidden text-center group">
+                    <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-brand-blue/20 rounded-full blur-[100px] group-hover:bg-brand-blue/30 transition-all duration-700"></div>
+                    <div class="absolute -left-20 -top-20 w-80 h-80 bg-brand-pink/10 rounded-full blur-[100px]"></div>
+                    
+                    <h4 class="text-3xl md:text-5xl font-heading font-bold mb-6 relative z-10">Let's build a motive together.</h4>
+                    <p class="text-gray-400 text-lg mb-10 max-w-xl mx-auto relative z-10 font-body">I'm always looking for people who care about the 'Why' as much as I do. Let's talk about data strategy.</p>
+                    <a href="mailto:contact.emilyhuynh@gmail.com" class="relative z-10 inline-block bg-white text-brand-slate px-12 py-5 rounded-2xl font-bold text-sm hover:-translate-y-1 hover:shadow-2xl hover:shadow-white/10 transition-all">
+                        Get in touch
+                    </a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="py-20 border-t border-gray-100 text-center">
+        <p class="text-[10px] text-gray-400 font-extrabold uppercase tracking-[0.5em]">Emily Huynh • Portfolio Editorial • 2025</p>
+    </footer>
+
+    <script>
+        // Reading Progress Bar Logic
+        window.onscroll = function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("reading-progress").style.width = scrolled + "%";
+        };
+
+        // Scroll animations
+        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Algorithmic Streak: Duolingo & Data-Driven Learning | Emily Huynh</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;800&family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-bg': '#FFFBF5',
+                        'brand-blue': '#1E00D9', 
+                        'brand-orange': '#F97316',
+                        'brand-pink': '#F7B5D5',
+                        'brand-green': '#58CC02', /* Duolingo Signature Green */
+                        'brand-slate': '#12151C',
+                        'text-primary': '#1F2937', 
+                    },
+                    fontFamily: {
+                        heading: ['"Bricolage Grotesque"', 'sans-serif'],
+                        body: ['Montserrat', 'sans-serif'],
+                    }
+                },
+            },
+        };
+    </script>
+    <style>
+        .fade-in { opacity: 0; transform: translateY(20px); transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        
+        .glass-header { background: rgba(255, 251, 245, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        
+        .article-content { font-size: 1.15rem; line-height: 2.1; color: #374151; }
+        .article-content p { margin-bottom: 2.8rem; text-align: justify; }
+        .article-content h2 { 
+            font-family: 'Bricolage Grotesque'; 
+            font-weight: 800; 
+            font-size: 2.25rem; 
+            color: #12151C; 
+            margin-top: 6rem; 
+            margin-bottom: 1.8rem; 
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+        
+        .drop-cap::first-letter {
+            float: left;
+            font-size: 6rem;
+            line-height: 0.65;
+            padding-top: 10px;
+            padding-right: 16px;
+            font-family: 'Bricolage Grotesque';
+            font-weight: 800;
+            color: #58CC02;
+        }
+
+        .progress-bar { height: 3px; background: linear-gradient(to right, #58CC02, #1E00D9); width: 0%; position: fixed; top: 0; left: 0; z-index: 100; transition: width 0.15s ease-out; }
+        
+        .image-caption { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 800; color: #9CA3AF; margin-top: 1.5rem; text-align: center; }
+        
+        .pull-quote {
+            font-family: 'Bricolage Grotesque';
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            color: #12151C;
+            border-left: 14px solid #58CC02;
+            padding-left: 3rem;
+            margin: 6rem 0;
+            font-style: italic;
+            letter-spacing: -0.04em;
+        }
+
+        .reference-section {
+            background: #f0fdf4;
+            padding: 4rem;
+            border-radius: 3rem;
+            margin-top: 8rem;
+            font-size: 0.9rem;
+            border: 1px solid #dcfce7;
+        }
+
+        .article-img { transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1); }
+        .article-img-container:hover .article-img { transform: scale(1.06); }
+        
+        .divider { width: 60px; height: 4px; background: #58CC02; margin: 4rem auto; border-radius: 2px; opacity: 0.4; }
+    </style>
+</head>
+<body class="text-text-primary bg-brand-bg antialiased selection:bg-brand-green/20">
+
+    <div class="progress-bar" id="reading-progress"></div>
+
+    <header class="sticky top-0 z-50 glass-header">
+        <nav class="max-w-5xl mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="../index.html" class="font-heading text-2xl font-bold text-brand-blue tracking-tighter hover:opacity-70 transition-opacity">Emily H.</a>
+            <a href="../index.html#domain-acumen" class="group flex items-center text-[10px] font-bold text-gray-500 hover:text-brand-green transition-colors uppercase tracking-[0.2em]">
+                <svg class="w-3 h-3 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                Back to Insights
+            </a>
+        </nav>
+    </header>
+
+    <main class="relative">
+        <article class="pt-24 pb-32">
+            <!-- Hero Header -->
+            <div class="max-w-4xl mx-auto px-6 mb-24 text-center">
+                <span class="inline-block px-5 py-2 rounded-full bg-brand-green/5 text-brand-green text-[11px] font-extrabold uppercase tracking-[0.5em] mb-10 fade-in">EdTech & Behavioral Science</span>
+                <h1 class="font-heading text-6xl md:text-8xl font-bold text-brand-slate mb-12 leading-[0.85] tracking-tighter fade-in">
+                    The Algorithmic <br/> <span class="italic text-brand-green underline decoration-brand-blue/30">Streak.</span>
+                </h1>
+                <div class="flex items-center justify-center gap-8 fade-in" style="animation-delay: 0.2s;">
+                    <div class="flex items-center gap-4 text-left text-brand-slate">
+                        <img src="../assets/img/profile.webp" alt="Emily Huynh" class="w-12 h-12 rounded-full object-cover grayscale border border-gray-100 shadow-sm" onerror="this.src='https://placehold.co/100x100?text=Emily'">
+                        <div>
+                            <p class="text-xs font-bold tracking-widest uppercase m-0 leading-none text-brand-green">Emily Huynh</p>
+                            <p class="text-[9px] text-gray-400 font-bold uppercase tracking-widest mt-1">Analytics Architect</p>
+                        </div>
+                    </div>
+                    <div class="h-6 w-px bg-gray-200"></div>
+                    <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest italic text-brand-blue">Strategic Narrative • 12 Min Read</span>
+                </div>
+            </div>
+
+            <!-- Main Feature Image -->
+            <div class="max-w-6xl mx-auto px-6 mb-32 fade-in" style="animation-delay: 0.4s;">
+                <div class="article-img-container rounded-[4rem] overflow-hidden shadow-2xl h-[600px] relative">
+                    <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=1600&q=80" 
+                         alt="Digital learning and growth" class="article-img w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-brand-green/10 mix-blend-multiply text-brand-green"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-slate/40 to-transparent"></div>
+                </div>
+                <p class="image-caption">The intersection of play and precision: how data makes learning inevitable.</p>
+            </div>
+
+            <!-- Content Container -->
+            <div class="max-w-2xl mx-auto px-6 article-content">
+                <p class="drop-cap fade-in">
+                    To the casual observer, Duolingo is a masterclass in gamification. The bright colors, the encouraging (and sometimes threatening) owl, and the dopamine hit of the 500-day streak are the surface-level components of its success. But as an Analytics Architect, I see a much more complex engine humming beneath the green feathers. Duolingo’s true genius isn’t just in making learning "fun"—it’s in using Machine Learning to make learning <strong>adaptive</strong> to the unique cognitive architecture of every single user.
+                </p>
+
+                <p class="fade-in">
+                    In the traditional classroom, the "pacing" is a compromise—too fast for some, too slow for others. Duolingo solves this through a massive-scale data operation. Every exercise completed and every mistake made is a signal fed back into a predictive ecosystem that decides precisely what you should see next, and when you should see it.
+                </p>
+
+                <div class="divider"></div>
+
+                <h2 class="fade-in">1. Spaced Repetition & Half-Life Regression</h2>
+                
+                <p class="fade-in">
+                    At the core of the experience is the <strong>Spaced Repetition System (SRS)</strong>. We know from cognitive science that we forget things at a predictable rate (the Ebbinghaus Forgetting Curve). Duolingo uses a proprietary model called <strong>Half-Life Regression (HLR)</strong> to estimate the "half-life" of a word in your memory.
+                </p>
+
+                <div class="pull-quote fade-in">
+                    "Data allows Duolingo to predict the exact moment a user is about to forget a word—and intervenes with a review lesson just seconds before the memory fades."
+                </div>
+
+                <p class="fade-in">
+                    By analyzing billions of practice sessions, the HLR model weights factors like how many times you’ve seen the word, how often you’ve gotten it right, and how much time has passed since your last encounter. This is high-level time-series forecasting applied to human cognition, turning the biological process of forgetting into a solvable mathematical equation.
+                </p>
+
+                <h2 class="fade-in">2. Birdbrain: Quantifying the Difficulty of the Unknown</h2>
+
+                <p class="fade-in">
+                    In 2020, Duolingo introduced <strong>Birdbrain</strong>, a customized machine learning model that predicts the probability of a user getting a specific exercise correct. Birdbrain calculates two things simultaneously: the <strong>User’s Ability</strong> and the <strong>Item’s Difficulty</strong>.
+                </p>
+
+                <p class="fade-in">
+                    This is critical because of a psychological concept called the <em>Zone of Proximal Development</em>. If a lesson is too easy, the user gets bored. If it’s too hard, they feel <strong>Dukkha (Friction/Suffering)</strong> and quit. Birdbrain uses data to keep the user in the "Flow State"—the sweet spot where the challenge perfectly matches their rising skill level. It is a real-time balancing act powered by trillions of data points.
+                </p>
+
+                <!-- In-text Image -->
+                <div class="my-24 fade-in">
+                    <div class="article-img-container rounded-[3rem] overflow-hidden shadow-xl h-[400px] relative text-brand-green">
+                        <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80" 
+                             alt="Abstract data nodes" class="article-img w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-brand-green/5 opacity-40"></div>
+                    </div>
+                    <p class="image-caption">Mapping the cognitive geography of a billion learners.</p>
+                </div>
+
+                <h2 class="fade-in">3. The Ethics of the Habit Loop</h2>
+
+                <p class="fade-in">
+                    We cannot discuss Duolingo without addressing the "Streak." This is where data meets <strong>Behavioral Economics</strong>. Duolingo uses bandit algorithms to optimize the timing and content of notifications. They know exactly which "nudge" is most likely to bring a user back based on their historical engagement patterns. 
+                </p>
+
+                <p class="fade-in">
+                    While some critics argue this borders on addictive design, the "Big Why" behind Duolingo’s architecture is different from social media. In social media, the data loop serves to capture your <em>time</em> for ad revenue. In Duolingo, the data loop serves to capture your <em>attention</em> for the sake of a long-term skill. As I pursue a career in quantitative analytics, I look at Duolingo as a North Star for <strong>Ethical Persuasion</strong>—using data to help people become the version of themselves they actually want to be.
+                </p>
+
+                <h2 class="fade-in">Conclusion: Learning at the Speed of Data</h2>
+
+                <p class="fade-in">
+                    Duolingo’s success proves that the most powerful application of AI isn't in replacing human teachers, but in creating a hyper-personalized support system that no human could ever scale. 
+                </p>
+
+                <p class="fade-in">
+                    As an Analytics Architect, I am inspired by how Duolingo has turned "Learning" into an engineering problem. They’ve proven that if you listen to the data, you can uncover the invisible narrative of how the human brain acquires knowledge. The future of education is not just digital—it is deeply, mathematically personal.
+                </p>
+
+                <!-- Reference Section (APA) -->
+                <div class="reference-section fade-in text-brand-green">
+                    <h3 class="font-heading font-bold text-brand-slate mb-8 text-sm uppercase tracking-[0.3em] border-b border-green-200 pb-3 inline-block">References & Scientific Papers</h3>
+                    <ul class="space-y-8 text-gray-500 font-body leading-relaxed text-sm">
+                        <li class="pl-8 -indent-8">
+                            Burriss, A., et al. (2020). <em>Birdbrain: Personalizing Lesson Difficulty at Duolingo</em>. Duolingo Research.
+                        </li>
+                        <li class="pl-8 -indent-8">
+                            Ebbinghaus, H. (1885). <em>Memory: A Contribution to Experimental Psychology</em>. (Foundational theory for spaced repetition).
+                        </li>
+                        <li class="pl-8 -indent-8">
+                            Settles, B., & Meeder, B. (2016). <em>A Trainable Spaced Repetition Model for Language Learning</em>. Duolingo Research Paper. (Introduction to Half-Life Regression).
+                        </li>
+                        <li class="pl-8 -indent-8">
+                            Thaler, R. H., & Sunstein, C. R. (2008). <em>Nudge: Improving Decisions About Health, Wealth, and Happiness</em>. Yale University Press. (Context for behavioral prompts).
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer CTA -->
+            <div class="max-w-4xl mx-auto px-6 mt-40 fade-in">
+                <div class="bg-brand-slate rounded-[4rem] p-16 md:p-24 text-white relative overflow-hidden text-center group border border-white/10 shadow-2xl">
+                    <div class="absolute -right-32 -bottom-32 w-[500px] h-[500px] bg-brand-green/20 rounded-full blur-[120px] group-hover:bg-brand-green/30 transition-all duration-1000"></div>
+                    <div class="absolute -left-32 -top-32 w-[500px] h-[500px] bg-brand-blue/10 rounded-full blur-[120px]"></div>
+                    
+                    <h4 class="text-4xl md:text-6xl font-heading font-bold mb-8 relative z-10 tracking-tighter">Build Adaptive Strategy.</h4>
+                    <p class="text-gray-400 text-xl mb-12 max-w-2xl mx-auto relative z-10 font-body leading-relaxed">Interested in how machine learning can transform your user experience? Let’s connect and discuss data architecture.</p>
+                    <a href="mailto:contact.emilyhuynh@gmail.com" class="relative z-10 inline-block bg-white text-brand-slate px-16 py-6 rounded-[2rem] font-extrabold text-sm uppercase tracking-widest hover:-translate-y-2 hover:shadow-2xl transition-all">
+                        Inquire about Data Strategy
+                    </a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="py-24 border-t border-gray-100 text-center bg-white/30">
+        <p class="text-[11px] text-gray-400 font-extrabold uppercase tracking-[0.6em]">Emily Huynh • Portfolio Editorial • 2025</p>
+    </footer>
+
+    <script>
+        // Reading Progress Bar Logic
+        window.onscroll = function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("reading-progress").style.width = scrolled + "%";
+        };
+
+        // Scroll animations with Intersection Observer
+        const observerOptions = { threshold: 0.05, rootMargin: "0px 0px -100px 0px" };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

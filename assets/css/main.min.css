@@ -150,4 +150,18 @@ html {
         opacity: 1 !important;
         transform: none !important;
     }
+
+    /* This stops the white background from showing at the bottom */
+html, body {
+    background-color: #0B0F1A !important;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+/* This ensures every section touches the edges */
+section, footer {
+    width: 100%;
+    display: block;
+}
 }

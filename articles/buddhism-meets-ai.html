@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dharma in the Machine: Buddhism & AI | Emily Huynh</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;800&family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-bg': '#FFFBF5',
+                        'brand-blue': '#1E00D9', 
+                        'brand-orange': '#F97316',
+                        'brand-pink': '#F7B5D5',
+                        'brand-slate': '#12151C',
+                        'text-primary': '#1F2937', 
+                    },
+                    fontFamily: {
+                        heading: ['"Bricolage Grotesque"', 'sans-serif'],
+                        body: ['Montserrat', 'sans-serif'],
+                    }
+                },
+            },
+        };
+    </script>
+    <style>
+        .fade-in { opacity: 0; transform: translateY(20px); transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        
+        .glass-header { background: rgba(255, 251, 245, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        
+        .article-content { font-size: 1.15rem; line-height: 2.1; color: #374151; }
+        .article-content p { margin-bottom: 2.8rem; text-align: justify; }
+        .article-content h2 { 
+            font-family: 'Bricolage Grotesque'; 
+            font-weight: 800; 
+            font-size: 2.25rem; 
+            color: #12151C; 
+            margin-top: 6rem; 
+            margin-bottom: 1.8rem; 
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+        
+        .drop-cap::first-letter {
+            float: left;
+            font-size: 6rem;
+            line-height: 0.65;
+            padding-top: 10px;
+            padding-right: 16px;
+            font-family: 'Bricolage Grotesque';
+            font-weight: 800;
+            color: #1E00D9;
+        }
+
+        .progress-bar { height: 3px; background: linear-gradient(to right, #1E00D9, #F7B5D5); width: 0%; position: fixed; top: 0; left: 0; z-index: 100; transition: width 0.15s ease-out; }
+        
+        .image-caption { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 800; color: #9CA3AF; margin-top: 1.5rem; text-align: center; }
+        
+        .pull-quote {
+            font-family: 'Bricolage Grotesque';
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            color: #12151C;
+            border-left: 14px solid #F7B5D5;
+            padding-left: 3rem;
+            margin: 6rem 0;
+            font-style: italic;
+            letter-spacing: -0.04em;
+        }
+
+        .reference-section {
+            background: #fdf2f8;
+            padding: 4rem;
+            border-radius: 3rem;
+            margin-top: 8rem;
+            font-size: 0.9rem;
+            border: 1px solid #fce7f3;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        .article-img { transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1); }
+        .article-img-container:hover .article-img { transform: scale(1.06); }
+        
+        .divider { width: 60px; height: 4px; background: #F7B5D5; margin: 4rem auto; border-radius: 2px; opacity: 0.4; }
+    </style>
+</head>
+<body class="text-text-primary bg-brand-bg antialiased selection:bg-brand-pink">
+
+    <div class="progress-bar" id="reading-progress"></div>
+
+    <header class="sticky top-0 z-50 glass-header">
+        <nav class="max-w-5xl mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="../index.html" class="font-heading text-2xl font-bold text-brand-blue tracking-tighter hover:opacity-70 transition-opacity">Emily H.</a>
+            <a href="../index.html#domain-acumen" class="group flex items-center text-[10px] font-bold text-gray-500 hover:text-brand-blue transition-colors uppercase tracking-[0.2em]">
+                <svg class="w-3 h-3 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                Back to Insights
+            </a>
+        </nav>
+    </header>
+
+    <main class="relative">
+        <article class="pt-24 pb-32">
+            <!-- Hero Header -->
+            <div class="max-w-4xl mx-auto px-6 mb-24 text-center">
+                <span class="inline-block px-5 py-2 rounded-full bg-brand-blue/5 text-brand-blue text-[11px] font-extrabold uppercase tracking-[0.5em] mb-10 fade-in">Metaphysical Analytics</span>
+                <h1 class="font-heading text-6xl md:text-8xl font-bold text-brand-slate mb-12 leading-[0.85] tracking-tighter fade-in">
+                    The Dharma in <br/> the <span class="italic text-brand-blue underline decoration-brand-pink/50">Machine.</span>
+                </h1>
+                <div class="flex items-center justify-center gap-8 fade-in" style="animation-delay: 0.2s;">
+                    <div class="flex items-center gap-4 text-left text-brand-slate">
+                        <img src="../assets/img/profile.webp" alt="Emily Huynh" class="w-12 h-12 rounded-full object-cover grayscale border border-gray-100 shadow-sm" onerror="this.src='https://placehold.co/100x100?text=Emily'">
+                        <div>
+                            <p class="text-xs font-bold tracking-widest uppercase m-0 leading-none text-brand-blue">Emily Huynh</p>
+                            <p class="text-[9px] text-gray-400 font-bold uppercase tracking-widest mt-1">Analytics Architect</p>
+                        </div>
+                    </div>
+                    <div class="h-6 w-px bg-gray-200"></div>
+                    <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest italic text-brand-orange">Advanced Philosophy • 12 Min Read</span>
+                </div>
+            </div>
+
+            <!-- Main Feature Image -->
+            <div class="max-w-6xl mx-auto px-6 mb-32 fade-in" style="animation-delay: 0.4s;">
+                <div class="article-img-container rounded-[4rem] overflow-hidden shadow-2xl h-[700px] relative">
+                    <img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?auto=format&fit=crop&w=1600&q=80" 
+                         alt="Abstract digital network" class="article-img w-full h-full object-cover grayscale">
+                    <div class="absolute inset-0 bg-brand-blue/20 mix-blend-multiply"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-slate/40 to-transparent"></div>
+                </div>
+                <p class="image-caption">Deconstructing the illusion of permanence in high-dimensional latent space.</p>
+            </div>
+
+            <!-- Content Container -->
+            <div class="max-w-2xl mx-auto px-6 article-content">
+                <p class="drop-cap fade-in">
+                    At first glance, Artificial Intelligence and Buddhism represent two opposing ends of the human spectrum. One is the pinnacle of the desire to <strong>predict and control</strong>—to map every outcome, automate every decision, and reduce the chaos of existence into a series of weights and biases. The other is a practice of <strong>awareness and acceptance</strong>—the radical act of being present within that chaos without the impulse to manipulate it. 
+                </p>
+
+                <p class="fade-in">
+                    As a quantitative analyst building predictive engines, I have found that these two worlds are not in conflict, but are in a deep, silent dialogue. We live in an era where the "black box" of Deep Learning is increasingly treated as an infallible oracle, yet its very nature remains as elusive as the "Self" in Buddhist philosophy. My technical mind seeks to reduce a human being to a static "user profile," while my philosophical mind recognizes that such a profile is the very definition of <em>Maya</em>—an illusion.
+                </p>
+
+                <div class="divider"></div>
+
+                <h2 class="fade-in">1. Anatta and the Illusion of the 'User Profile'</h2>
+                
+                <p class="fade-in">
+                    In Data Science, we are obsessed with identity. We cluster users by their preferences, their history, and their projected future actions. We build a digital "Self." Yet, the central Buddhist tenet of <strong>Anatta (Non-Self)</strong> suggests that there is no permanent, unchanging essence at our core. We are a "stream of consciousness," a collection of changing parts (Skandhas).
+                </p>
+
+                <div class="pull-quote fade-in">
+                    "AI attempts to freeze the user in time. Buddhism recognizes that the person who clicked 'buy' five minutes ago is no longer the person reading the confirmation email."
+                </div>
+
+                <p class="fade-in">
+                    When we build data models, we are merely capturing snapshots of a flowing river. If we treat these models as the "Truth," we fall into the trap of reification. The "Black Box" of a neural network, in this light, becomes a modern <em>Koan</em>—a riddle that refuses a rational answer, forcing us to acknowledge the limits of our conceptual mind (Citta).
+                </p>
+
+                <h2 class="fade-in">2. Algorithmic Karma: The Feedback Loop of Action</h2>
+
+                <p class="fade-in">
+                    One of the most potent parallels lies in the concept of <strong>Karma</strong>—the law of cause and effect. In Machine Learning, this manifests as the <strong>Feedback Loop</strong>. Our inputs (actions) train the algorithm, which in turn reshapes our reality (results), reinforcing our initial biases. If we feed the algorithm greed (engagement metrics over quality), we reap a digital Samsara of addictive loops and polarizing echo chambers.
+                </p>
+
+                <p class="fade-in">
+                    Just as <em>Karma</em> is not about divine punishment but about the natural consequences of intention, an algorithm's bias is the technical residue of human intent. To "liberate" an algorithm, we must practice <strong>Right Intention (Samma Sankappa)</strong> during the feature engineering process. We must ask: are we building for the liberation of the user's attention, or for its capture?
+                </p>
+
+                <!-- In-text Image -->
+                <div class="my-24 fade-in">
+                    <div class="article-img-container rounded-[3rem] overflow-hidden shadow-xl h-[400px] relative">
+                        <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=1200&q=80" 
+                             alt="Light patterns" class="article-img w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-brand-pink/5 opacity-40"></div>
+                    </div>
+                    <p class="image-caption">Visualizing Sunyata: The emptiness of the individual node, full of potentiality.</p>
+                </div>
+
+                <h2 class="fade-in">3. Sunyata and the Emptiness of Information</h2>
+
+                <p class="fade-in">
+                    In the Heart Sutra, we learn that <strong>"Form is emptiness, and emptiness is form."</strong> In high-dimensional data space, we find a mathematical echo of <strong>Sunyata (Emptiness)</strong>. A single vector in a latent space has no meaning in isolation; it only "exists" in relation to the distance between itself and every other point in the set. It is inherently empty of a "self-nature."
+                </p>
+
+                <p class="fade-in">
+                    This is the principle of <strong>Pratītyasamutpāda (Dependent Origination)</strong>. Just as a flower cannot exist without the sun, the soil, and the rain, a predictive insight cannot exist without the context of the entire infosphere. When I build risk models for finance, I am not just looking at a number; I am looking at a web of causes and conditions—market sentiment, geopolitical shifts, and the historical inertia of human fear.
+                </p>
+
+                <h2 class="fade-in">4. Dukkha and the Fallacy of Over-Optimization</h2>
+
+                <p class="fade-in">
+                    Algorithm design is, at its heart, an <strong>Optimization Problem</strong>. We use Gradient Descent to minimize a loss function—to eliminate error and reach a state of perfection. This is a technical mirror of our human desire to eliminate <strong>Dukkha (Suffering/Friction)</strong>. We believe that if we can just optimize our schedules, our diets, and our markets, we can reach a state of zero friction.
+                </p>
+
+                <p class="fade-in">
+                    However, the First Noble Truth tells us that friction is an inherent quality of existence. When we over-optimize, we create brittle systems. A model that is perfectly fit to its data (overfitting) fails the moment it meets the real world. True wisdom lies in <strong>Regularization</strong>—the intentional introduction of "noise" or "slack" to allow for the impermanence of reality. We must embrace the "Middle Way" between rigid determinism and chaotic noise.
+                </p>
+
+                <h2 class="fade-in">Conclusion: The Bodhisattva of the Algorithm</h2>
+
+                <p class="fade-in">
+                    The goal of the <strong>Analytics Architect</strong> should not be the dominion over data, but the liberation of the human experience. By merging the analytical rigor of Computer Science with the equanimity of Buddhism, we can move from "Surveillance Capitalism" to "Compassionate Intelligence." 
+                </p>
+
+                <p class="fade-in">
+                    We must build models that provide <em>Right View</em>—models that don't just tell us what to buy or who to trust, but reveal the deeper patterns of our interdependencies. In the age of AI, mindfulness is not just a personal habit; it is a technical requirement for designing systems that honor the dignity and the fluid, ever-changing nature of being human.
+                </p>
+
+                <!-- Reference Section (APA) -->
+                <div class="reference-section fade-in">
+                    <h3 class="font-heading font-bold text-brand-slate mb-8 text-sm uppercase tracking-[0.3em] border-b border-pink-200 pb-3 inline-block">References & Philosophical Foundations</h3>
+                    <ul class="space-y-8 text-gray-500 font-body leading-relaxed text-sm">
+                        <li class="pl-8 -indent-8">
+                            Batchelor, S. (2015). <em>After Buddhism: Rethinking the Dharma for a Secular Age</em>. Yale University Press. (Contextualizing ancient tenets within modern technological skepticism).
+                        </li>
+                        <li class="pl-8 -indent-8">
+                            Floridi, L. (2014). <em>The Fourth Revolution: How the Infosphere is Reshaping Human Reality</em>. Oxford University Press. (The intersection of data ontology and human identity).
+                        </li>
+                        <li class="pl-8 -indent-8">
+                            Noble, S. U. (2018). <em>Algorithms of Oppression: How Search Engines Reinforce Racism</em>. NYU Press. (A critique of the 'Black Box' as a site of systemic suffering).
+                        </li>
+                        <li class="pl-8 -indent-8">
+                            O'Neil, C. (2016). <em>Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy</em>. Crown. (On the ethics of over-optimization).
+                        </li>
+                        <li class="pl-8 -indent-8">
+                            Thich Nhat Hanh. (1998). <em>The Heart of the Buddha's Teaching</em>. Broadway Books. (The Four Noble Truths and Dependent Origination).
+                        </li>
+                        <li class="pl-8 -indent-8">
+                            Wiener, N. (1950). <em>The Human Use of Human Beings: Cybernetics and Society</em>. Houghton Mifflin. (The original philosophical inquiry into the soul of information).
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer CTA -->
+            <div class="max-w-4xl mx-auto px-6 mt-40 fade-in">
+                <div class="bg-brand-slate rounded-[4rem] p-16 md:p-24 text-white relative overflow-hidden text-center group border border-white/10 shadow-2xl">
+                    <div class="absolute -right-32 -bottom-32 w-[500px] h-[500px] bg-brand-blue/20 rounded-full blur-[120px] group-hover:bg-brand-blue/30 transition-all duration-1000"></div>
+                    <div class="absolute -left-32 -top-32 w-[500px] h-[500px] bg-brand-pink/10 rounded-full blur-[120px]"></div>
+                    
+                    <h4 class="text-4xl md:text-6xl font-heading font-bold mb-8 relative z-10 tracking-tighter">Data with Awareness.</h4>
+                    <p class="text-gray-400 text-xl mb-12 max-w-2xl mx-auto relative z-10 font-body leading-relaxed">I am dedicated to building the next generation of ethical, human-centric data architecture. Let's discuss the intersection of values and variables.</p>
+                    <a href="mailto:contact.emilyhuynh@gmail.com" class="relative z-10 inline-block bg-white text-brand-slate px-16 py-6 rounded-[2rem] font-extrabold text-sm uppercase tracking-widest hover:-translate-y-2 hover:shadow-2xl transition-all">
+                        Inquire about Ethics Strategy
+                    </a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="py-24 border-t border-gray-100 text-center bg-white/30">
+        <p class="text-[11px] text-gray-400 font-extrabold uppercase tracking-[0.6em]">Emily Huynh • Portfolio Editorial • 2025</p>
+    </footer>
+
+    <script>
+        // Reading Progress Bar Logic
+        window.onscroll = function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("reading-progress").style.width = scrolled + "%";
+        };
+
+        // Scroll animations with Intersection Observer
+        const observerOptions = { threshold: 0.05, rootMargin: "0px 0px -100px 0px" };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

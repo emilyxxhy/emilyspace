@@ -662,12 +662,49 @@
         });
     }
 </script>
-<<<<<<< HEAD
 </html>
-=======
+    <script src="assets/js/app.min.js"></script>
+</body>
+<script>
+    // 1. Make the Mobile Menu work
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+
+    // 2. Make the "Hi, I'm Emily" text rotate
+    const words = ["Data Storyteller", "Analytics Architect", "Problem Solver", "Data Science @ UCF"];
+    let index = 0;
+    const textTarget = document.getElementById('rotating-text-small');
+    
+    function rotateText() {
+        if (textTarget) {
+            textTarget.style.opacity = '0'; // Fade out
+            setTimeout(() => {
+                textTarget.innerText = words[index % words.length];
+                textTarget.style.opacity = '1'; // Fade in
+                index++;
+            }, 500);
+        }
+    }
+    setInterval(rotateText, 3000); // Changes every 3 seconds
+    rotateText(); // Run once immediately
+
+    // 3. Form feedback
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', () => {
+            const btn = contactForm.querySelector('button');
+            btn.innerText = "Sending... 🚀";
+            btn.style.opacity = "0.7";
+        });
+    }
+</script>
 <<<<<<< HEAD
 </html>
 =======
 </html>
 >>>>>>> b5cedab (Update website to latest version)
->>>>>>> 8b9244d60dbed40e59f05e8970c2a32b2fe33609

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emily Huynh | Data Storyteller & Analytics Architect Portfolio</title>
+    <title>Emily Huynh | Data Storyteller & Analytics Portfolio</title>
     <meta name="description" content="Emily Huynh's data science and business analytics portfolio. Transforming complex data into actionable insights.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -104,54 +104,146 @@
         </div>
     </header>
 
-    <main id="main-content" class="relative">
+   <section id="welcome" class="min-h-[90vh] flex flex-col items-center justify-center pt-24 pb-12">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+        <div class="inline-flex items-center gap-2 bg-brand-blue/5 text-brand-blue font-heading text-xs md:text-sm font-bold px-5 py-2 rounded-full mb-8 border border-brand-blue/10 opacity-0 animate-fadeInUp">
+            <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-blue"></span>
+            </span>
+            WELCOME TO MY PORTFOLIO
+        </div>
+
+        <h1 class="text-6xl md:text-8xl lg:text-9xl font-heading font-extrabold text-brand-blue mb-6 tracking-tight leading-[0.9] opacity-0 animate-fadeInUp">
+            Hi, I'm Emily.
+        </h1>
         
-        <section id="welcome" class="min-h-screen flex items-center justify-center pt-20 pb-10">
-            <div class="max-w-4xl mx-auto px-4 text-center">
-                <h1 class="text-6xl md:text-8xl lg:text-9xl font-heading font-extrabold text-brand-blue mb-6 tracking-tight leading-none opacity-0 animate-fadeInUp">
-                    Hi, I'm Emily! 
-                    <span class="inline-block animate-pulse origin-bottom-right">👋</span>
-                </h1>
-                
-                <h2 id="rotating-text-small" class="h-12 md:h-16 font-heading text-3xl md:text-5xl font-bold text-brand-orange mb-8 opacity-0 animate-fadeInUp" style="animation-delay: 0.2s;"></h2>
+        <div class="h-12 md:h-20 mb-10">
+            <h2 id="rotating-text-small" class="font-heading text-3xl md:text-6xl font-bold text-gray-800 opacity-0 animate-fadeInUp" style="animation-delay: 0.2s;"></h2>
+        </div>
 
-                <div class="flex flex-col sm:flex-row justify-center gap-4 opacity-0 animate-fadeInUp" style="animation-delay: 0.4s;">
-                    <a href="assets/docs/resume.pdf" target="_blank" class="px-8 py-4 text-lg font-bold text-white bg-brand-blue rounded-xl shadow-xl shadow-blue-200 hover:bg-brand-blue-dark hover:-translate-y-1 transition-all">
-    My Resume
-</a>
-                    <a href="#contact" class="px-8 py-4 text-lg font-bold text-brand-blue bg-white border-2 border-brand-blue/10 rounded-xl hover:border-brand-blue hover:bg-blue-50 transition-all">
-                        Contact me!
-                    </a>
-                </div>
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-8 opacity-0 animate-fadeInUp" style="animation-delay: 0.4s;">
+            <a href="assets/docs/resume.pdf" target="_blank" class="group relative px-10 py-4 text-lg font-bold text-white bg-brand-blue rounded-xl shadow-2xl shadow-blue-200 hover:bg-brand-blue-dark transition-all duration-300 overflow-hidden">
+                <span class="relative z-10">View Resume</span>
+                <div class="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+            </a>
+            
+            <div class="flex gap-6">
+                <a href="https://github.com/emilyxxhy" target="_blank" class="p-4 text-gray-400 hover:text-brand-blue border border-gray-100 rounded-2xl hover:bg-white hover:shadow-xl hover:shadow-blue-50 transition-all duration-300" aria-label="GitHub">
+                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/emilyhuynhh/" target="_blank" class="p-4 text-gray-400 hover:text-brand-blue border border-gray-100 rounded-2xl hover:bg-white hover:shadow-xl hover:shadow-blue-50 transition-all duration-300" aria-label="LinkedIn">
+                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
             </div>
-        </section>
+        </div>
 
-        <section id="about" class="py-20">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6">
-                <div class="bg-white/60 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-sm border border-white/50 fade-in">
-                    <div class="flex flex-col md:flex-row items-start gap-12">
-                        <div class="md:w-5/12 relative group">
-                            <div class="absolute inset-0 bg-brand-pink/50 rounded-2xl transform rotate-3 transition-transform group-hover:rotate-6"></div>
-                            <img src="assets/img/profile.webp" alt="Emily Huynh" class="relative w-full rounded-2xl shadow-lg transform transition-transform group-hover:-translate-y-2 object-cover aspect-[4/5]">
+        <div class="mt-24 pt-12 border-t border-gray-100/50 opacity-0 animate-fadeInUp" style="animation-delay: 0.6s;">
+            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em] mb-8">Technical Proficiency</p>
+            <div class="flex flex-wrap justify-center gap-x-12 gap-y-6 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-700">
+                <span class="font-heading text-lg md:text-xl font-bold text-gray-900">Python</span>
+                <span class="font-heading text-lg md:text-xl font-bold text-gray-900">SQL</span>
+                <span class="font-heading text-lg md:text-xl font-bold text-gray-900">R</span>
+                <span class="font-heading text-lg md:text-xl font-bold text-gray-900">Excel</span>
+                <span class="font-heading text-lg md:text-xl font-bold text-gray-900">Tableau</span>
+                <span class="font-heading text-lg md:text-xl font-bold text-gray-900">Machine Learning</span>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="about" class="py-24 relative overflow-hidden">
+    <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-brand-pink/10 rounded-full blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="relative bg-white/40 backdrop-blur-md rounded-[2.5rem] p-8 md:p-16 border border-white/60 shadow-2xl shadow-gray-200/50">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mb-16">
+                <div class="lg:col-span-5 relative">
+                    <div class="relative z-10 group">
+                        <div class="absolute -inset-4 bg-gradient-to-tr from-brand-blue/20 to-brand-pink/20 rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+                        <img src="assets/img/profile.webp" alt="Emily Huynh" class="relative z-10 w-full rounded-[2rem] shadow-2xl object-cover aspect-[4/5] transition-all duration-500">
+                        
+                        <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl border border-gray-50 z-20 hidden md:block animate-bounce-slow">
+                            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Current Focus</p>
+                            <p class="text-brand-blue font-heading font-extrabold">Deep Learning & NLP</p>
                         </div>
-                        <div class="md:w-7/12 space-y-6">
-                            <h2 class="text-4xl font-heading font-bold text-gray-900">About Me</h2>
-                            <div class="space-y-4 text-lg text-gray-700 leading-relaxed font-body">
-                                <p>
-                                    Hi! I’m Emily Huynh, a <span class="font-bold text-brand-blue bg-blue-50 px-1 rounded">sophomore at DePauw University</span>, majoring in Computer Science and Business Analytics. I’m passionate about uncovering insights hidden in data and turning them into decisions that create real impact.
-                                </p>
-                                <p>
-                                    I’m skilled in data analysis, business intelligence, and machine learning, using tools like Python, SQL, and Excel to explore complex datasets. As the Founder and President of the <span class="font-bold text-gray-900">DePauw Data Science Club</span>, I’ve learned how to combine analytical thinking with leadership and creativity.
-                                </p>
-                                <p class="pt-4 border-t border-gray-200">
-                                    Outside of academics, I love exploring astrology and studying world charts, which deepens my fascination with <span class="italic text-brand-pink font-bold">patterns and human behavior</span>. I also love making coffee, which actually inspired my recent data project analyzing Starbucks drink nutrition.
-                                </p>
-                            </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="text-brand-blue font-heading font-bold tracking-widest text-xs uppercase block">01 — Biography</span>
+                    <h2 class="text-5xl font-heading font-extrabold text-gray-900 tracking-tight leading-tight">The intersection of <span class="text-brand-blue">data</span> and human intent.</h2>
+                    
+                    <div class="space-y-4 text-lg text-gray-600 leading-relaxed font-body">
+                        <p>
+                            I am a <span class="text-gray-900 font-semibold underline decoration-brand-pink decoration-2 underline-offset-4">Data Science major at UCF</span>. I specialize in engineering systems that translate raw variables into strategic narratives. 
+                        </p>
+                        <p>
+                            My approach combines rigorous statistical modeling with a deep interest in human behavioral patterns. Whether it’s optimizing retail revenue or predicting customer churn, I build tools that don't just show data—they solve problems.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-6 pt-6 border-t border-gray-100">
+                        <div>
+                            <p class="text-3xl font-heading font-extrabold text-gray-900">150K+</p>
+                            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Records Managed</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-heading font-extrabold text-gray-900">92%</p>
+                            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Model Precision</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="group bg-brand-blue text-white rounded-3xl p-8 hover:shadow-xl transition-all duration-500 relative overflow-hidden">
+                    <div class="absolute -right-2 -bottom-4 text-white/10 font-heading font-black text-7xl">INTJ</div>
+                    <span class="text-white/60 font-heading font-bold tracking-widest text-[10px] uppercase block mb-4">My Type</span>
+                    <h3 class="text-xl font-heading font-bold mb-2">The Architect</h3>
+                    <p class="text-xs text-white/80 leading-relaxed mb-4">
+                        Driven by logic, efficiency, and long-term strategy. I thrive when building complex systems from the ground up.
+                    </p>
+                    <div class="flex gap-1">
+                        <span class="px-2 py-0.5 bg-white/20 rounded text-[9px] font-bold">I</span>
+                        <span class="px-2 py-0.5 bg-white/20 rounded text-[9px] font-bold">N</span>
+                        <span class="px-2 py-0.5 bg-white/20 rounded text-[9px] font-bold">T</span>
+                        <span class="px-2 py-0.5 bg-white/20 rounded text-[9px] font-bold">J</span>
+                    </div>
+                </div>
+
+                <div class="bg-brand-blue/[0.02] rounded-3xl p-8 border border-brand-blue/5 hover:bg-white hover:shadow-xl transition-all duration-500">
+                    <span class="text-brand-blue font-heading font-bold tracking-widest text-[10px] uppercase block mb-4">The Logic</span>
+                    <h3 class="text-xl font-heading font-bold text-gray-900 mb-2">MBTI Enthusiast</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        Fascinated by personality frameworks as a form of human-centric pattern recognition. I love analyzing how cognitive functions influence decision-making.
+                    </p>
+                    <span class="mt-4 block text-xl">🧠</span>
+                </div>
+
+                <div class="bg-gray-50/50 rounded-3xl p-8 border border-gray-100 hover:bg-white hover:shadow-xl transition-all duration-500">
+                    <span class="text-brand-pink font-heading font-bold tracking-widest text-[10px] uppercase block mb-4">The Palate</span>
+                    <h3 class="text-xl font-heading font-bold text-gray-900 mb-2">Food & Coffee</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        Curiosity for flavors inspired my clustering analysis of 160+ Starbucks beverages to identify healthier alternatives.
+                    </p>
+                    <span class="mt-4 block text-xl">🍜 ☕</span>
+                </div>
+
+                <div class="bg-gray-50/50 rounded-3xl p-8 border border-gray-100 hover:bg-white hover:shadow-xl transition-all duration-500">
+                    <span class="text-brand-pink font-heading font-bold tracking-widest text-[10px] uppercase block mb-4">The Cosmos</span>
+                    <h3 class="text-xl font-heading font-bold text-gray-900 mb-2">Astrology</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        Studying universal cycles and world charts to understand behavioral trends beyond the traditional dataset.
+                    </p>
+                    <span class="mt-4 block text-xl">🌙</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
 
         <section id="projects" class="py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6">
@@ -285,127 +377,117 @@
             </div>
         </section>
 
-        <section id="leadership" class="py-20 bg-white/50">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6">
-                <div class="text-center mb-16 fade-in">
-                    <span class="inline-block bg-brand-pink text-brand-blue font-heading text-sm font-bold px-6 py-2 rounded-full shadow-md uppercase tracking-wider">
-                        Community & Impact
-                    </span>
-                    <h2 class="text-4xl lg:text-5xl font-heading font-bold text-gray-900 mt-6">Leadership</h2>
-                    <p class="text-gray-600 font-body mt-2">Leading initiatives and building communities.</p>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all fade-in">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="p-3 bg-brand-blue/10 rounded-full text-brand-blue text-2xl">🚀</div>
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-900">Founder & President</h3>
-                                <div class="text-sm font-semibold text-gray-500">DePauw Data Science Club</div>
-                            </div>
-                        </div>
-                        <ul class="list-disc pl-5 space-y-2 text-gray-600 text-sm">
-                            <li>Founded the university's first student-led data science community, bridging the gap between technical curriculum and real-world application.</li>
-                            <li>Organize weekly workshops and guest speaker sessions to enhance student proficiency in Python, SQL, and Machine Learning.</li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all fade-in delay-100">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="p-3 bg-brand-orange/10 rounded-full text-brand-orange text-2xl">🤝</div>
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-900">Head of External Relations</h3>
-                                <div class="text-sm font-semibold text-gray-500">LQD Business Research Club</div>
-                            </div>
-                        </div>
-                        <ul class="list-disc pl-5 space-y-2 text-gray-600 text-sm">
-                            <li>Spearhead outreach strategies to establish partnerships with industry professionals and alumni for mentorship opportunities.</li>
-                            <li>Coordinate external communications and networking events to expand the club's professional reach and impact.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills-tech" class="py-20">
+                <section id="leadership" class="py-24 relative overflow-hidden bg-brand-bg">
             <div class="max-w-6xl mx-auto px-4 sm:px-6">
-                <div class="text-center mb-16 fade-in">
-                    <span class="inline-block bg-brand-pink text-brand-blue font-heading text-sm font-bold px-6 py-2 rounded-full shadow-md uppercase tracking-wider">My Toolkit</span>
-                    <h2 class="text-4xl lg:text-5xl font-heading font-bold text-gray-900 mt-6">Skills & Technologies</h2>
+                <div class="text-center mb-24 fade-in">
+                    <span class="text-brand-blue font-heading font-bold tracking-[0.4em] text-xs uppercase mb-3 block">My Journey</span>
+                    <h2 class="text-5xl md:text-6xl font-heading font-bold text-gray-900 leading-tight">Narrative Leadership</h2>
                 </div>
-
-                <div class="space-y-16">
-                    <div class="fade-in">
-                        <h3 class="text-3xl font-heading font-bold text-gray-900 mb-8">📊 Core & Modeling</h3>
-                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-7 gap-4">
-                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-10 h-10 mb-3">
-                                <span class="font-bold text-sm text-gray-700">Python</span>
-                            </div>
-                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="w-10 h-10 mb-3">
-                                <span class="font-bold text-sm text-gray-700">MySQL</span>
-                            </div>
-                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
-                                <img src="https://cdn.worldvectorlogo.com/logos/tableau-software.svg" alt="Tableau" class="w-10 h-10 mb-3">
-                                <span class="font-bold text-sm text-gray-700">Tableau</span>
-                            </div>
-                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI" class="w-10 h-10 mb-3">
-                                <span class="font-bold text-sm text-gray-700">Power BI</span>
-                            </div>
-                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rstudio/rstudio-original.svg" alt="RStudio" class="w-10 h-10 mb-3">
-                                <span class="font-bold text-sm text-gray-700">RStudio</span>
-                            </div>
-                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg" alt="Excel" class="w-10 h-10 mb-3">
-                                <span class="font-bold text-sm text-gray-700">Excel</span>
-                            </div>
-                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
-                                <img src="https://www.vectorlogo.zone/logos/google_analytics/google_analytics-icon.svg" alt="G.Analytics" class="w-10 h-10 mb-3">
-                                <span class="font-bold text-sm text-gray-700 text-center">Analytics</span>
+                <div class="relative">
+                    <div class="timeline-path hidden md:block"></div>
+                    <div class="relative grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-32 fade-in">
+                        <div class="md:text-right">
+                            <span class="inline-block bg-brand-blue/5 text-brand-blue text-[10px] font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-4">Foundation</span>
+                            <h3 class="text-3xl font-heading font-bold text-gray-900 mb-4">Founding DePauw's First Data Science Hub</h3>
+                            <p class="text-gray-600 font-body leading-relaxed mb-6">I architected the university’s first student-led hub to scale to 50+ members. I focused on making data science accessible, social, and impact-driven by bridging technical theory and real-world application.</p>
+                            <div class="flex flex-wrap gap-2 justify-start md:justify-end">
+                                <span class="bg-white border border-gray-100 px-4 py-2 rounded-xl text-xs font-bold text-brand-blue shadow-sm">Founder & President</span>
                             </div>
                         </div>
+                        <div class="relative group"><div class="absolute inset-0 bg-brand-blue/10 rounded-[2.5rem] transform -rotate-3 group-hover:rotate-0 transition-transform"></div><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" class="relative rounded-[2.5rem] shadow-2xl h-72 md:h-96 w-full object-cover animate-float"></div>
+                        <div class="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-brand-blue border-4 border-white shadow-lg"></div>
                     </div>
-
-                    <div class="fade-in delay-100">
-                        <h3 class="text-3xl font-heading font-bold text-gray-900 mb-8">🎨 Design & Studio Tools</h3>
-                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-7 gap-4">
-                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" class="w-10 h-10 mb-3">
-                                <span class="font-bold text-sm text-gray-700">Figma</span>
-                            </div>
-                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Google_Workspace_Logo.svg" alt="Workspace" class="w-10 h-10 mb-3">
-                                <span class="font-bold text-sm text-gray-700">Workspace</span>
-                            </div>
-                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-line.svg" alt="Illustrator" class="w-10 h-10 mb-3">
-                                <span class="font-bold text-sm text-gray-700">Illustrator</span>
-                            </div>
-                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-line.svg" alt="Photoshop" class="w-10 h-10 mb-3">
-                                <span class="font-bold text-sm text-gray-700">Photoshop</span>
-                            </div>
-                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" alt="Premiere" class="w-10 h-10 mb-3">
-                                <span class="font-bold text-sm text-gray-700">Premiere</span>
-                            </div>
-                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
-                                <img src="https://seeds.sproutsocial.com/static/f58d20364952044320b3323c21389868/3b320/logo-sprout-icon.png" alt="Sprout" class="w-10 h-10 mb-3 object-contain">
-                                <span class="font-bold text-sm text-gray-700">Sprout</span>
-                            </div>
-                            <div class="skill-card flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Meta_Spark_Studio_Logo.png" alt="Meta Spark" class="w-10 h-10 mb-3 object-contain">
-                                <span class="font-bold text-sm text-gray-700">Meta Spark</span>
+                    <div class="relative grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-16 fade-in">
+                        <div class="relative group order-last md:order-first"><div class="absolute inset-0 bg-brand-pink/30 rounded-[2.5rem] transform rotate-3 group-hover:rotate-0 transition-transform"></div><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" class="relative rounded-[2.5rem] shadow-2xl h-72 md:h-96 w-full object-cover" style="animation: float 6s infinite reverse;"></div>
+                        <div>
+                            <span class="inline-block bg-brand-pink/20 text-brand-pink text-[10px] font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-4">External Relations</span>
+                            <h3 class="text-3xl font-heading font-bold text-gray-900 mb-4">Strategic Lead: LQD Research Club</h3>
+                            <p class="text-gray-600 font-body leading-relaxed mb-6"> <li>Redesigned event formats based on historical participation data, boosting attendance by 60% across 5+ workshops, hackathons, and networking sessions</li>
+<li>Built and managed a sponsorship pipeline, improving partner conversion rates by 40% through targeted outreach and structured follow-up</li>
+</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-white border border-gray-100 px-4 py-2 rounded-xl text-xs font-bold text-brand-pink shadow-sm">Strategic Lead</span>
                             </div>
                         </div>
+                        <div class="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-brand-pink border-4 border-white shadow-lg"></div>
                     </div>
                 </div>
             </div>
         </section>
 
+    <section id="skills-tech" class="py-24 bg-white/50 relative overflow-hidden">
+    <div class="absolute top-1/2 left-0 w-72 h-72 bg-brand-blue/5 rounded-full blur-[100px] -z-10"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-20 fade-in">
+            <span class="inline-block bg-brand-pink text-brand-blue font-heading text-xs font-bold px-6 py-2 rounded-full shadow-md uppercase tracking-wider">The Quantitative Stack</span>
+            <h2 class="text-5xl font-heading font-bold text-gray-900 mt-6 leading-tight">Technical Toolkit <br/>& <span class="text-brand-blue">Domain Expertise</span></h2>
+        </div>
+
+        <div class="space-y-20">
+            <div class="fade-in">
+                <div class="flex items-center gap-4 mb-10">
+                    <div class="h-px flex-1 bg-gray-200"></div>
+                    <h3 class="text-2xl font-heading font-bold text-gray-900">🧬 Data Science & Stats</h3>
+                    <div class="h-px flex-1 bg-gray-200"></div>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                    <div class="skill-card flex flex-col items-center p-6 bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:border-brand-blue/30 transition-all">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-10 h-10 mb-4">
+                        <span class="font-bold text-[10px] text-gray-700 uppercase tracking-widest text-center">Python (Pandas/NumPy)</span>
+                    </div>
+                    <div class="skill-card flex flex-col items-center p-6 bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:border-brand-blue/30 transition-all">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="w-10 h-10 mb-4">
+                        <span class="font-bold text-[10px] text-gray-700 uppercase tracking-widest text-center">SQL (MySQL/ETL)</span>
+                    </div>
+                    <div class="skill-card flex flex-col items-center p-6 bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:border-brand-blue/30 transition-all">
+                        <img src="https://cdn.worldvectorlogo.com/logos/tableau-software.svg" alt="Tableau" class="w-10 h-10 mb-4">
+                        <span class="font-bold text-[10px] text-gray-700 uppercase tracking-widest text-center">Tableau (LOD)</span>
+                    </div>
+                    <div class="skill-card flex flex-col items-center p-6 bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:border-brand-blue/30 transition-all">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI" class="w-10 h-10 mb-4">
+                        <span class="font-bold text-[10px] text-gray-700 uppercase tracking-widest text-center">Power BI (DAX)</span>
+                    </div>
+                    <div class="skill-card flex flex-col items-center p-6 bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:border-brand-blue/30 transition-all">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg" alt="Excel" class="w-10 h-10 mb-4">
+                        <span class="font-bold text-[10px] text-gray-700 uppercase tracking-widest text-center">Advanced Excel</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fade-in">
+                <div class="flex items-center gap-4 mb-10">
+                    <div class="h-px flex-1 bg-gray-200"></div>
+                    <h3 class="text-2xl font-heading font-bold text-gray-900">💻 Software Engineering</h3>
+                    <div class="h-px flex-1 bg-gray-200"></div>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                    <div class="skill-card flex flex-col items-center p-6 bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:border-brand-blue/30 transition-all">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-10 h-10 mb-4">
+                        <span class="font-bold text-[10px] text-gray-700 uppercase tracking-widest text-center">Java (OOP)</span>
+                    </div>
+                    <div class="skill-card flex flex-col items-center p-6 bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:border-brand-blue/30 transition-all">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" class="w-10 h-10 mb-4">
+                        <span class="font-bold text-[10px] text-gray-700 uppercase tracking-widest text-center">C Programming</span>
+                    </div>
+                    <div class="skill-card flex flex-col items-center p-6 bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:border-brand-blue/30 transition-all">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="w-10 h-10 mb-4">
+                        <span class="font-bold text-[10px] text-gray-700 uppercase tracking-widest text-center">Version Control</span>
+                    </div>
+                    <div class="skill-card flex flex-col items-center p-6 bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:border-brand-blue/30 transition-all">
+                        <div class="flex gap-2 mb-4">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" class="w-6 h-6">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" class="w-6 h-6">
+                        </div>
+                        <span class="font-bold text-[10px] text-gray-700 uppercase tracking-widest text-center">Web Foundation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
         <section id="domain-acumen" class="bg-white/60 py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-16 fade-in">
@@ -419,25 +501,25 @@
                         <span class="text-3xl mb-4 block transform group-hover:scale-110 transition-transform">🧭</span>
                         <h3 class="text-2xl font-heading font-bold text-gray-900 mb-2 group-hover:text-brand-blue transition-colors">How I Got Here</h3>
                         <p class="text-gray-600 text-sm leading-relaxed mb-4">I didn’t start with code. I started with curiosity. I’ve always loved asking why — why people buy, why systems fail, why numbers behave the way they do.</p>
-                        <a href="#" class="text-brand-blue font-bold text-sm hover:text-brand-orange transition-colors">Read More →</a>
+                        <a href="articles/how-i-got-here.html" class="text-brand-blue font-bold text-sm hover:text-brand-orange transition-colors">Read More →</a>
                     </div>
                     <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group fade-in">
                         <span class="text-3xl mb-4 block transform group-hover:scale-110 transition-transform">🧘‍♀️</span>
                         <h3 class="text-2xl font-heading font-bold text-gray-900 mb-2 group-hover:text-brand-blue transition-colors">When Buddhism Meets AI</h3>
                         <p class="text-gray-600 text-sm leading-relaxed mb-4">Artificial intelligence often aims to predict and control, while Buddhism teaches awareness and acceptance. I find the intersection fascinating.</p>
-                        <a href="#" class="text-brand-blue font-bold text-sm hover:text-brand-orange transition-colors">Read More →</a>
+                        <a href="articles/buddhism-meets-ai.html" class="text-brand-blue font-bold text-sm hover:text-brand-orange transition-colors">Read More →</a>
                     </div>
                     <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group fade-in">
                         <span class="text-3xl mb-4 block transform group-hover:scale-110 transition-transform">📊</span>
                         <h3 class="text-2xl font-heading font-bold text-gray-900 mb-2 group-hover:text-brand-blue transition-colors">Machine Learning in Product Analytics</h3>
                         <p class="text-gray-600 text-sm leading-relaxed mb-4">Every click, scroll, and pause tells a story about user intent. Machine learning transforms that behavior into insight.</p>
-                        <a href="#" class="text-brand-blue font-bold text-sm hover:text-brand-orange transition-colors">Read More →</a>
+                        <a href="articles/ml-product-analytics.html" class="text-brand-blue font-bold text-sm hover:text-brand-orange transition-colors">Read More →</a>
                     </div>
                     <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group fade-in">
                         <span class="text-3xl mb-4 block transform group-hover:scale-110 transition-transform">🦉</span>
                         <h3 class="text-2xl font-heading font-bold text-gray-900 mb-2 group-hover:text-brand-blue transition-colors">Duolingo and Data-Driven Learning</h3>
                         <p class="text-gray-600 text-sm leading-relaxed mb-4">Duolingo’s success isn’t just about fun gamification; it’s powered by machine learning. Every exercise and mistake feeds into adaptive algorithms.</p>
-                        <a href="#" class="text-brand-blue font-bold text-sm hover:text-brand-orange transition-colors">Read More →</a>
+                        <a href="articles/duolingo-data-strategy.html" class="text-brand-blue font-bold text-sm hover:text-brand-orange transition-colors">Read More →</a>
                     </div>
                 </div>
             </div>
@@ -450,70 +532,134 @@
                     <h2 class="text-4xl lg:text-5xl font-heading font-bold text-gray-900 mt-6">Ready to Collaborate?</h2>
                     <p class="text-gray-600 font-body mt-2">I'm currently seeking a Summer 2026 Analytics Internship.</p>
                 </div>
-
-                <form id="contact-form" action="https://formspree.io/f/YOUR_ID" method="POST" class="bg-white p-8 rounded-xl shadow-2xl space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Name</label>
-                            <input type="text" id="name" name="name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-brand-blue">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
-                            <input type="email" id="email" name="email" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-brand-blue">
-                        </div>
-                    </div>
-                    <div>
-                        <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Message</label>
-                        <textarea id="message" name="message" rows="5" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-brand-blue"></textarea>
-                    </div>
-                    <div class="pt-4">
-                        <button type="submit" class="w-full bg-brand-blue text-white font-heading font-bold px-8 py-3 rounded-xl shadow-lg hover:bg-opacity-90 transition-all transform hover:scale-[1.01]">Send Message</button>
-                    </div>
-                </form>
-            </div>
-        </section>
+<form id="contact-form" action="https://formspree.io/f/mojaegjo" method="POST" class="bg-white p-8 rounded-xl shadow-2xl space-y-6">
+    <input type="text" name="_gotcha" style="display:none">
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+            <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Name</label>
+            <input type="text" id="name" name="name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue outline-none">
+        </div>
+        <div>
+            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+            <input type="email" id="email" name="email" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue outline-none">
+        </div>
+    </div>
+    <div>
+        <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+        <textarea id="message" name="message" rows="5" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue outline-none"></textarea>
+    </div>
+    <div class="pt-4">
+        <button type="submit" class="w-full bg-brand-blue text-white font-heading font-bold px-8 py-3 rounded-xl shadow-lg hover:bg-opacity-90 transition-all transform hover:scale-[1.01]">
+            Send Message
+        </button>
+    </div>
+</form>
 
     </main>
 
-    <footer class="bg-gray-900 text-gray-300 py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
-                <div class="fade-in">
-                    <h3 class="font-heading text-2xl font-bold text-white mb-4">About</h3>
-                    <p class="font-body text-sm leading-relaxed mb-4">I love discovering the world hidden within raw data. Transforming complex datasets into clear, actionable insights.</p>
-                    <div class="flex justify-center md:justify-start space-x-5 text-xl">
-                        <a href="PLACEHOLDER_LINK_TO_LINKEDIN" target="_blank" class="hover:text-brand-pink transition-colors">LinkedIn</a>
-                        <a href="PLACEHOLDER_LINK_TO_GITHUB" target="_blank" class="hover:text-brand-pink transition-colors">GitHub</a>
-                        <a href="PLACEHOLDER_LINK_TO_MEDIUM" target="_blank" class="hover:text-brand-pink transition-colors">Medium</a>
-                    </div>
+</main>
+
+    <footer class="w-full bg-[#0B0F1A] border-t border-white/5 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-10">
+                
+                <div class="space-y-4 text-center md:text-left">
+                    <a href="#welcome" class="font-heading text-3xl font-bold text-white tracking-tighter hover:text-brand-blue transition-colors">
+                        Emily H<span class="text-brand-blue">.</span>
+                    </a>
+                    <p class="font-body text-sm text-gray-500 max-w-xs leading-relaxed">
+                        Sifting through the digital noise to find the <span class="text-white italic">human stories</span> buried in the numbers.
+                    </p>
                 </div>
-                <div class="fade-in">
-                    <h3 class="font-heading text-2xl font-bold text-white mb-4">Links</h3>
-                    <ul class="space-y-3 font-body text-sm">
-                        <li><a href="#welcome" class="hover:text-brand-pink">- Home</a></li>
-                        <li><a href="#about" class="hover:text-brand-pink">- About</a></li>
-                        <li><a href="#projects" class="hover:text-brand-pink">- Projects</a></li>
-                        <li><a href="#contact" class="hover:text-brand-pink">- Contact</a></li>
-                    </ul>
+
+                <div class="flex gap-12 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">
+                    <a href="#about" class="hover:text-white transition-colors">About</a>
+                    <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+                    <a href="assets/docs/resume.pdf" target="_blank" class="text-brand-blue">Resume</a>
                 </div>
-                <div class="fade-in">
-                    <h3 class="font-heading text-2xl font-bold text-white mb-4">Contact</h3>
-                    <div class="space-y-3 font-body text-sm">
-                        <div class="flex items-center justify-center md:justify-start">
-                            <span class="text-xl mr-3 text-brand-pink">📞</span> <a href="tel:765-301-8735">765-301-8735</a>
-                        </div>
-                        <div class="flex items-center justify-center md:justify-start">
-                            <span class="text-xl mr-3 text-brand-pink">📧</span> <a href="mailto:contact.emilyhuynh@gmail.com">contact.emilyhuynh@gmail.com</a>
-                        </div>
-                    </div>
+
+                <div class="flex gap-4">
+                    <a href="https://github.com/emilyxxhy" target="_blank" class="p-3 border border-white/10 rounded-full hover:bg-white/5 transition-all text-gray-400 hover:text-white">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
                 </div>
             </div>
-            <div class="pt-12 mt-12 border-t border-gray-700 text-center">
-                <p class="font-body text-sm text-gray-500">© 2025 Emily Huynh.</p>
+
+            <div class="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] font-bold uppercase tracking-widest text-gray-600">
+                <p>© 2025 All Rights Reserved — UCF Data Science</p>
+                <p>Made with <span class="text-brand-orange italic">Iced Shaken Espresso</span></p>
             </div>
         </div>
     </footer>
 
     <script src="assets/js/app.min.js"></script>
+    <script>
+        // Mobile Menu
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        }
+
+        // Rotating Text
+        const words = ["Data Storyteller", "Analytics Architect", "Problem Solver", "Data Science @ UCF"];
+        let index = 0;
+        const textTarget = document.getElementById('rotating-text-small');
+        
+        function rotateText() {
+            if (textTarget) {
+                textTarget.style.opacity = '0';
+                setTimeout(() => {
+                    textTarget.innerText = words[index % words.length];
+                    textTarget.style.opacity = '1';
+                    index++;
+                }, 500);
+            }
+        }
+        setInterval(rotateText, 3000);
+        rotateText();
+    </script>
 </body>
+</html>
+    <script src="assets/js/app.min.js"></script>
+</body>
+<script>
+    // 1. Make the Mobile Menu work
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+
+    // 2. Make the "Hi, I'm Emily" text rotate
+    const words = ["Data Storyteller", "Analytics Architect", "Problem Solver", "Data Science @ UCF"];
+    let index = 0;
+    const textTarget = document.getElementById('rotating-text-small');
+    
+    function rotateText() {
+        if (textTarget) {
+            textTarget.style.opacity = '0'; // Fade out
+            setTimeout(() => {
+                textTarget.innerText = words[index % words.length];
+                textTarget.style.opacity = '1'; // Fade in
+                index++;
+            }, 500);
+        }
+    }
+    setInterval(rotateText, 3000); // Changes every 3 seconds
+    rotateText(); // Run once immediately
+
+    // 3. Form feedback
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', () => {
+            const btn = contactForm.querySelector('button');
+            btn.innerText = "Sending... 🚀";
+            btn.style.opacity = "0.7";
+        });
+    }
+</script>
 </html>

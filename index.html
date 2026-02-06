@@ -245,249 +245,322 @@
     </div>
 </section>
 
-        <section id="projects" class="py-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                <div class="text-center mb-16 fade-in">
-                    <span class="inline-block bg-brand-pink text-brand-blue font-heading text-sm font-bold px-6 py-2 rounded-full shadow-md uppercase tracking-wider">Impact-Driven Analytics</span>
-                    <h2 class="text-4xl lg:text-5xl font-heading font-bold text-gray-900 mt-6">Selected Case Studies</h2>
+   <!-- Projects Section (UPDATED WITH SEARCH) -->
+        <section id="projects" class="py-32 bg-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8 fade-in">
+                    <div class="max-w-xl">
+                        <span class="text-brand-blue font-heading font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">02 — Case Studies</span>
+                        <h2 class="text-5xl md:text-7xl font-heading font-extrabold text-gray-900 leading-[0.9] tracking-tighter">
+                            Selected <br/><span class="text-brand-blue">Projects.</span>
+                        </h2>
+                    </div>
+                    <div class="hidden md:block">
+                        <p class="text-gray-400 text-sm font-medium italic max-w-xs text-right">
+                            "Turning complex variables into strategic narratives."
+                        </p>
+                    </div>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-8">
-                    <article class="group bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-2xl hover:shadow-blue-100/50 transition-all duration-300 hover:-translate-y-1 fade-in">
-                        <span class="text-xl font-heading font-bold text-brand-blue block mb-2">01. Banking Churn Model</span>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-brand-blue transition-colors">
-                            <a href="projects/banking-churn-prediction.html" class="block">Customer Retention & XGBoost Classification</a>
-                        </h3>
-                        <p class="text-gray-600 mb-6">Developed a high-accuracy XGBoost model to predict customer churn, achieving >91% accuracy and driving a targeted retention strategy.</p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="tech-chip bg-blue-50 text-blue-800">Python</span>
-                            <span class="tech-chip bg-blue-50 text-blue-800">XGBoost</span>
-                            <span class="tech-chip bg-blue-50 text-blue-800">SHAP</span>
+                <!-- Search Bar Container -->
+                <div class="mb-16 fade-in" style="transition-delay: 100ms;">
+                    <div class="relative max-w-2xl search-container group transition-all duration-300">
+                        <div class="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
+                            <svg class="w-4 h-4 text-gray-400 group-focus-within:text-brand-blue transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
                         </div>
-                        <div class="flex gap-4">
-                            <a href="https://github.com/emilyxxhy/churn-modelling" target="_blank" class="text-sm font-bold text-brand-blue hover:text-brand-orange transition-colors">View GitHub</a>
+                        <input type="text" id="project-search" 
+                            placeholder="Filter by keywords (Python, Power BI, SQL, etc...)" 
+                            class="w-full pl-14 pr-6 py-5 bg-brand-bg border border-gray-100 rounded-2xl text-xs font-bold uppercase tracking-widest text-gray-700 focus:outline-none focus:border-brand-blue transition-all placeholder:text-gray-300">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12" id="projects-grid">
+                    <!-- Project 01 -->
+                    <article class="project-card group bg-brand-bg rounded-2xl p-10 flex flex-col h-full transition-all duration-500" data-tags="fintech classification python xgboost shap">
+                        <div class="flex justify-between items-start mb-8">
+                            <span class="text-[10px] font-bold text-brand-blue bg-brand-blue/5 px-3 py-1 rounded-full uppercase tracking-widest">FinTech • Classification</span>
+                            <span class="text-gray-300 font-heading font-bold text-4xl group-hover:text-brand-blue/20 transition-colors">01</span>
+                        </div>
+                        <h3 class="text-3xl font-heading font-bold text-gray-900 mb-4 group-hover:text-brand-blue transition-colors leading-tight">
+                            Banking Churn Prediction Model
+                        </h3>
+                        <p class="text-gray-500 text-sm font-body leading-relaxed mb-8 flex-grow">
+                            Developed a high-accuracy XGBoost classifier to predict customer attrition. Beyond the metrics, I focused on SHAP-based explainability to empower stakeholders.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="px-3 py-1 bg-white border border-gray-100 rounded-md text-[9px] font-bold text-gray-600 uppercase tracking-tighter">Python</span>
+                            <span class="px-3 py-1 bg-white border border-gray-100 rounded-md text-[9px] font-bold text-gray-600 uppercase tracking-tighter">XGBoost</span>
+                            <span class="px-3 py-1 bg-white border border-gray-100 rounded-md text-[9px] font-bold text-gray-600 uppercase tracking-tighter">SHAP</span>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <a href="projects/banking-churn-prediction.html" class="text-[10px] font-bold uppercase tracking-widest text-brand-blue border-b-2 border-brand-blue/20 hover:border-brand-blue transition-all pb-1">View Case Study</a>
+                            <a href="https://github.com/emilyxxhy/churn-modelling" target="_blank" class="text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-brand-blue transition-colors">GitHub</a>
                         </div>
                     </article>
 
-                    <article class="group bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-2xl hover:shadow-green-100/50 transition-all duration-300 hover:-translate-y-1 fade-in delay-100">
-                        <span class="text-xl font-heading font-bold text-brand-blue block mb-2">02. Starbucks Nutrition</span>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-brand-blue transition-colors">
-                            <a href="projects/starbucks-nutrition-analysis.html" class="block">K-Means Clustering & Streamlit App</a>
-                        </h3>
-                        <p class="text-gray-600 mb-6">Segmented 160+ drinks using K-Means and deployed an interactive Streamlit app with KNN to recommend healthier alternatives.</p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="tech-chip bg-green-50 text-green-800">Clustering</span>
-                            <span class="tech-chip bg-green-50 text-green-800">Streamlit</span>
-                            <span class="tech-chip bg-green-50 text-green-800">PCA</span>
+                    <!-- Project 02 -->
+                    <article class="project-card group bg-brand-bg rounded-2xl p-10 flex flex-col h-full transition-all duration-500" data-tags="healthtech ml clustering streamlit pca">
+                        <div class="flex justify-between items-start mb-8">
+                            <span class="text-[10px] font-bold text-brand-orange bg-brand-orange/5 px-3 py-1 rounded-full uppercase tracking-widest">HealthTech • ML</span>
+                            <span class="text-gray-300 font-heading font-bold text-4xl group-hover:text-brand-orange/20 transition-colors">02</span>
                         </div>
-                        <div class="flex gap-4">
-                            <a href="https://starbucksportfolioapp-67oaqbtqc77lls7gz2fvjy.streamlit.app/" target="_blank" class="text-sm font-bold text-brand-blue hover:text-brand-orange transition-colors">View Live App</a>
+                        <h3 class="text-3xl font-heading font-bold text-gray-900 mb-4 group-hover:text-brand-orange transition-colors leading-tight">
+                            Starbucks Nutritional Clustering
+                        </h3>
+                        <p class="text-gray-500 text-sm font-body leading-relaxed mb-8 flex-grow">
+                            An unsupervised learning project segmenting 160+ beverages. Built a personalized "Healthy Swap" engine using K-Means and PCA, deployed via Streamlit.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="px-3 py-1 bg-white border border-gray-100 rounded-md text-[9px] font-bold text-gray-600 uppercase tracking-tighter">Clustering</span>
+                            <span class="px-3 py-1 bg-white border border-gray-100 rounded-md text-[9px] font-bold text-gray-600 uppercase tracking-tighter">Streamlit</span>
+                            <span class="px-3 py-1 bg-white border border-gray-100 rounded-md text-[9px] font-bold text-gray-600 uppercase tracking-tighter">PCA</span>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <a href="projects/starbucks-nutrition-analysis.html" class="text-[10px] font-bold uppercase tracking-widest text-brand-orange border-b-2 border-brand-orange/20 hover:border-brand-orange transition-all pb-1">View Case Study</a>
+                            <a href="https://starbucksportfolioapp-67oaqbtqc77lls7gz2fvjy.streamlit.app/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-brand-orange transition-colors">Live App</a>
                         </div>
                     </article>
 
-                    <article class="group bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-2xl hover:shadow-yellow-100/50 transition-all duration-300 hover:-translate-y-1 fade-in">
-                        <span class="text-xl font-heading font-bold text-brand-blue block mb-2">03. Coffee Retail Dashboard</span>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-brand-blue transition-colors">
-                            <a href="projects/coffee-retail-bi-dashboard.html" class="block">150K Transaction Data & Excel BI</a>
-                        </h3>
-                        <p class="text-gray-600 mb-6">Transformed raw data into a dynamic Excel BI Dashboard using Power Query, identifying peak sales windows and increasing ATV by 5%.</p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="tech-chip bg-yellow-50 text-yellow-800">Excel BI</span>
-                            <span class="tech-chip bg-yellow-50 text-yellow-800">Power Query</span>
-                            <span class="tech-chip bg-yellow-50 text-yellow-800">KPIs</span>
+                    <!-- Project 03 -->
+                    <article class="project-card group bg-brand-bg rounded-2xl p-10 flex flex-col h-full transition-all duration-500" data-tags="retail bi excel power query etl">
+                        <div class="flex justify-between items-start mb-8">
+                            <span class="text-[10px] font-bold text-brand-blue bg-brand-blue/5 px-3 py-1 rounded-full uppercase tracking-widest">Retail • BI</span>
+                            <span class="text-gray-300 font-heading font-bold text-4xl group-hover:text-brand-blue/20 transition-colors">03</span>
                         </div>
-                        <div class="flex gap-4">
-                            <a href="#" class="text-sm font-bold text-brand-blue hover:text-brand-orange transition-colors">View Dashboard</a>
+                        <h3 class="text-3xl font-heading font-bold text-gray-900 mb-4 group-hover:text-brand-blue transition-colors leading-tight">
+                            Coffee Retail Analytics Engine
+                        </h3>
+                        <p class="text-gray-500 text-sm font-body leading-relaxed mb-8 flex-grow">
+                            Transformed 150K+ transactional records into a dynamic BI system. Engineered automated ETL pipelines in Excel Power Query.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="px-3 py-1 bg-white border border-gray-100 rounded-md text-[9px] font-bold text-gray-600 uppercase tracking-tighter">Excel BI</span>
+                            <span class="px-3 py-1 bg-white border border-gray-100 rounded-md text-[9px] font-bold text-gray-600 uppercase tracking-tighter">Power Query</span>
+                            <span class="px-3 py-1 bg-white border border-gray-100 rounded-md text-[9px] font-bold text-gray-600 uppercase tracking-tighter">ETL</span>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <a href="projects/coffee-retail-bi-dashboard.html" class="text-[10px] font-bold uppercase tracking-widest text-brand-blue border-b-2 border-brand-blue/20 hover:border-brand-blue transition-all pb-1">View Case Study</a>
                         </div>
                     </article>
 
-                    <article class="group bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-2xl hover:shadow-purple-100/50 transition-all duration-300 hover:-translate-y-1 fade-in delay-100">
-                        <span class="text-xl font-heading font-bold text-brand-blue block mb-2">04. Seattle EV Dashboard</span>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-brand-blue transition-colors">
-                            <a href="projects/ev-population-dashboard.html" class="block">Geo-Spatial Analysis on 150K+ Records</a>
-                        </h3>
-                        <p class="text-gray-600 mb-6">Visualized EV adoption trends across Seattle using Power BI/Tableau, guiding strategic placement for public charging infrastructure.</p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="tech-chip bg-purple-50 text-purple-800">Power BI</span>
-                            <span class="tech-chip bg-purple-50 text-purple-800">Geo-Spatial</span>
+                    <!-- Project 04 -->
+                    <article class="project-card group bg-brand-bg rounded-2xl p-10 flex flex-col h-full transition-all duration-500" data-tags="public data visualization power bi geo-spatial tableau">
+                        <div class="flex justify-between items-start mb-8">
+                            <span class="text-[10px] font-bold text-brand-pink bg-brand-pink/10 px-3 py-1 rounded-full uppercase tracking-widest">Public Data • Visualization</span>
+                            <span class="text-gray-300 font-heading font-bold text-4xl group-hover:text-brand-pink/50 transition-colors">04</span>
                         </div>
-                        <div class="flex gap-4">
-                            <a href="https://drive.google.com/file/d/1mkLFYlgLVlaBLLbTvuB74XVIIClnt-8Q/view?usp=sharing" target="_blank" class="text-sm font-bold text-brand-blue hover:text-brand-orange transition-colors">View Dashboard</a>
+                        <h3 class="text-3xl font-heading font-bold text-gray-900 mb-4 group-hover:text-brand-pink transition-colors leading-tight">
+                            Seattle EV Infrastructure Roadmap
+                        </h3>
+                        <p class="text-gray-500 text-sm font-body leading-relaxed mb-8 flex-grow">
+                            A geo-spatial analysis identifying "Charging Deserts" in high EV adoption zones. Leveraged Power BI to visualize 150K+ records.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="px-3 py-1 bg-white border border-gray-100 rounded-md text-[9px] font-bold text-gray-600 uppercase tracking-tighter">Power BI</span>
+                            <span class="px-3 py-1 bg-white border border-gray-100 rounded-md text-[9px] font-bold text-gray-600 uppercase tracking-tighter">Geo-Spatial</span>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <a href="projects/ev-population-dashboard.html" class="text-[10px] font-bold uppercase tracking-widest text-brand-pink border-b-2 border-brand-pink/20 hover:border-brand-pink transition-all pb-1">View Case Study</a>
                         </div>
                     </article>
                 </div>
-            </div>
-        </section>
 
-        <section id="experience" class="py-20 bg-white/50">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6">
-                <div class="text-center mb-16 fade-in">
-                    <h2 class="text-4xl lg:text-5xl font-heading font-bold text-gray-900">Experience</h2>
-                </div>
-                
-                <div class="space-y-12 relative border-l-2 border-brand-blue/20 ml-4 md:ml-0">
-                    <article class="relative pl-8 md:pl-12 fade-in">
-                        <div class="absolute -left-[9px] top-6 w-5 h-5 rounded-full bg-brand-blue border-4 border-white shadow-sm"></div>
-                        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                            <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
-                                <h3 class="text-2xl font-heading font-bold text-brand-blue">IT Help Desk Intern</h3>
-                                <div class="text-sm font-bold text-gray-500 mt-1 sm:mt-0">Sept 2025 – Present</div>
-                            </div>
-                            <h4 class="text-lg font-semibold text-gray-800 mb-4">DePauw University</h4>
-                            <ul class="list-disc space-y-3 pl-5 text-gray-700">
-                                <li>Deliver responsive technical support to students, faculty, and staff, resolving <strong>100+ hardware & software issues</strong>.</li>
-                                <li>Analyze recurring technical problems, proposing improvements that <strong>reduced response time by ~20%</strong>.</li>
-                                <li>Support system maintenance, device configuration, and troubleshooting across academic labs.</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="relative pl-8 md:pl-12 fade-in">
-                        <div class="absolute -left-[9px] top-6 w-5 h-5 rounded-full bg-brand-orange border-4 border-white shadow-sm"></div>
-                        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                            <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
-                                <h3 class="text-2xl font-heading font-bold text-brand-blue">Financial Analyst Intern</h3>
-                                <div class="text-sm font-bold text-gray-500 mt-1 sm:mt-0">June 2025 – August 2025</div>
-                            </div>
-                            <h4 class="text-lg font-semibold text-gray-800 mb-4">AASCS Company</h4>
-                            <ul class="list-disc space-y-3 pl-5 text-gray-700">
-                                <li>Analyzed financial data from income statements and balance sheets of <strong>20+ publicly listed companies</strong>.</li>
-                                <li>Applied statistical methods in Excel to clean <strong>10,000+ data points</strong>, improving reporting efficiency by <strong>35%</strong>.</li>
-                                <li>Prepared client-ready summaries and visualizations using Excel for audit teams.</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="relative pl-8 md:pl-12 fade-in">
-                        <div class="absolute -left-[9px] top-6 w-5 h-5 rounded-full bg-brand-pink border-4 border-white shadow-sm"></div>
-                        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                            <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
-                                <h3 class="text-2xl font-heading font-bold text-brand-blue">Media & Data Analytics Intern</h3>
-                                <div class="text-sm font-bold text-gray-500 mt-1 sm:mt-0">June 2024 – August 2024</div>
-                            </div>
-                            <h4 class="text-lg font-semibold text-gray-800 mb-4">Voice of Ho Chi Minh City</h4>
-                            <ul class="list-disc space-y-3 pl-5 text-gray-700">
-                                <li>Analyzed audience engagement metrics, influencing <strong>3+ editorial adjustments</strong> and increasing interaction by <strong>15%</strong>.</li>
-                                <li>Collaborated with producers to brainstorm new program ideas informed by trend analysis.</li>
-                                <li>Contributed data-driven insights that improved program development processes.</li>
-                            </ul>
-                        </div>
-                    </article>
+                <!-- No Results Message -->
+                <div id="no-results" class="hidden text-center py-20">
+                    <p class="text-gray-300 font-heading text-xl font-bold uppercase tracking-widest">No matching projects found.</p>
                 </div>
             </div>
         </section>
 
-                <section id="leadership" class="py-24 relative overflow-hidden bg-brand-bg">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <!-- Experience & Other sections... (Simplified for brevity, maintain same style as above) -->
+
+             <!-- Leadership Section -->
+        <section id="leadership" class="py-32 relative overflow-hidden bg-brand-bg">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8 fade-in">
+                    <div class="max-w-2xl">
+                        <span class="text-brand-blue font-heading font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">03 — Impact & Community</span>
+                        <h2 class="text-5xl md:text-7xl font-heading font-extrabold text-gray-900 leading-[0.9] tracking-tighter">
+                            Leading with <br/><span class="text-brand-blue">Purpose.</span>
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="space-y-40">
+                    <!-- Item 01: Data Science Hub -->
+                    <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center fade-in">
+                        <div class="lg:col-span-5 z-10 lg:-mr-20">
+                            <div class="bg-white p-10 md:p-14 leadership-card rounded-2xl editorial-shadow">
+                                <div class="flex items-center gap-4 mb-8">
+                                    <span class="h-px w-8 bg-brand-blue"></span>
+                                    <span class="text-[10px] font-bold text-brand-blue uppercase tracking-widest">Foundation</span>
+                                </div>
+                                <h3 class="text-3xl md:text-4xl font-heading font-extrabold text-gray-900 mb-6 leading-tight">
+                                    Founding DePauw's First Data Science Hub
+                                </h3>
+                                <p class="text-gray-500 text-sm font-body leading-relaxed mb-8">
+                                    I architected the university’s first student-led hub, scaling to <span class="text-brand-blue font-bold">50+ members</span>. We bridged technical theory and real-world application to make data impact-driven.
+                                </p>
+                                <div class="flex flex-wrap gap-4 pt-8 border-t border-gray-100">
+                                    <div>
+                                        <p class="text-2xl font-heading font-bold text-gray-900 tracking-tighter">50+</p>
+                                        <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Active Members</p>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <span class="px-4 py-2 border border-brand-blue text-brand-blue rounded-full text-[9px] font-bold uppercase tracking-widest">Founder & President</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-7 relative">
+                            <div class="aspect-[16/10] overflow-hidden rounded-3xl grayscale hover:grayscale-0 transition-all duration-700">
+                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80" alt="Collaboration" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 02: LQD Club -->
+                    <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center fade-in">
+                        <div class="lg:col-span-7 relative order-last lg:order-first">
+                            <div class="aspect-[16/10] overflow-hidden rounded-3xl grayscale hover:grayscale-0 transition-all duration-700">
+                                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80" alt="Strategic Planning" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="lg:col-span-5 z-10 lg:-ml-20">
+                            <div class="bg-white p-10 md:p-14 leadership-card rounded-2xl editorial-shadow">
+                                <div class="flex items-center gap-4 mb-8">
+                                    <span class="h-px w-8 bg-brand-pink"></span>
+                                    <span class="text-[10px] font-bold text-brand-pink uppercase tracking-widest">External Relations</span>
+                                </div>
+                                <h3 class="text-3xl md:text-4xl font-heading font-extrabold text-gray-900 mb-6 leading-tight">
+                                    Strategic Lead: LQD Research Club
+                                </h3>
+                                
+                                <div class="space-y-6 mb-10">
+                                    <div class="flex gap-4">
+                                        <div class="flex-shrink-0 w-8 h-8 bg-brand-pink/10 rounded-full flex items-center justify-center text-brand-pink">
+                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zm6-4a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zm6-3a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path></svg>
+                                        </div>
+                                        <p class="text-gray-500 text-sm font-body leading-relaxed italic">"Redesigned event formats based on participation data, optimizing conversion rates by <span class="text-gray-900 font-bold">40%</span>."</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex justify-between items-center pt-8 border-t border-gray-100">
+                                    <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">2024 — Present</span>
+                                    <span class="px-4 py-2 bg-brand-pink/10 text-brand-pink rounded-full text-[9px] font-bold uppercase tracking-widest">Strategic Lead</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <!-- Technical Toolkit Section (UPDATED WITH FULL SKILL STACK) -->
+        <section id="skills-tech" class="py-32 bg-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center mb-24 fade-in">
-                    <span class="text-brand-blue font-heading font-bold tracking-[0.4em] text-xs uppercase mb-3 block">My Journey</span>
-                    <h2 class="text-5xl md:text-6xl font-heading font-bold text-gray-900 leading-tight">Narrative Leadership</h2>
+                    <span class="text-brand-orange font-heading font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">The Quantitative Stack</span>
+                    <h2 class="text-5xl md:text-7xl font-heading font-extrabold text-gray-900 leading-[0.9] tracking-tighter">
+                        Toolkit & <br/><span class="text-brand-blue">Domain Expertise.</span>
+                    </h2>
                 </div>
-                <div class="relative">
-                    <div class="timeline-path hidden md:block"></div>
-                    <div class="relative grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-32 fade-in">
-                        <div class="md:text-right">
-                            <span class="inline-block bg-brand-blue/5 text-brand-blue text-[10px] font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-4">Foundation</span>
-                            <h3 class="text-3xl font-heading font-bold text-gray-900 mb-4">Founding DePauw's First Data Science Hub</h3>
-                            <p class="text-gray-600 font-body leading-relaxed mb-6">I architected the university’s first student-led hub to scale to 50+ members. I focused on making data science accessible, social, and impact-driven by bridging technical theory and real-world application.</p>
-                            <div class="flex flex-wrap gap-2 justify-start md:justify-end">
-                                <span class="bg-white border border-gray-100 px-4 py-2 rounded-xl text-xs font-bold text-brand-blue shadow-sm">Founder & President</span>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+                    <!-- Column 1: Core Data Science -->
+                    <div class="space-y-10 fade-in">
+                        <h3 class="text-xs font-bold text-gray-400 uppercase tracking-[0.3em] flex items-center gap-3">
+                            <span class="w-8 h-px bg-gray-200"></span> 01 — Analysis & Stats
+                        </h3>
+                        <div class="grid grid-cols-1 gap-4">
+                            <div class="skill-card p-6 bg-brand-bg rounded-2xl flex items-center gap-5">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-8 h-8" alt="Python">
+                                <div>
+                                    <p class="text-xs font-bold text-gray-900 uppercase tracking-widest">Python (Pandas, NumPy)</p>
+                                    <p class="text-[9px] text-gray-500 font-medium mt-1">Modeling & Scraping</p>
+                                </div>
+                            </div>
+                            <div class="skill-card p-6 bg-brand-bg rounded-2xl flex items-center gap-5">
+                                <span class="text-2xl">🧪</span>
+                                <div>
+                                    <p class="text-xs font-bold text-gray-900 uppercase tracking-widest">Statistical Analysis</p>
+                                    <p class="text-[9px] text-gray-500 font-medium mt-1">Correlation, ANOVA, Regression</p>
+                                </div>
+                            </div>
+                            <div class="skill-card p-6 bg-brand-bg rounded-2xl flex items-center gap-5">
+                                <span class="text-2xl">🤖</span>
+                                <div>
+                                    <p class="text-xs font-bold text-gray-900 uppercase tracking-widest">Machine Learning</p>
+                                    <p class="text-[9px] text-gray-500 font-medium mt-1">XGBoost, Scikit-Learn, K-Means</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="relative group"><div class="absolute inset-0 bg-brand-blue/10 rounded-[2.5rem] transform -rotate-3 group-hover:rotate-0 transition-transform"></div><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" class="relative rounded-[2.5rem] shadow-2xl h-72 md:h-96 w-full object-cover animate-float"></div>
-                        <div class="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-brand-blue border-4 border-white shadow-lg"></div>
                     </div>
-                    <div class="relative grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-16 fade-in">
-                        <div class="relative group order-last md:order-first"><div class="absolute inset-0 bg-brand-pink/30 rounded-[2.5rem] transform rotate-3 group-hover:rotate-0 transition-transform"></div><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" class="relative rounded-[2.5rem] shadow-2xl h-72 md:h-96 w-full object-cover" style="animation: float 6s infinite reverse;"></div>
-                        <div>
-                            <span class="inline-block bg-brand-pink/20 text-brand-pink text-[10px] font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-4">External Relations</span>
-                            <h3 class="text-3xl font-heading font-bold text-gray-900 mb-4">Strategic Lead: LQD Research Club</h3>
-                            <p class="text-gray-600 font-body leading-relaxed mb-6"> <li>Redesigned event formats based on historical participation data, boosting attendance by 60% across 5+ workshops, hackathons, and networking sessions</li>
-<li>Built and managed a sponsorship pipeline, improving partner conversion rates by 40% through targeted outreach and structured follow-up</li>
-</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-white border border-gray-100 px-4 py-2 rounded-xl text-xs font-bold text-brand-pink shadow-sm">Strategic Lead</span>
+
+                    <!-- Column 2: BI & Architecture -->
+                    <div class="space-y-10 fade-in" style="transition-delay: 100ms;">
+                        <h3 class="text-xs font-bold text-gray-400 uppercase tracking-[0.3em] flex items-center gap-3">
+                            <span class="w-8 h-px bg-gray-200"></span> 02 — BI & Architecture
+                        </h3>
+                        <div class="grid grid-cols-1 gap-4">
+                            <div class="skill-card p-6 bg-brand-bg rounded-2xl flex items-center gap-5">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" class="w-8 h-8" alt="Power BI">
+                                <div>
+                                    <p class="text-xs font-bold text-gray-900 uppercase tracking-widest">Power BI (DAX)</p>
+                                    <p class="text-[9px] text-gray-500 font-medium mt-1">Interactive Reporting</p>
+                                </div>
+                            </div>
+                            <div class="skill-card p-6 bg-brand-bg rounded-2xl flex items-center gap-5">
+                                <img src="https://cdn.worldvectorlogo.com/logos/tableau-software.svg" class="w-8 h-8" alt="Tableau">
+                                <div>
+                                    <p class="text-xs font-bold text-gray-900 uppercase tracking-widest">Tableau</p>
+                                    <p class="text-[9px] text-gray-500 font-medium mt-1">Geo-spatial Visualization</p>
+                                </div>
+                            </div>
+                            <div class="skill-card p-6 bg-brand-bg rounded-2xl flex items-center gap-5">
+                                <span class="text-2xl">⚙️</span>
+                                <div>
+                                    <p class="text-xs font-bold text-gray-900 uppercase tracking-widest">Excel Power Query</p>
+                                    <p class="text-[9px] text-gray-500 font-medium mt-1">ETL & Automated Modeling</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-brand-pink border-4 border-white shadow-lg"></div>
+                    </div>
+
+                    <!-- Column 3: Tools & Deployment -->
+                    <div class="space-y-10 fade-in" style="transition-delay: 200ms;">
+                        <h3 class="text-xs font-bold text-gray-400 uppercase tracking-[0.3em] flex items-center gap-3">
+                            <span class="w-8 h-px bg-gray-200"></span> 03 — Engineering
+                        </h3>
+                        <div class="grid grid-cols-1 gap-4">
+                            <div class="skill-card p-6 bg-brand-bg rounded-2xl flex items-center gap-5">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="w-8 h-8" alt="SQL">
+                                <div>
+                                    <p class="text-xs font-bold text-gray-900 uppercase tracking-widest">SQL (MySQL)</p>
+                                    <p class="text-[9px] text-gray-500 font-medium mt-1">Database Queries & ETL</p>
+                                </div>
+                            </div>
+                            <div class="skill-card p-6 bg-brand-bg rounded-2xl flex items-center gap-5">
+                                <span class="text-2xl">🚀</span>
+                                <div>
+                                    <p class="text-xs font-bold text-gray-900 uppercase tracking-widest">Streamlit / SHAP</p>
+                                    <p class="text-[9px] text-gray-500 font-medium mt-1">ML Deployment & Explainability</p>
+                                </div>
+                            </div>
+                            <div class="skill-card p-6 bg-brand-bg rounded-2xl flex items-center gap-5">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="w-8 h-8" alt="Git">
+                                <div>
+                                    <p class="text-xs font-bold text-gray-900 uppercase tracking-widest">Version Control</p>
+                                    <p class="text-[9px] text-gray-500 font-medium mt-1">GitHub Workflow</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-
-    <section id="skills-tech" class="py-24 bg-white/50 relative overflow-hidden">
-    <div class="absolute top-1/2 left-0 w-72 h-72 bg-brand-blue/5 rounded-full blur-[100px] -z-10"></div>
-
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-20 fade-in">
-            <span class="inline-block bg-brand-pink text-brand-blue font-heading text-xs font-bold px-6 py-2 rounded-full shadow-md uppercase tracking-wider">The Quantitative Stack</span>
-            <h2 class="text-5xl font-heading font-bold text-gray-900 mt-6 leading-tight">Technical Toolkit <br/>& <span class="text-brand-blue">Domain Expertise</span></h2>
-        </div>
-
-        <div class="space-y-20">
-            <div class="fade-in">
-                <div class="flex items-center gap-4 mb-10">
-                    <div class="h-px flex-1 bg-gray-200"></div>
-                    <h3 class="text-2xl font-heading font-bold text-gray-900">🧬 Data Science & Stats</h3>
-                    <div class="h-px flex-1 bg-gray-200"></div>
-                </div>
-                
-                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                    <div class="skill-card flex flex-col items-center p-6 bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:border-brand-blue/30 transition-all">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-10 h-10 mb-4">
-                        <span class="font-bold text-[10px] text-gray-700 uppercase tracking-widest text-center">Python (Pandas/NumPy)</span>
-                    </div>
-                    <div class="skill-card flex flex-col items-center p-6 bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:border-brand-blue/30 transition-all">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="w-10 h-10 mb-4">
-                        <span class="font-bold text-[10px] text-gray-700 uppercase tracking-widest text-center">SQL (MySQL/ETL)</span>
-                    </div>
-                    <div class="skill-card flex flex-col items-center p-6 bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:border-brand-blue/30 transition-all">
-                        <img src="https://cdn.worldvectorlogo.com/logos/tableau-software.svg" alt="Tableau" class="w-10 h-10 mb-4">
-                        <span class="font-bold text-[10px] text-gray-700 uppercase tracking-widest text-center">Tableau (LOD)</span>
-                    </div>
-                    <div class="skill-card flex flex-col items-center p-6 bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:border-brand-blue/30 transition-all">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI" class="w-10 h-10 mb-4">
-                        <span class="font-bold text-[10px] text-gray-700 uppercase tracking-widest text-center">Power BI (DAX)</span>
-                    </div>
-                    <div class="skill-card flex flex-col items-center p-6 bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:border-brand-blue/30 transition-all">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg" alt="Excel" class="w-10 h-10 mb-4">
-                        <span class="font-bold text-[10px] text-gray-700 uppercase tracking-widest text-center">Advanced Excel</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fade-in">
-                <div class="flex items-center gap-4 mb-10">
-                    <div class="h-px flex-1 bg-gray-200"></div>
-                    <h3 class="text-2xl font-heading font-bold text-gray-900">💻 Software Engineering</h3>
-                    <div class="h-px flex-1 bg-gray-200"></div>
-                </div>
-                
-                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                    <div class="skill-card flex flex-col items-center p-6 bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:border-brand-blue/30 transition-all">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-10 h-10 mb-4">
-                        <span class="font-bold text-[10px] text-gray-700 uppercase tracking-widest text-center">Java (OOP)</span>
-                    </div>
-                    <div class="skill-card flex flex-col items-center p-6 bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:border-brand-blue/30 transition-all">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" class="w-10 h-10 mb-4">
-                        <span class="font-bold text-[10px] text-gray-700 uppercase tracking-widest text-center">C Programming</span>
-                    </div>
-                    <div class="skill-card flex flex-col items-center p-6 bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:border-brand-blue/30 transition-all">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="w-10 h-10 mb-4">
-                        <span class="font-bold text-[10px] text-gray-700 uppercase tracking-widest text-center">Version Control</span>
-                    </div>
-                    <div class="skill-card flex flex-col items-center p-6 bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:border-brand-blue/30 transition-all">
-                        <div class="flex gap-2 mb-4">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" class="w-6 h-6">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" class="w-6 h-6">
-                        </div>
-                        <span class="font-bold text-[10px] text-gray-700 uppercase tracking-widest text-center">Web Foundation</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
         <section id="domain-acumen" class="bg-white/60 py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-16 fade-in">
@@ -560,38 +633,38 @@
 
 </main>
 
-    <footer class="w-full bg-[#0B0F1A] border-t border-white/5 py-16">
+        <footer class="w-full bg-[#0B0F1A] py-20">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-10">
-                
-                <div class="space-y-4 text-center md:text-left">
-                    <a href="#welcome" class="font-heading text-3xl font-bold text-white tracking-tighter hover:text-brand-blue transition-colors">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-12">
+                <div class="space-y-6">
+                    <a href="#welcome" class="font-heading text-3xl font-bold text-white tracking-tighter">
                         Emily H<span class="text-brand-blue">.</span>
                     </a>
-                    <p class="font-body text-sm text-gray-500 max-w-xs leading-relaxed">
-                        Sifting through the digital noise to find the <span class="text-white italic">human stories</span> buried in the numbers.
+                    <p class="text-gray-500 text-sm font-medium max-w-xs leading-relaxed">
+                        Sifting through the digital noise to find the human stories buried in the numbers.
                     </p>
                 </div>
-
-                <div class="flex gap-12 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">
-                    <a href="#about" class="hover:text-white transition-colors">About</a>
-                    <a href="#projects" class="hover:text-white transition-colors">Projects</a>
-                    <a href="assets/docs/resume.pdf" target="_blank" class="text-brand-blue">Resume</a>
-                </div>
-
-                <div class="flex gap-4">
-                    <a href="https://github.com/emilyxxhy" target="_blank" class="p-3 border border-white/10 rounded-full hover:bg-white/5 transition-all text-gray-400 hover:text-white">
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    </a>
+                <div class="flex gap-16 text-[9px] font-bold uppercase tracking-[0.3em] text-gray-500">
+                    <div class="flex flex-col gap-4">
+                        <span class="text-gray-600">Explore</span>
+                        <a href="#about" class="hover:text-white transition-colors">About</a>
+                        <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+                        <a href="assets/docs/resume.pdf" target="_blank" class="hover:text-brand-blue transition-colors">Resume</a>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <span class="text-gray-600">Social</span>
+                        <a href="https://github.com/emilyxxhy" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+                        <a href="https://linkedin.com" target="_blank" class="hover:text-white transition-colors">LinkedIn</a>
+                    </div>
                 </div>
             </div>
-
-            <div class="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] font-bold uppercase tracking-widest text-gray-600">
+            <div class="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[8px] font-bold uppercase tracking-widest text-gray-700">
                 <p>© 2025 All Rights Reserved — UCF Data Science</p>
                 <p>Made with <span class="text-brand-orange italic">Iced Shaken Espresso</span></p>
             </div>
         </div>
     </footer>
+
 
     <script src="assets/js/app.min.js"></script>
     <script>

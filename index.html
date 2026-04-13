@@ -3,564 +3,731 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emily Huynh | Data Storyteller & Analytics Portfolio</title>
-    <meta name="description" content="Emily Huynh's data science and business analytics portfolio. Transforming complex data into actionable insights.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-
+    <title>Emily H. | Data Storyteller ✨</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'brand-bg': '#FDFCF8',
-                        'brand-blue': '#1E00D9', 
-                        'brand-blue-dark': '#15009E',
-                        'brand-orange': '#F97316',
-                        'brand-pink': '#F7B5D5',
-                        'brand-pink-light': '#FEF6FA',
-                    },
-                    fontFamily: {
-                        heading: ['"Bricolage Grotesque"', 'sans-serif'],
-                        body: ['Montserrat', 'sans-serif'],
-                    },
-                    animation: {
-                        'blob': 'blob 7s infinite',
-                        'fadeInUp': 'fadeInUp 0.8s ease-out forwards',
-                    },
-                    keyframes: {
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
-                        },
-                        fadeInUp: {
-                            'from': { opacity: '0', transform: 'translateY(20px)' },
-                            'to': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    }
-                },
-            },
-        };
-    </script>
-    
-    <link rel="stylesheet" href="assets/css/main.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600;700&family=Indie+Flower&display=swap" rel="stylesheet">
     <style>
-        .glass-header {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        :root {
+            --brand-blue: #3b00ff;
+            --brand-orange: #ff7a21;
+            --brand-pink: #f7b5d5;
+            --brand-bg: #fffafb;
         }
-        /* Fix navigation jump */
+
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background-color: var(--brand-bg);
+            overflow-x: hidden;
+            cursor: none; /* For the sparkle trail */
+        }
+
+        .handwritten {
+            font-family: 'Indie Flower', cursive;
+        }
+
+        /* Mesh Gradient Background */
+        .mesh-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: #fffafb;
+            background-image: 
+                radial-gradient(at 84% 17%, rgba(59, 0, 255, 0.12) 0px, transparent 50%),
+                radial-gradient(at 12% 83%, rgba(255, 122, 33, 0.08) 0px, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(247, 181, 213, 0.15) 0px, transparent 50%);
+        }
+
+        /* Wobbly UI Elements */
+        .wobbly-button {
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .wobbly-button:hover {
+            transform: scale(1.05) rotate(-1deg);
+        }
+
+        .sticker {
+            background: white;
+            border: 3px solid white;
+            box-shadow: 6px 6px 0px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .sticker:hover {
+            transform: translateY(-5px) rotate(5deg);
+            box-shadow: 8px 8px 0px rgba(59, 0, 255, 0.1);
+        }
+
+        /* Sparkle Cursor */
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            font-size: 20px;
+            animation: sparkleAnim 0.8s ease-out forwards;
+        }
+        @keyframes sparkleAnim {
+            0% { transform: scale(0) rotate(0deg); opacity: 1; }
+            100% { transform: scale(1.8) rotate(180deg); opacity: 0; }
+        }
+
+        /* Floating Doodles */
+        .floating {
+            animation: float 5s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .drawing-line {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw 2s ease forwards;
+        }
+        @keyframes draw {
+            to { stroke-dashoffset: 0; }
+        }
+
+        /* Navigation Links Styling */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--brand-orange);
+            transition: width 0.3s ease;
+            border-radius: 10px;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
         section { scroll-margin-top: 100px; }
     </style>
 </head>
-<body class="text-gray-800 bg-brand-bg antialiased selection:bg-brand-pink selection:text-brand-blue relative">
-    
-    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-pink/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
-        <div class="absolute top-0 right-1/4 w-96 h-96 bg-blue-200/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob" style="animation-delay: 2s"></div>
-        <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-purple-200/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob" style="animation-delay: 4s"></div>
+<body class="text-slate-800 antialiased">
+
+    <div class="mesh-bg"></div>
+
+    <!-- Floating Background Doodles -->
+    <div class="fixed inset-0 pointer-events-none opacity-20 z-0">
+        <svg class="absolute top-[15%] left-[5%] w-24 h-24 text-pink-400 floating" viewBox="0 0 100 100">
+            <path d="M50 10 L60 40 L90 40 L65 60 L75 90 L50 70 L25 90 L35 60 L10 40 L40 40 Z" fill="currentColor"/>
+        </svg>
+        <svg class="absolute top-[60%] right-[8%] w-32 h-32 text-blue-400 floating" style="animation-delay: 1.5s" viewBox="0 0 100 100">
+            <path d="M20 50 Q50 10 80 50 T20 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <div class="absolute top-[20%] right-[15%] text-4xl floating" style="animation-delay: 0.5s">☁️</div>
+        <div class="absolute bottom-[20%] left-[10%] text-4xl floating" style="animation-delay: 2s">📊</div>
     </div>
 
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-brand-blue text-white p-4 rounded-lg z-50 shadow-xl font-bold">Skip to Content</a>
-
-    <header id="site-header" class="fixed w-full top-0 z-50 transition-all duration-300 glass-header">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
-            <a href="#welcome" class="font-heading text-2xl md:text-3xl font-bold text-brand-blue tracking-tight hover:opacity-80 transition-opacity">
+    <!-- Navigation -->
+    <header class="fixed w-full top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-8 py-6 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-700 tracking-tight group">
                 Emily H.
+                <div class="h-1.5 w-0 group-hover:w-full bg-orange-400 rounded-full transition-all duration-300"></div>
             </a>
             
-            <div class="hidden md:flex items-center space-x-1">
-                <a href="#welcome" class="nav-link px-3 py-2 text-sm font-bold text-gray-600 hover:text-brand-blue rounded-full hover:bg-blue-50/50 transition-all">Home</a>
-                <a href="#about" class="nav-link px-3 py-2 text-sm font-bold text-gray-600 hover:text-brand-blue rounded-full hover:bg-blue-50/50 transition-all">About</a>
-                <a href="#projects" class="nav-link px-3 py-2 text-sm font-bold text-gray-600 hover:text-brand-blue rounded-full hover:bg-blue-50/50 transition-all">Projects</a>
-                <a href="#experience" class="nav-link px-3 py-2 text-sm font-bold text-gray-600 hover:text-brand-blue rounded-full hover:bg-blue-50/50 transition-all">Experience</a>
-                <a href="#leadership" class="nav-link px-3 py-2 text-sm font-bold text-gray-600 hover:text-brand-blue rounded-full hover:bg-blue-50/50 transition-all">Leadership</a>
-                <a href="#skills-tech" class="nav-link px-3 py-2 text-sm font-bold text-gray-600 hover:text-brand-blue rounded-full hover:bg-blue-50/50 transition-all">Skills</a>
-                <a href="#contact" class="ml-2 px-5 py-2.5 text-sm font-bold text-white bg-brand-orange rounded-full shadow-lg shadow-orange-200 hover:bg-orange-600 hover:shadow-orange-300 hover:-translate-y-0.5 transition-all">Contact</a>
+            <div class="hidden md:flex items-center space-x-8 font-semibold text-slate-600">
+                <a href="#welcome" class="nav-link hover:text-blue-700 transition-colors">Home</a>
+                <a href="#about" class="nav-link hover:text-blue-700 transition-colors">About</a>
+                <a href="#projects" class="nav-link hover:text-blue-700 transition-colors">Projects</a>
+                <a href="#skills-tech" class="nav-link hover:text-blue-700 transition-colors">Skills</a>
+                <button class="bg-[#ff7a21] text-white px-8 py-2.5 rounded-full shadow-lg shadow-orange-100 hover:shadow-orange-200 transition-all hover:-translate-y-1 active:scale-95">
+                    Contact
+                </button>
             </div>
-
-            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Toggle menu">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
         </nav>
-
-        <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-white/95 backdrop-blur-xl border-b border-gray-100 px-4 pb-6 pt-2 shadow-2xl">
-            <div class="flex flex-col space-y-2">
-                <a href="#welcome" class="mobile-link block py-3 px-4 rounded-xl hover:bg-blue-50 text-gray-700 font-bold">Home</a>
-                <a href="#projects" class="mobile-link block py-3 px-4 rounded-xl hover:bg-blue-50 text-gray-700 font-bold">Projects</a>
-                <a href="#experience" class="mobile-link block py-3 px-4 rounded-xl hover:bg-blue-50 text-gray-700 font-bold">Experience</a>
-                <a href="#leadership" class="mobile-link block py-3 px-4 rounded-xl hover:bg-blue-50 text-gray-700 font-bold">Leadership</a>
-                <a href="#skills-tech" class="mobile-link block py-3 px-4 rounded-xl hover:bg-blue-50 text-gray-700 font-bold">Skill Tech</a>
-                <a href="#about" class="mobile-link block py-3 px-4 rounded-xl hover:bg-blue-50 text-gray-700 font-bold">About Me</a>
-                <a href="#contact" class="mobile-link block py-3 px-4 mt-2 rounded-xl bg-brand-orange/10 text-brand-orange font-bold">Contact Me</a>
-            </div>
-        </div>
     </header>
 
-   <section id="welcome" class="min-h-[90vh] flex flex-col items-center justify-center pt-24 pb-12">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-        <div class="inline-flex items-center gap-2 bg-brand-blue/5 text-brand-blue font-heading text-xs md:text-sm font-bold px-5 py-2 rounded-full mb-8 border border-brand-blue/10 opacity-0 animate-fadeInUp">
-            <span class="relative flex h-2 w-2">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-blue"></span>
-            </span>
-            WELCOME TO MY PORTFOLIO
-        </div>
-
-        <h1 class="text-6xl md:text-8xl lg:text-9xl font-heading font-extrabold text-brand-blue mb-6 tracking-tight leading-[0.9] opacity-0 animate-fadeInUp">
-            Hi, I'm Emily.
-        </h1>
+    <!-- Hero Section -->
+    <main id="welcome" class="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 text-center">
         
-        <div class="h-12 md:h-20 mb-10">
-            <h2 id="rotating-text-small" class="font-heading text-3xl md:text-6xl font-bold text-gray-800 opacity-0 animate-fadeInUp" style="animation-delay: 0.2s;"></h2>
+        <!-- Animated Badge -->
+        <div class="relative mb-8">
+            <div class="bg-blue-50 border-2 border-blue-600 text-blue-600 px-8 py-1.5 wobbly-button text-sm font-bold inline-flex items-center gap-3">
+                <span class="relative flex h-2.5 w-2.5">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-600"></span>
+                </span>
+                OPEN FOR ANALYTICS ROLES 2027
+            </div>
+            <!-- Doodle Arrow -->
+            <svg class="absolute -right-24 -top-8 w-20 h-20 hidden lg:block" viewBox="0 0 100 100" fill="none">
+                <path class="drawing-line" d="M10,80 Q30,20 80,40" stroke="#ff7a21" stroke-width="3" stroke-linecap="round"/>
+                <path class="drawing-line" d="M70,30 L80,40 L65,48" stroke="#ff7a21" stroke-width="3" stroke-linecap="round" style="animation-delay: 0.5s"/>
+            </svg>
         </div>
 
-        <div class="flex flex-col sm:flex-row justify-center items-center gap-8 opacity-0 animate-fadeInUp" style="animation-delay: 0.4s;">
-            <a href="assets/docs/resume.pdf" target="_blank" class="group relative px-10 py-4 text-lg font-bold text-white bg-brand-blue rounded-xl shadow-2xl shadow-blue-200 hover:bg-brand-blue-dark transition-all duration-300 overflow-hidden">
-                <span class="relative z-10">View Resume</span>
-                <div class="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+        <!-- Main Heading -->
+        <div class="relative">
+            <h1 class="text-7xl md:text-9xl font-bold text-blue-700 mb-6 tracking-tighter leading-tight">
+                Hi, I'm Emily.
+            </h1>
+            <!-- Hand-drawn Scribble Underline -->
+            <svg class="w-full h-8 absolute -bottom-2 left-0" viewBox="0 0 400 20" preserveAspectRatio="none">
+                <path class="drawing-line" d="M10 15 C 100 5, 250 25, 390 10" stroke="#3b00ff" stroke-width="8" fill="none" stroke-linecap="round" />
+            </svg>
+        </div>
+
+        <!-- Catchy Catchline for Analysts -->
+        <div class="mt-14 flex flex-col items-center gap-4">
+            <div class="relative inline-block px-6">
+                <span class="text-3xl md:text-6xl font-bold text-slate-700 z-10 relative">
+                    Data Storyteller <span class="text-orange-500">&</span> Product Strategist
+                </span>
+                <!-- Hand-drawn Oval Highlight -->
+                <svg class="absolute inset-0 w-full h-full scale-110 pointer-events-none" viewBox="0 0 100 50" preserveAspectRatio="none">
+                    <path class="drawing-line" d="M5,25 Q5,5 50,5 Q95,5 95,25 Q95,45 50,45 Q5,45 5,25" stroke="#ff7a21" stroke-width="1.5" fill="none" style="animation-delay: 1s"/>
+                </svg>
+            </div>
+            <p class="handwritten text-2xl text-slate-400 mt-2">Ready to dive in?</p>
+        </div>
+
+        <!-- Actions -->
+        <div class="mt-20 flex flex-wrap items-center justify-center gap-8">
+            <a href="#" class="bg-[#3b00ff] text-white px-12 py-5 text-xl font-bold wobbly-button shadow-2xl shadow-blue-200 hover:shadow-blue-300">
+                View Resume
             </a>
-            
-            <div class="flex gap-6">
-                <a href="https://github.com/emilyxxhy" target="_blank" class="p-4 text-gray-400 hover:text-brand-blue border border-gray-100 rounded-2xl hover:bg-white hover:shadow-xl hover:shadow-blue-50 transition-all duration-300" aria-label="GitHub">
-                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+
+            <!-- Sticker Socials -->
+            <div class="flex gap-5">
+                <a href="https://github.com/emilyxxhy" target="_blank" class="sticker w-16 h-16 rounded-2xl flex items-center justify-center text-slate-500 hover:text-blue-600 transition-all">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.293c0 .319.192.694.805.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 </a>
-                <a href="https://www.linkedin.com/in/emilyhuynhh/" target="_blank" class="p-4 text-gray-400 hover:text-brand-blue border border-gray-100 rounded-2xl hover:bg-white hover:shadow-xl hover:shadow-blue-50 transition-all duration-300" aria-label="LinkedIn">
-                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                <a href="https://linkedin.com" target="_blank" class="sticker w-16 h-16 rounded-2xl flex items-center justify-center text-slate-500 hover:text-blue-600 transition-all">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 </a>
             </div>
         </div>
 
-        <div class="mt-24 pt-12 border-t border-gray-100/50 opacity-0 animate-fadeInUp" style="animation-delay: 0.6s;">
-            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em] mb-8">Technical Proficiency</p>
+        <!-- Skills Subheader -->
+        <div class="mt-32 w-full max-w-4xl mx-auto">
+            <p class="text-[10px] font-bold tracking-[0.4em] text-slate-400 mb-10 uppercase">Quantitative Toolkit</p>
             <div class="flex flex-wrap justify-center gap-x-12 gap-y-6 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-700">
-                <span class="font-heading text-lg md:text-xl font-bold text-gray-900">Python</span>
-                <span class="font-heading text-lg md:text-xl font-bold text-gray-900">SQL</span>
-                <span class="font-heading text-lg md:text-xl font-bold text-gray-900">R</span>
-                <span class="font-heading text-lg md:text-xl font-bold text-gray-900">Excel</span>
-                <span class="font-heading text-lg md:text-xl font-bold text-gray-900">Tableau</span>
-                <span class="font-heading text-lg md:text-xl font-bold text-gray-900">Machine Learning</span>
+                <span class="text-xl font-bold text-slate-900 border-b-2 border-pink-200">Python</span>
+                <span class="text-xl font-bold text-slate-900 border-b-2 border-blue-200">SQL</span>
+                <span class="text-xl font-bold text-slate-900 border-b-2 border-orange-200">Power BI</span>
+                <span class="text-xl font-bold text-slate-900 border-b-2 border-pink-200">Tableau</span>
+                <span class="text-xl font-bold text-slate-900 border-b-2 border-blue-200">Machine Learning</span>
             </div>
         </div>
-    </div>
-</section>
-<section id="about" class="py-24 relative overflow-hidden">
-    <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-brand-pink/10 rounded-full blur-3xl"></div>
+    </main>
 
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="relative bg-white/40 backdrop-blur-md rounded-[2.5rem] p-8 md:p-16 border border-white/60 shadow-2xl shadow-gray-200/50">
+    <!-- Sparkle Trail Script -->
+    <script>
+        const colors = ['#3b00ff', '#ff7a21', '#ff0080', '#00ffcc'];
+        const shapes = ['✨', '⭐', '◍', '◦'];
+
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() < 0.15) { // Throttle for performance
+                createSparkle(e.clientX, e.clientY);
+            }
+        });
+
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            // Center the sparkle on cursor
+            sparkle.style.left = (x - 10) + 'px';
+            sparkle.style.top = (y - 10) + 'px';
             
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mb-16">
-                <div class="lg:col-span-5 relative">
-                    <div class="relative z-10 group">
-                        <div class="absolute -inset-4 bg-gradient-to-tr from-brand-blue/20 to-brand-pink/20 rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
-                        <img src="assets/img/profile.webp" alt="Emily Huynh" class="relative z-10 w-full rounded-[2rem] shadow-2xl object-cover aspect-[4/5] transition-all duration-500">
-                        
-                        <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl border border-gray-50 z-20 hidden md:block animate-bounce-slow">
-                            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Current Focus</p>
-                            <p class="text-brand-blue font-heading font-extrabold">Deep Learning & NLP</p>
-                        </div>
-                    </div>
-                </div>
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+            
+            sparkle.innerHTML = randomShape;
+            sparkle.style.color = randomColor;
+            
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 800);
+        }
 
-                <div class="lg:col-span-7 space-y-6">
-                    <span class="text-brand-blue font-heading font-bold tracking-widest text-xs uppercase block">01 — Biography</span>
-                    <h2 class="text-5xl font-heading font-extrabold text-gray-900 tracking-tight leading-tight">The intersection of <span class="text-brand-blue">data</span> and human intent.</h2>
-                    
-                    <div class="space-y-4 text-lg text-gray-600 leading-relaxed font-body">
-                        <p>
-                            I am a <span class="text-gray-900 font-semibold underline decoration-brand-pink decoration-2 underline-offset-4">Data Science major at UCF</span>. I specialize in engineering systems that translate raw variables into strategic narratives. 
-                        </p>
-                        <p>
-                            My approach combines rigorous statistical modeling with a deep interest in human behavioral patterns. Whether it’s optimizing retail revenue or predicting customer churn, I build tools that don't just show data—they solve problems.
-                        </p>
-                    </div>
+        // Logic for drawing animations to replay on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('drawing-line');
+                }
+            });
+        }, { threshold: 0.5 });
 
-                    <div class="grid grid-cols-2 gap-6 pt-6 border-t border-gray-100">
-                        <div>
-                            <p class="text-3xl font-heading font-extrabold text-gray-900">150K+</p>
-                            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Records Managed</p>
-                        </div>
-                        <div>
-                            <p class="text-3xl font-heading font-extrabold text-gray-900">92%</p>
-                            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Model Precision</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        document.querySelectorAll('path').forEach(p => observer.observe(p));
+    </script>
+<section id="about" class="py-24 relative overflow-hidden bg-[#FDFCF8]">
+    <div class="absolute top-20 left-10 text-5xl opacity-30 floating rotate-12 pointer-events-none">⭐</div>
+    <div class="absolute top-1/2 right-5 text-4xl opacity-20 floating-slow pointer-events-none">🎨</div>
+    <div class="absolute bottom-20 left-1/4 text-5xl opacity-20 floating pointer-events-none">✨</div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="max-w-7xl mx-auto px-6 mb-20"> <div class="relative bg-white border-[4px] border-slate-900 rounded-[3rem] p-8 md:p-16 shadow-[15px_15px_0px_#F97316]">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
                 
-                <div class="group bg-brand-blue text-white rounded-3xl p-8 hover:shadow-xl transition-all duration-500 relative overflow-hidden">
-                    <div class="absolute -right-2 -bottom-4 text-white/10 font-heading font-black text-7xl">INTJ</div>
-                    <span class="text-white/60 font-heading font-bold tracking-widest text-[10px] uppercase block mb-4">My Type</span>
-                    <h3 class="text-xl font-heading font-bold mb-2">The Architect</h3>
-                    <p class="text-xs text-white/80 leading-relaxed mb-4">
-                        Driven by logic, efficiency, and long-term strategy. I thrive when building complex systems from the ground up.
-                    </p>
-                    <div class="flex gap-1">
-                        <span class="px-2 py-0.5 bg-white/20 rounded text-[9px] font-bold">I</span>
-                        <span class="px-2 py-0.5 bg-white/20 rounded text-[9px] font-bold">N</span>
-                        <span class="px-2 py-0.5 bg-white/20 rounded text-[9px] font-bold">T</span>
-                        <span class="px-2 py-0.5 bg-white/20 rounded text-[9px] font-bold">J</span>
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="relative inline-block rotate-[-3deg] hover:rotate-0 transition-transform duration-500">
+                        <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-40 h-10 bg-[#F7B5D5]/80 backdrop-blur-sm z-20 rotate-[-2deg] border-x-2 border-dashed border-white/50 shadow-sm"></div>
+                        
+                        <div class="bg-white p-4 pb-16 shadow-[10px_10px_0px_rgba(0,0,0,0.05)] border-2 border-slate-100">
+                            <div class="overflow-hidden rounded-sm">
+                                <img src="assets/img/profile.webp" alt="Emily Huynh" 
+                                     class="w-full aspect-[4/5] object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700">
+                            </div>
+                            <p class="handwritten text-center text-2xl mt-6 text-slate-500"></p>
+                        </div>
+
+                        <div class="absolute -bottom-6 -right-10 bg-[#F97316] text-white p-6 rounded-[2rem] rounded-tr-none shadow-xl z-30 rotate-[5deg] border-[3px] border-slate-900 max-w-[220px]">
+                            <p class="handwritten text-xl leading-tight">
+                                "People ask me why, and I say <span class="underline decoration-white decoration-4 italic font-bold">why not!!!</span>"
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-brand-blue/[0.02] rounded-3xl p-8 border border-brand-blue/5 hover:bg-white hover:shadow-xl transition-all duration-500">
-                    <span class="text-brand-blue font-heading font-bold tracking-widest text-[10px] uppercase block mb-4">The Logic</span>
-                    <h3 class="text-xl font-heading font-bold text-gray-900 mb-2">MBTI Enthusiast</h3>
-                    <p class="text-xs text-gray-600 leading-relaxed">
-                        Fascinated by personality frameworks as a form of human-centric pattern recognition. I love analyzing how cognitive functions influence decision-making.
-                    </p>
-                    <span class="mt-4 block text-xl">🧠</span>
-                </div>
+                <div class="lg:col-span-7 pt-10 lg:pt-0">
+                    <div class="inline-block px-4 py-1 bg-[#1E00D9] text-white rounded-full text-xs font-bold uppercase tracking-[0.2em] mb-6 rotate-[-1deg] shadow-[4px_4px_0px_#F7B5D5]">
+                        01 — THE VIBE CHECK
+                    </div>
+                    
+                    <h2 class="text-6xl md:text-8xl font-black text-slate-900 leading-[0.8] mb-10">
+                        Humanizing <br> 
+                        <span class="text-[#1E00D9] relative inline-block">
+                            Big Data.
+                            <svg class="absolute -inset-x-4 -inset-y-2 w-[110%] h-[120%] text-[#F7B5D5] opacity-70" viewBox="0 0 100 100" preserveAspectRatio="none">
+                                <path d="M5,50 Q5,5 50,5 Q95,5 95,50 Q95,95 50,95 Q5,95 5,50" fill="none" stroke="currentColor" stroke-width="3" />
+                            </svg>
+                        </span>
+                    </h2>
 
-                <div class="bg-gray-50/50 rounded-3xl p-8 border border-gray-100 hover:bg-white hover:shadow-xl transition-all duration-500">
-                    <span class="text-brand-pink font-heading font-bold tracking-widest text-[10px] uppercase block mb-4">The Palate</span>
-                    <h3 class="text-xl font-heading font-bold text-gray-900 mb-2">Food & Coffee</h3>
-                    <p class="text-xs text-gray-600 leading-relaxed">
-                        Curiosity for flavors inspired my clustering analysis of 160+ Starbucks beverages to identify healthier alternatives.
-                    </p>
-                    <span class="mt-4 block text-xl">🍜 ☕</span>
-                </div>
+                    <div class="space-y-8 text-2xl text-slate-600 font-medium leading-tight">
+                        <p>
+                            I’m a Data Science major at UCF who’s a bit too obsessed with the <span class="italic text-slate-900 border-b-4 border-[#F97316]">"why"</span> behind the numbers. 
+                        </p>
+                        <p class="handwritten text-3xl text-[#1E00D9]">
+                             I’m interested in applying models to support people in making smarter decisions based on their behaviors.
 
-                <div class="bg-gray-50/50 rounded-3xl p-8 border border-gray-100 hover:bg-white hover:shadow-xl transition-all duration-500">
-                    <span class="text-brand-pink font-heading font-bold tracking-widest text-[10px] uppercase block mb-4">The Cosmos</span>
-                    <h3 class="text-xl font-heading font-bold text-gray-900 mb-2">Astrology</h3>
-                    <p class="text-xs text-gray-600 leading-relaxed">
-                        Studying universal cycles and world charts to understand behavioral trends beyond the traditional dataset.
-                    </p>
-                    <span class="mt-4 block text-xl">🌙</span>
-                </div>
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-4 pt-4">
+                            <span class="px-6 py-2 border-2 border-slate-900 rounded-full font-bold text-sm rotate-2 hover:bg-[#F7B5D5] transition-colors">ENTP-T ⚡</span>
+                            <span class="px-6 py-2 border-2 border-slate-900 rounded-full font-bold text-sm -rotate-2 hover:bg-[#1E00D9] hover:text-white transition-colors">Strategic Narrative 📖</span>
+                            <span class="px-6 py-2 border-2 border-slate-900 rounded-full font-bold text-sm rotate-1 hover:bg-[#F97316] transition-colors">Human Intent 🧠</span>
+                        </div>
+                    </div>
+                </div> </div> </div> </div> </section>
 
+<section id="personality-game" class="py-24 bg-[#FDFCF8] relative overflow-hidden border-t border-slate-100">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+        
+        <div class="mb-16">
+            <h2 class="handwritten text-4xl text-[#F97316] mb-4 rotate-[-2deg]">If life is a game, let's play... ✨</h2>
+            <h3 class="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter uppercase italic">
+                Two Truths <span class="text-[#1E00D9]">&</span> One Lie
+            </h3>
+            <p class="handwritten text-2xl text-slate-400 mt-4">Can you spot the glitch in my data? 🕵️‍♀️</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            
+            <div class="relative group cursor-help">
+                <div class="absolute inset-0 bg-[#F7B5D5] rounded-[2.5rem] rotate-2 group-hover:rotate-0 transition-transform border-2 border-slate-900"></div>
+                <div class="relative bg-white border-2 border-slate-900 rounded-[2.5rem] p-10 -rotate-1 group-hover:rotate-0 transition-transform h-full flex flex-col items-center justify-center">
+                    <span class="text-5xl mb-6">🔍</span>
+                    <h4 class="text-2xl font-black mb-4 uppercase italic leading-none">The Query Master</h4>
+                    <p class="text-sm font-medium text-slate-600">
+                        I have debugged and solved over 200+ complex SQL problems. Data architecture is my playground.
+                    </p>
+                    <span class="mt-6 text-xs font-black text-[#F7B5D5] uppercase tracking-widest">Fact #1</span>
+                </div>
             </div>
+
+            <div class="relative group cursor-help">
+                <div class="absolute inset-0 bg-[#F97316] rounded-[2.5rem] -rotate-3 group-hover:rotate-0 transition-transform border-2 border-slate-900"></div>
+                <div class="relative bg-white border-2 border-slate-900 rounded-[2.5rem] p-10 rotate-2 group-hover:rotate-0 transition-transform h-full flex flex-col items-center justify-center">
+                    <span class="text-5xl mb-6">💻</span>
+                    <h4 class="text-2xl font-black mb-4 uppercase italic leading-none">Weekend Warrior</h4>
+                    <p class="text-sm font-medium text-slate-600">
+                        My ideal Sunday is staying inside and coding for 10 hours straight. Pure technical immersion.
+                    </p>
+                    <span class="mt-6 text-xs font-black text-[#F97316] uppercase tracking-widest">Fact #2</span>
+                </div>
+            </div>
+
+            <div class="relative group cursor-help">
+                <div class="absolute inset-0 bg-[#1E00D9] rounded-[2.5rem] rotate-3 group-hover:rotate-0 transition-transform border-2 border-slate-900"></div>
+                <div class="relative bg-white border-2 border-slate-900 rounded-[2.5rem] p-10 -rotate-2 group-hover:rotate-0 transition-transform h-full flex flex-col items-center justify-center">
+                    <span class="text-5xl mb-6">🔥</span>
+                    <h4 class="text-2xl font-black mb-4 uppercase italic leading-none">The Risk-taker</h4>
+                    <p class="text-sm font-medium text-slate-600">
+                        Standard paths don't lead to breakthroughs. I’m always ready to dive into the unknown, take calculated risks, and push the boundaries of a dataset. Tell me it's impossible, and I'll say, "Why Not?"
+                    </p>
+                    <span class="mt-6 text-xs font-black text-[#1E00D9] uppercase tracking-widest">Fact #3</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-20">
+            <details class="group bg-white border-2 border-dashed border-slate-200 rounded-2xl p-6 max-w-2xl mx-auto cursor-pointer">
+                <summary class="font-black uppercase tracking-widest text-slate-400 list-none group-open:text-[#F97316] transition-colors">
+                    Click to reveal the lie... 🤫
+                </summary>
+                <div class="mt-6 space-y-4">
+                    <p class="text-2xl font-black text-[#F97316] rotate-[-1deg]">It's #2! ❌</p>
+                    <p class="text-slate-600 text-lg leading-relaxed">
+                        Don't get me wrong, I love data, but there is <span class="font-bold text-slate-900">no inspiration without actually living</span>. My ideal Sunday is spent reading at a cafe, hanging out with friends, and finding new flavors. 
+                        <span class="handwritten text-xl block mt-2 text-[#1E00D9]">You can't model the world if you aren't out there experiencing it! 🌎✨</span>
+                    </p>
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<section id="projects" class="py-32 bg-[#FAF9F6] text-slate-900 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+            <div class="max-w-xl">
+                <h2 class="text-6xl md:text-8xl font-black text-[#F7B5D5] leading-[0.8] tracking-tighter mb-6">
+                    My Works.
+                </h2>
+                <p class="handwritten text-2xl text-slate-500">Turning complex variables into strategic narratives.</p>
+            </div>
+            
+            <div class="flex flex-wrap gap-3">
+                <button class="px-6 py-2 rounded-full bg-[#1E00D9] text-white font-bold text-sm shadow-lg transition-all">All</button>
+                <button class="px-6 py-2 rounded-full border-2 border-slate-200 hover:border-[#F7B5D5] transition-all font-bold text-sm text-slate-600">Analyst</button>
+                <button class="px-6 py-2 rounded-full border-2 border-slate-200 hover:border-[#F7B5D5] transition-all font-bold text-sm text-slate-600">ML</button>
+                <button class="px-6 py-2 rounded-full border-2 border-slate-200 hover:border-[#F7B5D5] transition-all font-bold text-sm text-slate-600">Visualization</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12" id="projects-grid">
+            
+            <article class="group bg-white border-2 border-slate-100 rounded-[2.5rem] overflow-hidden shadow-sm transition-all duration-500 hover:shadow-xl hover:translate-y-[-10px]">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1551288049-bbda4865cda1?auto=format&fit=crop&w=800&q=80" alt="SaaS Analytics" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute top-6 left-6 px-4 py-1 bg-[#1E00D9] text-white rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg">Enterprise SaaS</div>
+                </div>
+                <div class="p-10">
+                    <h3 class="text-3xl font-black text-slate-900 mb-4 group-hover:text-[#1E00D9] transition-colors leading-tight">
+                        RavenStack: SaaS Retention Engine
+                    </h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8">
+                        Identified <span class="text-[#1E00D9] font-bold">$2.07M MRR at risk</span> by diagnosing support bottlenecks in BigQuery. Built a "Silent Churn" engine flagging engagement drops 30 days out.
+                    </p>
+                    <div class="flex flex-wrap gap-3 mb-10">
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-lg text-[10px] font-bold text-slate-500">BIGQUERY</span>
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-lg text-[10px] font-bold text-slate-500">SCIKIT-LEARN</span>
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-lg text-[10px] font-bold text-slate-500">TABLEAU</span>
+                    </div>
+                    <div class="flex items-center gap-6">
+                        <a href="projects/ev-population-dashboard.html" class="text-[10px] font-bold uppercase tracking-widest text-[#1E00D9] border-b-2 border-[#1E00D9]/20 hover:border-[#1E00D9] transition-all pb-1">Case Study</a>
+                        <a href="#" class="text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-[#1E00D9] transition-colors">GitHub</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="group bg-white border-2 border-slate-100 rounded-[2.5rem] overflow-hidden shadow-sm transition-all duration-500 hover:shadow-xl hover:translate-y-[-10px]">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=800&q=80" alt="Coffee Analytics" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute top-6 left-6 px-4 py-1 bg-[#F97316] text-white rounded-full text-[10px] font-bold uppercase tracking-widest">HealthTech • ML</div>
+                </div>
+                <div class="p-10">
+                    <h3 class="text-3xl font-black text-slate-900 mb-4 group-hover:text-[#F97316] transition-colors leading-tight">
+                        Flavor Logic: Starbucks Clustering
+                    </h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8">
+                        Unsupervised learning segmenting 160+ beverages. Engineered a "Healthy Swap" recommender using K-Means and PCA, deployed via Streamlit.
+                    </p>
+                    <div class="flex flex-wrap gap-3 mb-10">
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-lg text-[10px] font-bold text-slate-500">PYTHON</span>
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-lg text-[10px] font-bold text-slate-500">STREAMLIT</span>
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-lg text-[10px] font-bold text-slate-500">K-MEANS</span>
+                    </div>
+                    <div class="flex items-center gap-6">
+                        <a href="projects/starbucks-nutrition-analysis.html" class="text-[10px] font-bold uppercase tracking-widest text-[#F97316] border-b-2 border-[#F97316]/20 hover:border-[#F97316] transition-all pb-1">Case Study</a>
+                        <a href="#" class="text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-[#F97316] transition-colors">Live App</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="group bg-white border-2 border-slate-100 rounded-[2.5rem] overflow-hidden shadow-sm transition-all duration-500 hover:shadow-xl hover:translate-y-[-10px]">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" alt="Finance" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute top-6 left-6 px-4 py-1 bg-[#1E00D9] text-white rounded-full text-[10px] font-bold uppercase tracking-widest">FinTech</div>
+                </div>
+                <div class="p-10">
+                    <h3 class="text-3xl font-black text-slate-900 mb-4 group-hover:text-[#1E00D9] transition-colors leading-tight">
+                        Banking Churn Prediction
+                    </h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8">
+                        High-accuracy XGBoost classifier with SHAP-based explainability. Focused on interpreting "black-box" models to drive customer retention strategies.
+                    </p>
+                    <div class="flex flex-wrap gap-3 mb-10">
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-lg text-[10px] font-bold text-slate-500">XGBOOST</span>
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-lg text-[10px] font-bold text-slate-500">SHAP</span>
+                    </div>
+                    <div class="flex items-center gap-6">
+                        <a href="projects/banking-churn-prediction.html" class="text-[10px] font-bold uppercase tracking-widest text-[#1E00D9] border-b-2 border-[#1E00D9]/20 hover:border-[#1E00D9] transition-all pb-1">Case Study</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="group bg-white border-2 border-slate-100 rounded-[2.5rem] overflow-hidden shadow-sm transition-all duration-500 hover:shadow-xl hover:translate-y-[-10px]">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80" alt="Coffee Store" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute top-6 left-6 px-4 py-1 bg-[#F7B5D5] text-black rounded-full text-[10px] font-bold uppercase tracking-widest">Retail • BI</div>
+                </div>
+                <div class="p-10">
+                    <h3 class="text-3xl font-black text-slate-900 mb-4 group-hover:text-[#F7B5D5] transition-colors leading-tight">
+                        Coffee Retail Analytics Engine
+                    </h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8">
+                        Transformed 150K+ transactional records into a dynamic BI system. Engineered automated ETL pipelines in Excel Power Query and SQL.
+                    </p>
+                    <div class="flex flex-wrap gap-3 mb-10">
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-lg text-[10px] font-bold text-slate-500">EXCEL BI</span>
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-lg text-[10px] font-bold text-slate-500">SQL</span>
+                    </div>
+                    <div class="flex items-center gap-6">
+                        <a href="projects/coffee-retail-bi-dashboard.html" class="text-[10px] font-bold uppercase tracking-widest text-[#F7B5D5] border-b-2 border-[#F7B5D5]/20 hover:border-[#F7B5D5] transition-all pb-1">Dashboard</a>
+                    </div>
+                </div>
+            </article>
+
         </div>
     </div>
 </section>
 
-   <!-- Projects Section (UPDATED WITH SEARCH) -->
-        <section id="projects" class="py-32 bg-white">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8 fade-in">
-                    <div class="max-w-xl">
-                        <span class="text-brand-blue font-heading font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">02 — Case Studies</span>
-                        <h2 class="text-5xl md:text-7xl font-heading font-extrabold text-gray-900 leading-[0.9] tracking-tighter">
-                            Selected <br/><span class="text-brand-blue">Projects.</span>
-                        </h2>
-                    </div>
-                    <div class="hidden md:block">
-                        <p class="text-gray-400 text-sm font-medium italic max-w-xs text-right">
-                            "Turning complex variables into strategic narratives."
-                        </p>
-                    </div>
+<section id="experience" class="py-32 bg-white relative border-y border-slate-100">
+    <div class="max-w-5xl mx-auto px-6">
+        
+        <div class="mb-16 md:flex md:items-end md:justify-between">
+            <div>
+                <span class="text-[#1E00D9] font-bold text-xs uppercase tracking-widest mb-2 block">Career Timeline</span>
+                <h2 class="text-5xl md:text-6xl font-black text-slate-900 tracking-tighter">Experience.</h2>
+            </div>
+        </div>
+
+        <div class="bg-[#FDFCF8] border-[3px] border-slate-900 p-8 md:p-10 rounded-2xl shadow-[8px_8px_0px_#1E00D9] transition-all hover:-translate-y-1 hover:shadow-[12px_12px_0px_#1E00D9]">
+            
+            <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-10">
+                <div>
+                    <h3 class="text-3xl font-black text-slate-900 tracking-tight">Data Analyst Intern</h3>
+                    <p class="text-xl font-bold text-[#F97316] mt-1">AASCS Company</p>
                 </div>
-
-                <!-- Search Bar Container -->
-                <div class="mb-16 fade-in" style="transition-delay: 100ms;">
-                    <div class="relative max-w-2xl search-container group transition-all duration-300">
-                        <div class="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
-                            <svg class="w-4 h-4 text-gray-400 group-focus-within:text-brand-blue transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                            </svg>
-                        </div>
-                        <input type="text" id="project-search" 
-                            placeholder="Filter by keywords (Python, Power BI, SQL, etc...)" 
-                            class="w-full pl-14 pr-6 py-5 bg-brand-bg border border-gray-100 rounded-2xl text-xs font-bold uppercase tracking-widest text-gray-700 focus:outline-none focus:border-brand-blue transition-all placeholder:text-gray-300">
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12" id="projects-grid">
-                    <!-- Project 01 -->
-                    <article class="project-card group bg-brand-bg rounded-2xl p-10 flex flex-col h-full transition-all duration-500" data-tags="fintech classification python xgboost shap">
-                        <div class="flex justify-between items-start mb-8">
-                            <span class="text-[10px] font-bold text-brand-blue bg-brand-blue/5 px-3 py-1 rounded-full uppercase tracking-widest">FinTech • Classification</span>
-                            <span class="text-gray-300 font-heading font-bold text-4xl group-hover:text-brand-blue/20 transition-colors">01</span>
-                        </div>
-                        <h3 class="text-3xl font-heading font-bold text-gray-900 mb-4 group-hover:text-brand-blue transition-colors leading-tight">
-                            Banking Churn Prediction Model
-                        </h3>
-                        <p class="text-gray-500 text-sm font-body leading-relaxed mb-8 flex-grow">
-                            Developed a high-accuracy XGBoost classifier to predict customer attrition. Beyond the metrics, I focused on SHAP-based explainability to empower stakeholders.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="px-3 py-1 bg-white border border-gray-100 rounded-md text-[9px] font-bold text-gray-600 uppercase tracking-tighter">Python</span>
-                            <span class="px-3 py-1 bg-white border border-gray-100 rounded-md text-[9px] font-bold text-gray-600 uppercase tracking-tighter">XGBoost</span>
-                            <span class="px-3 py-1 bg-white border border-gray-100 rounded-md text-[9px] font-bold text-gray-600 uppercase tracking-tighter">SHAP</span>
-                        </div>
-                        <div class="flex items-center gap-6">
-                            <a href="projects/banking-churn-prediction.html" class="text-[10px] font-bold uppercase tracking-widest text-brand-blue border-b-2 border-brand-blue/20 hover:border-brand-blue transition-all pb-1">View Case Study</a>
-                            <a href="https://github.com/emilyxxhy/churn-modelling" target="_blank" class="text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-brand-blue transition-colors">GitHub</a>
-                        </div>
-                    </article>
-
-                    <!-- Project 02 -->
-                    <article class="project-card group bg-brand-bg rounded-2xl p-10 flex flex-col h-full transition-all duration-500" data-tags="healthtech ml clustering streamlit pca">
-                        <div class="flex justify-between items-start mb-8">
-                            <span class="text-[10px] font-bold text-brand-orange bg-brand-orange/5 px-3 py-1 rounded-full uppercase tracking-widest">HealthTech • ML</span>
-                            <span class="text-gray-300 font-heading font-bold text-4xl group-hover:text-brand-orange/20 transition-colors">02</span>
-                        </div>
-                        <h3 class="text-3xl font-heading font-bold text-gray-900 mb-4 group-hover:text-brand-orange transition-colors leading-tight">
-                            Starbucks Nutritional Clustering
-                        </h3>
-                        <p class="text-gray-500 text-sm font-body leading-relaxed mb-8 flex-grow">
-                            An unsupervised learning project segmenting 160+ beverages. Built a personalized "Healthy Swap" engine using K-Means and PCA, deployed via Streamlit.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="px-3 py-1 bg-white border border-gray-100 rounded-md text-[9px] font-bold text-gray-600 uppercase tracking-tighter">Clustering</span>
-                            <span class="px-3 py-1 bg-white border border-gray-100 rounded-md text-[9px] font-bold text-gray-600 uppercase tracking-tighter">Streamlit</span>
-                            <span class="px-3 py-1 bg-white border border-gray-100 rounded-md text-[9px] font-bold text-gray-600 uppercase tracking-tighter">PCA</span>
-                        </div>
-                        <div class="flex items-center gap-6">
-                            <a href="projects/starbucks-nutrition-analysis.html" class="text-[10px] font-bold uppercase tracking-widest text-brand-orange border-b-2 border-brand-orange/20 hover:border-brand-orange transition-all pb-1">View Case Study</a>
-                            <a href="https://starbucksportfolioapp-67oaqbtqc77lls7gz2fvjy.streamlit.app/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-brand-orange transition-colors">Live App</a>
-                        </div>
-                    </article>
-
-                    <!-- Project 03 -->
-                    <article class="project-card group bg-brand-bg rounded-2xl p-10 flex flex-col h-full transition-all duration-500" data-tags="retail bi excel power query etl">
-                        <div class="flex justify-between items-start mb-8">
-                            <span class="text-[10px] font-bold text-brand-blue bg-brand-blue/5 px-3 py-1 rounded-full uppercase tracking-widest">Retail • BI</span>
-                            <span class="text-gray-300 font-heading font-bold text-4xl group-hover:text-brand-blue/20 transition-colors">03</span>
-                        </div>
-                        <h3 class="text-3xl font-heading font-bold text-gray-900 mb-4 group-hover:text-brand-blue transition-colors leading-tight">
-                            Coffee Retail Analytics Engine
-                        </h3>
-                        <p class="text-gray-500 text-sm font-body leading-relaxed mb-8 flex-grow">
-                            Transformed 150K+ transactional records into a dynamic BI system. Engineered automated ETL pipelines in Excel Power Query.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="px-3 py-1 bg-white border border-gray-100 rounded-md text-[9px] font-bold text-gray-600 uppercase tracking-tighter">Excel BI</span>
-                            <span class="px-3 py-1 bg-white border border-gray-100 rounded-md text-[9px] font-bold text-gray-600 uppercase tracking-tighter">Power Query</span>
-                            <span class="px-3 py-1 bg-white border border-gray-100 rounded-md text-[9px] font-bold text-gray-600 uppercase tracking-tighter">ETL</span>
-                        </div>
-                        <div class="flex items-center gap-6">
-                            <a href="projects/coffee-retail-bi-dashboard.html" class="text-[10px] font-bold uppercase tracking-widest text-brand-blue border-b-2 border-brand-blue/20 hover:border-brand-blue transition-all pb-1">View Case Study</a>
-                        </div>
-                    </article>
-
-                    <!-- Project 04 -->
-                    <article class="project-card group bg-brand-bg rounded-2xl p-10 flex flex-col h-full transition-all duration-500" data-tags="public data visualization power bi geo-spatial tableau">
-                        <div class="flex justify-between items-start mb-8">
-                            <span class="text-[10px] font-bold text-brand-pink bg-brand-pink/10 px-3 py-1 rounded-full uppercase tracking-widest">Public Data • Visualization</span>
-                            <span class="text-gray-300 font-heading font-bold text-4xl group-hover:text-brand-pink/50 transition-colors">04</span>
-                        </div>
-                        <h3 class="text-3xl font-heading font-bold text-gray-900 mb-4 group-hover:text-brand-pink transition-colors leading-tight">
-                            Seattle EV Infrastructure Roadmap
-                        </h3>
-                        <p class="text-gray-500 text-sm font-body leading-relaxed mb-8 flex-grow">
-                            A geo-spatial analysis identifying "Charging Deserts" in high EV adoption zones. Leveraged Power BI to visualize 150K+ records.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="px-3 py-1 bg-white border border-gray-100 rounded-md text-[9px] font-bold text-gray-600 uppercase tracking-tighter">Power BI</span>
-                            <span class="px-3 py-1 bg-white border border-gray-100 rounded-md text-[9px] font-bold text-gray-600 uppercase tracking-tighter">Geo-Spatial</span>
-                        </div>
-                        <div class="flex items-center gap-6">
-                            <a href="projects/ev-population-dashboard.html" class="text-[10px] font-bold uppercase tracking-widest text-brand-pink border-b-2 border-brand-pink/20 hover:border-brand-pink transition-all pb-1">View Case Study</a>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- No Results Message -->
-                <div id="no-results" class="hidden text-center py-20">
-                    <p class="text-gray-300 font-heading text-xl font-bold uppercase tracking-widest">No matching projects found.</p>
+                <div class="px-5 py-2 bg-slate-900 text-white rounded-lg text-xs font-bold uppercase tracking-widest shrink-0">
+                    Jun 2025 – Aug 2025
                 </div>
             </div>
-        </section>
 
-        <!-- Experience & Other sections... (Simplified for brevity, maintain same style as above) -->
+            <ul class="space-y-6 font-sans text-slate-700 text-[17px] leading-relaxed">
+                <li class="flex items-start gap-4">
+                    <svg class="w-6 h-6 text-[#1E00D9] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
+                    <span>Collected and analyzed income statements, balance sheets, and cash flow statements of <strong class="text-slate-900 font-bold">20+ publicly listed companies</strong> to identify performance trends and propose tailored strategies.</span>
+                </li>
+                <li class="flex items-start gap-4">
+                    <svg class="w-6 h-6 text-[#1E00D9] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
+                    <span>Applied statistical methods in Excel (variance analysis, trend analysis, and ratio comparisons) to clean and structure <strong class="text-[#1E00D9] font-bold">10,000+ financial data points</strong>, improving reporting efficiency by <strong class="text-[#1E00D9] font-bold">35%</strong>.</span>
+                </li>
+                <li class="flex items-start gap-4">
+                    <svg class="w-6 h-6 text-[#1E00D9] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
+                    <span>Collaborated with the audit team to evaluate monthly financial performance and strengthen stakeholder relationships by preparing client-ready summaries and visualizations using Excel.</span>
+                </li>
+            </ul>
 
-             <!-- Leadership Section -->
-        <section id="leadership" class="py-32 relative overflow-hidden bg-brand-bg">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8 fade-in">
-                    <div class="max-w-2xl">
-                        <span class="text-brand-blue font-heading font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">03 — Impact & Community</span>
-                        <h2 class="text-5xl md:text-7xl font-heading font-extrabold text-gray-900 leading-[0.9] tracking-tighter">
-                            Leading with <br/><span class="text-brand-blue">Purpose.</span>
-                        </h2>
+            <div class="mt-10 pt-6 border-t-2 border-slate-200 flex flex-wrap gap-2 font-sans">
+                <span class="px-3 py-1.5 bg-white border-2 border-slate-200 text-slate-600 rounded-md text-xs font-bold uppercase tracking-wide">Excel</span>
+                <span class="px-3 py-1.5 bg-white border-2 border-slate-200 text-slate-600 rounded-md text-xs font-bold uppercase tracking-wide">Financial Analysis</span>
+                <span class="px-3 py-1.5 bg-white border-2 border-slate-200 text-slate-600 rounded-md text-xs font-bold uppercase tracking-wide">Data Visualization</span>
+                <span class="px-3 py-1.5 bg-white border-2 border-slate-200 text-slate-600 rounded-md text-xs font-bold uppercase tracking-wide">Statistical Methods</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+<section id="skills-tech" class="py-32 bg-[#FDFCF8] relative overflow-hidden">
+    <div class="absolute top-10 right-10 text-4xl opacity-10 floating-slow">⚙️</div>
+    <div class="absolute bottom-1/4 left-5 text-4xl opacity-10 floating text-[#1E00D9]">◍</div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-24">
+            <span class="handwritten text-[#F97316] text-2xl block mb-2 animate-bounce">My magic spells ✨</span>
+            <h2 class="text-6xl md:text-8xl font-black text-slate-900 leading-[0.8] tracking-tighter">
+                Toolkit & <br/>
+                <span class="text-[#1E00D9] relative">
+                    Expertise.
+                    <svg class="absolute -bottom-4 left-0 w-full h-4 text-[#F7B5D5]" viewBox="0 0 100 10" preserveAspectRatio="none">
+                        <path d="M0 5 Q 25 0 50 5 T 100 5" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round"/>
+                    </svg>
+                </span>
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            
+            <div class="space-y-8">
+                <h3 class="handwritten text-2xl text-slate-400 mb-6 flex items-center gap-2">
+                    <span class="text-3xl">01</span> — Analysis & Modeling
+                </h3>
+                <div class="grid gap-6">
+                    <div class="group relative bg-white border-[3px] border-slate-900 rounded-2xl p-6 shadow-[8px_8px_0px_#F7B5D5] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all">
+                        <div class="flex items-center gap-4">
+                            <i class="devicon-python-plain colored text-5xl"></i>
+                            <div>
+                                <p class="font-black text-slate-900 text-sm uppercase">Python</p>
+                                <p class="text-[10px] font-bold text-slate-400">Pandas, NumPy, Scikit-learn</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-                <div class="space-y-40">
-                    <!-- Item 01: Data Science Hub -->
-                    <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center fade-in">
-                        <div class="lg:col-span-5 z-10 lg:-mr-20">
-                            <div class="bg-white p-10 md:p-14 leadership-card rounded-2xl editorial-shadow">
-                                <div class="flex items-center gap-4 mb-8">
-                                    <span class="h-px w-8 bg-brand-blue"></span>
-                                    <span class="text-[10px] font-bold text-brand-blue uppercase tracking-widest">Foundation</span>
-                                </div>
-                                <h3 class="text-3xl md:text-4xl font-heading font-extrabold text-gray-900 mb-6 leading-tight">
-                                    Founding DePauw's First Data Science Hub
-                                </h3>
-                                <p class="text-gray-500 text-sm font-body leading-relaxed mb-8">
-                                    I architected the university’s first student-led hub, scaling to <span class="text-brand-blue font-bold">50+ members</span>. We bridged technical theory and real-world application to make data impact-driven.
-                                </p>
-                                <div class="flex flex-wrap gap-4 pt-8 border-t border-gray-100">
-                                    <div>
-                                        <p class="text-2xl font-heading font-bold text-gray-900 tracking-tighter">50+</p>
-                                        <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Active Members</p>
-                                    </div>
-                                    <div class="ml-auto">
-                                        <span class="px-4 py-2 border border-brand-blue text-brand-blue rounded-full text-[9px] font-bold uppercase tracking-widest">Founder & President</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lg:col-span-7 relative">
-                            <div class="aspect-[16/10] overflow-hidden rounded-3xl grayscale hover:grayscale-0 transition-all duration-700">
-                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80" alt="Collaboration" class="w-full h-full object-cover">
+                    <div class="group relative bg-white border-[3px] border-slate-900 rounded-2xl p-6 shadow-[8px_8px_0px_#F97316] rotate-[-1deg] hover:rotate-0 transition-all">
+                        <div class="flex items-center gap-4">
+                            <i class="devicon-r-plain colored text-5xl"></i>
+                            <div>
+                                <p class="font-black text-slate-900 text-sm uppercase">R Programming</p>
+                                <p class="text-[10px] font-bold text-slate-400">Statistical Modeling & Viz</p>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Item 02: LQD Club -->
-                    <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center fade-in">
-                        <div class="lg:col-span-7 relative order-last lg:order-first">
-                            <div class="aspect-[16/10] overflow-hidden rounded-3xl grayscale hover:grayscale-0 transition-all duration-700">
-                                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80" alt="Strategic Planning" class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                        <div class="lg:col-span-5 z-10 lg:-ml-20">
-                            <div class="bg-white p-10 md:p-14 leadership-card rounded-2xl editorial-shadow">
-                                <div class="flex items-center gap-4 mb-8">
-                                    <span class="h-px w-8 bg-brand-pink"></span>
-                                    <span class="text-[10px] font-bold text-brand-pink uppercase tracking-widest">External Relations</span>
-                                </div>
-                                <h3 class="text-3xl md:text-4xl font-heading font-extrabold text-gray-900 mb-6 leading-tight">
-                                    Strategic Lead: LQD Research Club
-                                </h3>
-                                
-                                <div class="space-y-6 mb-10">
-                                    <div class="flex gap-4">
-                                        <div class="flex-shrink-0 w-8 h-8 bg-brand-pink/10 rounded-full flex items-center justify-center text-brand-pink">
-                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zm6-4a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zm6-3a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path></svg>
-                                        </div>
-                                        <p class="text-gray-500 text-sm font-body leading-relaxed italic">"Redesigned event formats based on participation data, optimizing conversion rates by <span class="text-gray-900 font-bold">40%</span>."</p>
-                                    </div>
-                                </div>
-
-                                <div class="flex justify-between items-center pt-8 border-t border-gray-100">
-                                    <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">2024 — Present</span>
-                                    <span class="px-4 py-2 bg-brand-pink/10 text-brand-pink rounded-full text-[9px] font-bold uppercase tracking-widest">Strategic Lead</span>
-                                </div>
+                    <div class="group relative bg-white border-[3px] border-slate-900 rounded-2xl p-6 shadow-[8px_8px_0px_#1E00D9] rotate-[1deg] hover:rotate-0 transition-all">
+                        <div class="flex items-center gap-4">
+                            <div class="w-[50px] h-[50px] bg-slate-100 rounded-md flex items-center justify-center text-3xl">🤖</div>
+                            <div>
+                                <p class="font-black text-slate-900 text-sm uppercase">Machine Learning</p>
+                                <p class="text-[10px] font-bold text-slate-400">Classification, Regression, Clustering</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-         <!-- Technical Toolkit Section (UPDATED WITH FULL SKILL STACK) -->
-        <section id="skills-tech" class="py-32 bg-white relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="text-center mb-24 fade-in">
-                    <span class="text-brand-orange font-heading font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">The Quantitative Stack</span>
-                    <h2 class="text-5xl md:text-7xl font-heading font-extrabold text-gray-900 leading-[0.9] tracking-tighter">
-                        Toolkit & <br/><span class="text-brand-blue">Domain Expertise.</span>
-                    </h2>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
-                    <!-- Column 1: Core Data Science -->
-                    <div class="space-y-10 fade-in">
-                        <h3 class="text-xs font-bold text-gray-400 uppercase tracking-[0.3em] flex items-center gap-3">
-                            <span class="w-8 h-px bg-gray-200"></span> 01 — Analysis & Stats
-                        </h3>
-                        <div class="grid grid-cols-1 gap-4">
-                            <div class="skill-card p-6 bg-brand-bg rounded-2xl flex items-center gap-5">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-8 h-8" alt="Python">
-                                <div>
-                                    <p class="text-xs font-bold text-gray-900 uppercase tracking-widest">Python (Pandas, NumPy)</p>
-                                    <p class="text-[9px] text-gray-500 font-medium mt-1">Modeling & Scraping</p>
-                                </div>
-                            </div>
-                            <div class="skill-card p-6 bg-brand-bg rounded-2xl flex items-center gap-5">
-                                <span class="text-2xl">🧪</span>
-                                <div>
-                                    <p class="text-xs font-bold text-gray-900 uppercase tracking-widest">Statistical Analysis</p>
-                                    <p class="text-[9px] text-gray-500 font-medium mt-1">Correlation, ANOVA, Regression</p>
-                                </div>
-                            </div>
-                            <div class="skill-card p-6 bg-brand-bg rounded-2xl flex items-center gap-5">
-                                <span class="text-2xl">🤖</span>
-                                <div>
-                                    <p class="text-xs font-bold text-gray-900 uppercase tracking-widest">Machine Learning</p>
-                                    <p class="text-[9px] text-gray-500 font-medium mt-1">XGBoost, Scikit-Learn, K-Means</p>
-                                </div>
+            <div class="space-y-8">
+                <h3 class="handwritten text-2xl text-slate-400 mb-6 flex items-center gap-2">
+                    <span class="text-3xl">02</span> — Viz & BI
+                </h3>
+                <div class="grid gap-6">
+                    <div class="group relative bg-white border-[3px] border-slate-900 rounded-2xl p-6 shadow-[8px_8px_0px_#F7B5D5] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all">
+                        <div class="flex items-center gap-4">
+                            <i class="devicon-mysql-plain-wordmark colored text-5xl"></i>
+                            <div>
+                                <p class="font-black text-slate-900 text-sm uppercase">SQL (MySQL)</p>
+                                <p class="text-[10px] font-bold text-slate-400">Complex Queries & Joins</p>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Column 2: BI & Architecture -->
-                    <div class="space-y-10 fade-in" style="transition-delay: 100ms;">
-                        <h3 class="text-xs font-bold text-gray-400 uppercase tracking-[0.3em] flex items-center gap-3">
-                            <span class="w-8 h-px bg-gray-200"></span> 02 — BI & Architecture
-                        </h3>
-                        <div class="grid grid-cols-1 gap-4">
-                            <div class="skill-card p-6 bg-brand-bg rounded-2xl flex items-center gap-5">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" class="w-8 h-8" alt="Power BI">
-                                <div>
-                                    <p class="text-xs font-bold text-gray-900 uppercase tracking-widest">Power BI (DAX)</p>
-                                    <p class="text-[9px] text-gray-500 font-medium mt-1">Interactive Reporting</p>
-                                </div>
-                            </div>
-                            <div class="skill-card p-6 bg-brand-bg rounded-2xl flex items-center gap-5">
-                                <img src="https://cdn.worldvectorlogo.com/logos/tableau-software.svg" class="w-8 h-8" alt="Tableau">
-                                <div>
-                                    <p class="text-xs font-bold text-gray-900 uppercase tracking-widest">Tableau</p>
-                                    <p class="text-[9px] text-gray-500 font-medium mt-1">Geo-spatial Visualization</p>
-                                </div>
-                            </div>
-                            <div class="skill-card p-6 bg-brand-bg rounded-2xl flex items-center gap-5">
-                                <span class="text-2xl">⚙️</span>
-                                <div>
-                                    <p class="text-xs font-bold text-gray-900 uppercase tracking-widest">Excel Power Query</p>
-                                    <p class="text-[9px] text-gray-500 font-medium mt-1">ETL & Automated Modeling</p>
-                                </div>
+                    <div class="group relative bg-white border-[3px] border-slate-900 rounded-2xl p-6 shadow-[8px_8px_0px_#1E00D9] rotate-[-2deg] hover:rotate-0 transition-all">
+                        <div class="flex items-center gap-4">
+                            <div class="w-[50px] h-[50px] bg-slate-100 rounded-md flex items-center justify-center text-3xl">📈</div>
+                            <div>
+                                <p class="font-black text-slate-900 text-sm uppercase">Tableau</p>
+                                <p class="text-[10px] font-bold text-slate-400">Interactive Dashboards</p>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Column 3: Tools & Deployment -->
-                    <div class="space-y-10 fade-in" style="transition-delay: 200ms;">
-                        <h3 class="text-xs font-bold text-gray-400 uppercase tracking-[0.3em] flex items-center gap-3">
-                            <span class="w-8 h-px bg-gray-200"></span> 03 — Engineering
-                        </h3>
-                        <div class="grid grid-cols-1 gap-4">
-                            <div class="skill-card p-6 bg-brand-bg rounded-2xl flex items-center gap-5">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="w-8 h-8" alt="SQL">
-                                <div>
-                                    <p class="text-xs font-bold text-gray-900 uppercase tracking-widest">SQL (MySQL)</p>
-                                    <p class="text-[9px] text-gray-500 font-medium mt-1">Database Queries & ETL</p>
-                                </div>
-                            </div>
-                            <div class="skill-card p-6 bg-brand-bg rounded-2xl flex items-center gap-5">
-                                <span class="text-2xl">🚀</span>
-                                <div>
-                                    <p class="text-xs font-bold text-gray-900 uppercase tracking-widest">Streamlit / SHAP</p>
-                                    <p class="text-[9px] text-gray-500 font-medium mt-1">ML Deployment & Explainability</p>
-                                </div>
-                            </div>
-                            <div class="skill-card p-6 bg-brand-bg rounded-2xl flex items-center gap-5">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="w-8 h-8" alt="Git">
-                                <div>
-                                    <p class="text-xs font-bold text-gray-900 uppercase tracking-widest">Version Control</p>
-                                    <p class="text-[9px] text-gray-500 font-medium mt-1">GitHub Workflow</p>
-                                </div>
+                    <div class="group relative bg-white border-[3px] border-slate-900 rounded-2xl p-6 shadow-[8px_8px_0px_#F97316] hover:scale-105 transition-all">
+                        <div class="flex items-center gap-4">
+                            <div class="w-[50px] h-[50px] bg-yellow-100 rounded-md flex items-center justify-center text-3xl text-yellow-600">📊</div>
+                            <div>
+                                <p class="font-black text-slate-900 text-sm uppercase">Power BI (DAX)</p>
+                                <p class="text-[10px] font-bold text-slate-400">Data Modeling & BI</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+
+            <div class="space-y-8">
+                <h3 class="handwritten text-2xl text-slate-400 mb-6 flex items-center gap-2">
+                    <span class="text-3xl">03</span> — Engineering
+                </h3>
+                <div class="grid gap-6">
+                    <div class="group relative bg-white border-[3px] border-slate-900 rounded-2xl p-6 shadow-[8px_8px_0px_#F7B5D5] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all">
+                        <div class="flex items-center gap-4">
+                            <i class="devicon-microsoft-plain colored text-5xl"></i>
+                            <div>
+                                <p class="font-black text-slate-900 text-sm uppercase">Excel Power Query</p>
+                                <p class="text-[10px] font-bold text-slate-400">Automated ETL & Modeling</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group relative bg-white border-[3px] border-slate-900 rounded-2xl p-6 shadow-[8px_8px_0px_#F97316] rotate-[-2deg] hover:rotate-0 transition-all">
+                        <div class="flex items-center gap-4">
+                            <i class="devicon-googlecloud-plain colored text-5xl"></i>
+                            <div>
+                                <p class="font-black text-slate-900 text-sm uppercase">Google BigQuery</p>
+                                <p class="text-[10px] font-bold text-slate-400">Large-scale Data Analysis</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group relative bg-white border-[3px] border-slate-900 rounded-2xl p-6 shadow-[8px_8px_0px_#1E00D9] rotate-[2deg] hover:rotate-0 transition-all">
+                        <div class="flex items-center gap-4">
+                            <i class="devicon-c-plain colored text-5xl"></i>
+                            <div>
+                                <p class="font-black text-slate-900 text-sm uppercase">C Programming</p>
+                                <p class="text-[10px] font-bold text-slate-400">Systems & Optimization</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
+            
+            <div class="group relative bg-white border-[3px] border-slate-900 rounded-2xl p-6 shadow-[8px_8px_0px_#F7B5D5] hover:scale-105 transition-all">
+                <div class="flex items-center gap-4">
+                    <i class="devicon-java-plain colored text-5xl"></i>
+                    <div>
+                        <p class="font-black text-slate-900 text-sm uppercase">Java</p>
+                        <p class="text-[10px] font-bold text-slate-400">App Development & Logic</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group relative bg-white border-[3px] border-slate-900 rounded-2xl p-6 shadow-[8px_8px_0px_#F97316] rotate-[-1deg] hover:rotate-0 transition-all">
+                <div class="flex items-center gap-4">
+                    <i class="devicon-streamlit-plain colored text-5xl"></i>
+                    <div>
+                        <p class="font-black text-slate-900 text-sm uppercase">Streamlit</p>
+                        <p class="text-[10px] font-bold text-slate-400">ML App Deployment</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group relative bg-white border-[3px] border-slate-900 rounded-2xl p-6 shadow-[8px_8px_0px_#1E00D9] rotate-[2deg] hover:rotate-0 transition-all">
+                <div class="flex items-center gap-4">
+                    <i class="devicon-github-plain-wordmark colored text-5xl"></i>
+                    <div>
+                        <p class="font-black text-slate-900 text-sm uppercase">Git & GitHub</p>
+                        <p class="text-[10px] font-bold text-slate-400">Version Control Workflow</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="mt-20 text-center">
+            <p class="handwritten text-2xl text-slate-400">
+                ...and I'm always learning more because <span class="text-[#F97316]">why not?!!!</span>
+            </p>
+        </div>
+    </div>
+</section>
         <section id="domain-acumen" class="bg-white/60 py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-16 fade-in">
@@ -597,141 +764,211 @@
                 </div>
             </div>
         </section>
+<section id="the-lab" class="py-24 bg-white relative border-b border-slate-100">
+    <div class="absolute top-10 left-10 text-4xl opacity-10 floating-slow pointer-events-none">🧪</div>
+    <div class="absolute bottom-10 right-10 text-4xl opacity-10 floating pointer-events-none">🧠</div>
 
-        <section id="contact" class="py-20">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 fade-in">
-                <div class="text-center mb-16">
-                    <span class="inline-block bg-brand-orange text-white font-heading text-sm font-bold px-6 py-2 rounded-full shadow-md uppercase tracking-wider">Let's Connect</span>
-                    <h2 class="text-4xl lg:text-5xl font-heading font-bold text-gray-900 mt-6">Ready to Collaborate?</h2>
-                    <p class="text-gray-600 font-body mt-2">I'm currently seeking a Summer 2026 Analytics Internship.</p>
-                </div>
-<form id="contact-form" action="https://formspree.io/f/mojaegjo" method="POST" class="bg-white p-8 rounded-xl shadow-2xl space-y-6">
-    <input type="text" name="_gotcha" style="display:none">
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-            <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Name</label>
-            <input type="text" id="name" name="name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue outline-none">
-        </div>
-        <div>
-            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
-            <input type="email" id="email" name="email" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue outline-none">
-        </div>
-    </div>
-    <div>
-        <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Message</label>
-        <textarea id="message" name="message" rows="5" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue outline-none"></textarea>
-    </div>
-    <div class="pt-4">
-        <button type="submit" class="w-full bg-brand-blue text-white font-heading font-bold px-8 py-3 rounded-xl shadow-lg hover:bg-opacity-90 transition-all transform hover:scale-[1.01]">
-            Send Message
-        </button>
-    </div>
-</form>
-
-    </main>
-
-</main>
-
-        <footer class="w-full bg-[#0B0F1A] py-20">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-start gap-12">
-                <div class="space-y-6">
-                    <a href="#welcome" class="font-heading text-3xl font-bold text-white tracking-tighter">
-                        Emily H<span class="text-brand-blue">.</span>
-                    </a>
-                    <p class="text-gray-500 text-sm font-medium max-w-xs leading-relaxed">
-                        Sifting through the digital noise to find the human stories buried in the numbers.
-                    </p>
-                </div>
-                <div class="flex gap-16 text-[9px] font-bold uppercase tracking-[0.3em] text-gray-500">
-                    <div class="flex flex-col gap-4">
-                        <span class="text-gray-600">Explore</span>
-                        <a href="#about" class="hover:text-white transition-colors">About</a>
-                        <a href="#projects" class="hover:text-white transition-colors">Projects</a>
-                        <a href="assets/docs/resume.pdf" target="_blank" class="hover:text-brand-blue transition-colors">Resume</a>
-                    </div>
-                    <div class="flex flex-col gap-4">
-                        <span class="text-gray-600">Social</span>
-                        <a href="https://github.com/emilyxxhy" target="_blank" class="hover:text-white transition-colors">GitHub</a>
-                        <a href="https://linkedin.com" target="_blank" class="hover:text-white transition-colors">LinkedIn</a>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[8px] font-bold uppercase tracking-widest text-gray-700">
-                <p>© 2025 All Rights Reserved — UCF Data Science</p>
-                <p>Made with <span class="text-brand-orange italic">Iced Shaken Espresso</span></p>
-            </div>
-        </div>
-    </footer>
-
-
-    <script src="assets/js/app.min.js"></script>
-    <script>
-        // Mobile Menu
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileBtn && mobileMenu) {
-            mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-        }
-
-        // Rotating Text
-        const words = ["Data Storyteller", "Analytics Architect", "Problem Solver", "Data Science @ UCF"];
-        let index = 0;
-        const textTarget = document.getElementById('rotating-text-small');
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
         
-        function rotateText() {
-            if (textTarget) {
-                textTarget.style.opacity = '0';
-                setTimeout(() => {
-                    textTarget.innerText = words[index % words.length];
-                    textTarget.style.opacity = '1';
-                    index++;
-                }, 500);
+        <div class="mb-12 md:flex md:items-end md:justify-between">
+            <div>
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-[#F7B5D5]/20 text-[#1E00D9] rounded-full text-xs font-bold uppercase tracking-[0.2em] mb-4">
+                    What's Cooking? 🍳
+                </span>
+                <h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+                    In the <span class="text-[#F97316]">Lab.</span>
+                </h2>
+                <p class="text-slate-500 font-medium mt-3 text-lg max-w-xl">
+                    I'm never just sitting still. Here is what I'm actively researching, building, and burning right now.
+                </p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="bg-[#FDFCF8] border-[3px] border-slate-900 p-8 rounded-2xl shadow-[8px_8px_0px_#1E00D9] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all group flex flex-col">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="w-12 h-12 bg-[#1E00D9]/10 rounded-xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                        🤖
+                    </div>
+                    <span class="text-[10px] font-bold text-[#1E00D9] uppercase tracking-widest border border-[#1E00D9] px-3 py-1 rounded-full">Learning</span>
+                </div>
+                <h3 class="text-2xl font-black text-slate-900 mb-3">LLM Architecture</h3>
+                <p class="text-slate-600 leading-relaxed text-sm font-sans mb-6 flex-grow">
+                    Diving deep into the mechanics of Large Language Models. I'm moving beyond APIs and actually studying fine-tuning, prompt engineering, and how to make AI models more context-aware without hallucinating.
+                </p>
+                <div class="flex flex-wrap gap-2 font-sans">
+                    <span class="px-3 py-1 bg-white border border-slate-200 text-slate-500 rounded-md text-[10px] font-bold uppercase tracking-wide">GenAI</span>
+                    <span class="px-3 py-1 bg-white border border-slate-200 text-slate-500 rounded-md text-[10px] font-bold uppercase tracking-wide">Transformers</span>
+                </div>
+            </div>
+
+            <div class="bg-[#FDFCF8] border-[3px] border-slate-900 p-8 rounded-2xl shadow-[8px_8px_0px_#F97316] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all group flex flex-col">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="w-12 h-12 bg-[#F97316]/10 rounded-xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                        📚
+                    </div>
+                    <span class="text-[10px] font-bold text-[#F97316] uppercase tracking-widest border border-[#F97316] px-3 py-1 rounded-full">Building Next</span>
+                </div>
+                <h3 class="text-2xl font-black text-slate-900 mb-3">UCF RAG Pipeline</h3>
+                <p class="text-slate-600 leading-relaxed text-sm font-sans mb-6 flex-grow">
+                    Because <span class="italic font-bold">Ctrl+F</span> isn't good enough anymore. Planning a Retrieval-Augmented Generation (RAG) system to help UCF CS & Data Science students instantly query and synthesize heavy academic papers.
+                </p>
+                <div class="flex flex-wrap gap-2 font-sans">
+                    <span class="px-3 py-1 bg-white border border-slate-200 text-slate-500 rounded-md text-[10px] font-bold uppercase tracking-wide">Vector DBs</span>
+                    <span class="px-3 py-1 bg-white border border-slate-200 text-slate-500 rounded-md text-[10px] font-bold uppercase tracking-wide">LangChain</span>
+                </div>
+            </div>
+
+            <div class="bg-[#FDFCF8] border-[3px] border-slate-900 p-8 rounded-2xl shadow-[8px_8px_0px_#F7B5D5] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all group flex flex-col">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="w-12 h-12 bg-[#F7B5D5]/20 rounded-xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                        🍳
+                    </div>
+                    <span class="text-[10px] font-bold text-slate-900 uppercase tracking-widest border border-slate-900 px-3 py-1 rounded-full bg-[#F7B5D5]">IRL Algorithm</span>
+                </div>
+                <h3 class="text-2xl font-black text-slate-900 mb-3">Culinary "Engineering"</h3>
+                <p class="text-slate-600 leading-relaxed text-sm font-sans mb-6 flex-grow">
+                    Honestly, learning to cook is harder than learning Python. I'm currently treating recipes like code—tweaking variables (spices), running compilations (baking), and trying to figure out why my dinner threw a <span class="font-mono bg-slate-100 text-slate-800 px-1 py-0.5 rounded text-xs border border-slate-200">BurntException</span>.
+                </p>
+                <div class="flex flex-wrap gap-2 font-sans">
+                    <span class="px-3 py-1 bg-white border border-slate-200 text-slate-500 rounded-md text-[10px] font-bold uppercase tracking-wide">Trial & Error</span>
+                    <span class="px-3 py-1 bg-white border border-slate-200 text-slate-500 rounded-md text-[10px] font-bold uppercase tracking-wide">No StackOverflow</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="py-32 bg-[#FDFCF8] relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-[#F7B5D5]/20 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#1E00D9]/10 rounded-full blur-[100px] -translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-16">
+            <span class="inline-flex items-center gap-2 px-5 py-2 bg-[#F97316]/10 text-[#F97316] rounded-full text-xs font-bold uppercase tracking-[0.2em] mb-6">
+                Let's Connect 💌
+            </span>
+            <h2 class="text-5xl md:text-6xl font-black text-slate-900 tracking-tight mb-4">
+                Ready to <span class="text-[#1E00D9]">Collaborate?</span>
+            </h2>
+            <p class="text-lg text-slate-500 font-medium">I'm currently seeking a Summer 2026 Analytics Internship.</p>
+        </div>
+
+        <form id="contact-form" action="https://formspree.io/f/mojaegjo" method="POST" class="bg-white/80 backdrop-blur-xl p-8 md:p-12 rounded-[2.5rem] shadow-2xl shadow-[#1E00D9]/5 border border-white space-y-6 transition-all hover:shadow-[#1E00D9]/10">
+            <input type="text" name="_gotcha" style="display:none">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                    <label for="name" class="block text-sm font-bold text-slate-700 ml-1">Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Jane Doe" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:border-[#1E00D9] focus:ring-4 focus:ring-[#1E00D9]/10 outline-none transition-all placeholder:text-slate-400">
+                </div>
+                <div class="space-y-2">
+                    <label for="email" class="block text-sm font-bold text-slate-700 ml-1">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="jane@example.com" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:border-[#1E00D9] focus:ring-4 focus:ring-[#1E00D9]/10 outline-none transition-all placeholder:text-slate-400">
+                </div>
+            </div>
+            
+            <div class="space-y-2">
+                <label for="message" class="block text-sm font-bold text-slate-700 ml-1">Message</label>
+                <textarea id="message" name="message" rows="5" required placeholder="Hi Emily, I'd love to chat about..." class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:border-[#1E00D9] focus:ring-4 focus:ring-[#1E00D9]/10 outline-none transition-all placeholder:text-slate-400 resize-none"></textarea>
+            </div>
+            
+            <div class="pt-4">
+                <button type="submit" class="w-full bg-[#1E00D9] text-white font-bold text-lg px-8 py-4 rounded-2xl shadow-lg shadow-[#1E00D9]/30 hover:bg-[#15009E] hover:shadow-xl hover:-translate-y-1 transition-all flex justify-center items-center gap-2">
+                    Send Message ✨
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<footer class="w-full bg-[#0B0F1A] py-16 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-start gap-12">
+            
+            <div class="space-y-6 max-w-sm">
+                <a href="#welcome" class="text-3xl font-black text-white tracking-tighter hover:text-[#F7B5D5] transition-colors">
+                    Emily H<span class="text-[#1E00D9]">.</span>
+                </a>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Sifting through the digital noise to find the human stories buried in the numbers.
+                </p>
+            </div>
+
+            <div class="flex gap-16 text-xs font-bold uppercase tracking-[0.15em] text-slate-500">
+                <div class="flex flex-col gap-4">
+                    <span class="text-slate-600 mb-1">Explore</span>
+                    <a href="#about" class="hover:text-white transition-colors">About</a>
+                    <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+                    <a href="assets/docs/resume.pdf" target="_blank" class="hover:text-white transition-colors">Resume</a>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <span class="text-slate-600 mb-1">Social</span>
+                    <a href="https://github.com/emilyxxhy" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+                    <a href="https://linkedin.com" target="_blank" class="hover:text-white transition-colors">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-slate-500">
+            <p>© 2026 All Rights Reserved — UCF Data Science</p>
+            <p class="flex items-center gap-1.5">
+                Made with <span class="text-[#F97316] italic normal-case text-xs tracking-normal">Iced Shaken Espresso</span> ☕
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script>
+        const colors = ['#3b00ff', '#ff7a21', '#ff0080', '#00ffcc'];
+        const shapes = ['✨', '⭐', '◍', '◦'];
+
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() < 0.15) { 
+                createSparkle(e.clientX, e.clientY);
             }
+        });
+
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = (x - 10) + 'px';
+            sparkle.style.top = (y - 10) + 'px';
+            
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+            
+            sparkle.innerHTML = randomShape;
+            sparkle.style.color = randomColor;
+            
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 800);
         }
-        setInterval(rotateText, 3000);
-        rotateText();
+
+        // Re-animate drawn elements on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('drawing-line');
+                }
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('path').forEach(p => observer.observe(p));
+
+        // Form feedback
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', () => {
+                const btn = contactForm.querySelector('button');
+                btn.innerHTML = "Sending... 🚀";
+                btn.style.opacity = "0.7";
+            });
+        }
     </script>
 </body>
 </html>
-    <script src="assets/js/app.min.js"></script>
-</body>
-<script>
-    // 1. Make the Mobile Menu work
-    const mobileBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (mobileBtn && mobileMenu) {
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-    }
-
-    // 2. Make the "Hi, I'm Emily" text rotate
-    const words = ["Data Storyteller", "Analytics Architect", "Problem Solver", "Data Science @ UCF"];
-    let index = 0;
-    const textTarget = document.getElementById('rotating-text-small');
-    
-    function rotateText() {
-        if (textTarget) {
-            textTarget.style.opacity = '0'; // Fade out
-            setTimeout(() => {
-                textTarget.innerText = words[index % words.length];
-                textTarget.style.opacity = '1'; // Fade in
-                index++;
-            }, 500);
-        }
-    }
-    setInterval(rotateText, 3000); // Changes every 3 seconds
-    rotateText(); // Run once immediately
-
-    // 3. Form feedback
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', () => {
-            const btn = contactForm.querySelector('button');
-            btn.innerText = "Sending... 🚀";
-            btn.style.opacity = "0.7";
-        });
-    }
-</script>

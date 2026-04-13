@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case Study: Seattle EV Population Dashboard | Emily Huynh</title>
-    <meta name="description" content="Analyzing 150,000+ data points on Seattle's Electric Vehicle population using Power BI/Tableau for infrastructure planning.">
+    <title>Case Study: RavenStack Predictive Churn Analytics | Emily Huynh</title>
+    <meta name="description" content="End-to-End SaaS Retention & Predictive Churn Analytics using Google BigQuery and Standard SQL.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,7 +64,7 @@
         }
 
         .map-container::before {
-            content: 'GEO-SPATIAL VISUALIZATION LAYER';
+            content: 'BEHAVIORAL TELEMETRY LAYER';
             position: absolute;
             top: 50%;
             left: 50%;
@@ -92,7 +92,6 @@
 </head>
 <body class="text-text-primary bg-brand-bg antialiased selection:bg-brand-purple/30">
 
-    <!-- Navigation -->
     <header class="sticky top-0 z-50 glass-panel border-b border-gray-100">
         <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="../index.html" class="font-heading text-2xl font-bold text-brand-blue tracking-tighter">Emily H.</a>
@@ -101,13 +100,12 @@
                     <svg class="w-3 h-3 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
                     Projects
                 </a>
-                <a href="#" target="_blank" class="bg-brand-purple text-white px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg shadow-purple-200 hover:-translate-y-0.5 transition-all">Live Dashboard</a>
+                <a href="https://github.com/emilyxxhy/SaaS-Retention-Analytics-RavenStack" target="_blank" class="bg-brand-purple text-white px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg shadow-purple-200 hover:-translate-y-0.5 transition-all">View GitHub</a>
             </div>
         </nav>
     </header>
 
     <main>
-        <!-- Hero Section: The EV Frontier -->
         <section class="relative pt-24 pb-20 overflow-hidden">
             <div class="absolute inset-0 -z-10">
                 <div class="absolute top-20 right-10 w-80 h-80 bg-brand-purple/10 rounded-full blur-[100px] animate-pulse-slow"></div>
@@ -116,59 +114,55 @@
 
             <div class="max-w-5xl mx-auto px-6 text-center">
                 <div class="fade-in">
-                    <span class="inline-block px-4 py-1.5 rounded-full bg-brand-purple/5 text-brand-purple text-[10px] font-bold uppercase tracking-[0.4em] mb-8 border border-brand-purple/20">Case Study 04</span>
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-brand-purple/5 text-brand-purple text-[10px] font-bold uppercase tracking-[0.4em] mb-8 border border-brand-purple/20">Case Study 01</span>
                     <h1 class="font-heading text-6xl md:text-8xl font-bold text-brand-slate mb-8 leading-[0.85]">
-                        The EV <br/> <span class="gradient-text-purple tracking-tighter">Frontier.</span>
+                        Predicting <br/> <span class="gradient-text-purple tracking-tighter">Churn.</span>
                     </h1>
                     <p class="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed font-body font-medium">
-                        Architecting a high-performance geo-spatial engine to visualize Seattle’s sustainable transition. Turning 150,000+ data points into a tangible infrastructure roadmap.
+                        Architecting an automated behavioral data pipeline for RavenStack. Shifting the analytics strategy from looking at what happened yesterday, to predicting who will cancel tomorrow.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- Executive Summary: Bento Layout -->
         <section class="py-12">
             <div class="max-w-6xl mx-auto px-6">
                 <div class="grid md:grid-cols-4 gap-6 fade-in">
-                    <!-- The Objective -->
                     <div class="md:col-span-2 bento-card glass-panel rounded-[2.5rem] p-10 relative overflow-hidden">
                         <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-brand-purple/5 rounded-full blur-2xl"></div>
                         <h3 class="text-brand-purple font-bold uppercase text-[10px] tracking-[0.3em] mb-6 flex items-center">
                             <span class="w-2 h-2 bg-brand-purple rounded-full mr-3"></span> The Objective
                         </h3>
                         <p class="text-2xl font-heading font-bold text-brand-slate leading-snug mb-4">
-                            Infrastructure optimization through big data visualization.
+                            Retention optimization through advanced SQL signals.
                         </p>
                         <p class="text-gray-600 text-sm leading-relaxed">
-                            The City of Seattle needed to know where to build the next 500 charging stations. I transformed registered EV population data into a predictive heat map to identify "Charging Deserts" in high-adoption zones.
+                            RavenStack needed to establish rigorous pre-launch baseline metrics. I extracted raw user lifecycle signals to build a "Silent Churn" detector that flags engagement drops 30 days before the user hits the cancel button.
                         </p>
                     </div>
 
-                    <!-- Market Context -->
                     <div class="bento-card bg-brand-slate rounded-[2.5rem] p-10 text-white flex flex-col justify-between">
-                        <h3 class="text-brand-pink font-bold uppercase text-[10px] tracking-[0.3em]">Market Share</h3>
+                        <h3 class="text-brand-pink font-bold uppercase text-[10px] tracking-[0.3em]">Revenue Risk</h3>
                         <div>
-                            <span class="text-4xl font-heading font-bold text-brand-purple block mb-2">Tesla</span>
-                            <p class="text-gray-400 text-xs leading-relaxed">Dominant presence across all city sectors, requiring specific NACS connector density planning.</p>
+                            <span class="text-4xl font-heading font-bold text-brand-orange block mb-2">$2.07M</span>
+                            <p class="text-gray-400 text-xs leading-relaxed">~18% of total MRR was identified as being at extreme risk due directly to Tier-2 support escalations.</p>
                         </div>
                     </div>
 
-                    <!-- Tech Profile -->
                     <div class="bento-card bg-white border border-gray-100 rounded-[2.5rem] p-10 shadow-sm flex flex-col justify-between">
                         <h3 class="text-brand-blue font-bold uppercase text-[10px] tracking-[0.3em]">The Toolkit</h3>
                         <div class="space-y-3">
                             <div class="flex justify-between text-xs font-bold border-b border-gray-50 pb-2">
-                                <span class="text-gray-400">BI Tool</span>
-                                <span>Power BI / Tableau</span>
+                                <span class="text-gray-400">Warehouse</span>
+                                <span>Google BigQuery</span>
                             </div>
                             <div class="flex justify-between text-xs font-bold border-b border-gray-50 pb-2">
                                 <span class="text-gray-400">Language</span>
-                                <span>DAX / M Query</span>
+                                <span>Standard SQL</span>
                             </div>
                             <div class="flex justify-between text-xs font-bold">
                                 <span class="text-gray-400">Logic</span>
-                                <span>Geo-Coding</span>
+                                <span>CTEs & Windows</span>
                             </div>
                         </div>
                     </div>
@@ -176,55 +170,53 @@
             </div>
         </section>
 
-        <!-- Technical Deep Dive: Optimization -->
         <section class="py-24 bg-white/50">
             <div class="max-w-6xl mx-auto px-6">
                 <div class="flex flex-col md:flex-row-reverse gap-20 items-center">
                     <div class="md:w-1/2 fade-in">
-                        <h2 class="font-heading text-5xl font-bold text-brand-slate mb-8 tracking-tighter">Big Data, <br/>Small Latency.</h2>
+                        <h2 class="font-heading text-5xl font-bold text-brand-slate mb-8 tracking-tighter">Behavioral Signals, <br/>Early Warnings.</h2>
                         <p class="text-gray-600 leading-relaxed mb-10 font-body">
-                            Visualizing 150,000+ points on a map can easily crash a browser. I optimized the engine using <strong>Aggregated Data Modeling</strong> and efficient M Query transformations to ensure city planners could filter by Zip Code, Model, and Year in under <span class="text-brand-purple font-bold">200ms</span>.
+                            To find out why high-value accounts were leaving, I audited the support pipeline. The query revealed that <strong class="text-brand-slate">80.7% of support-related churn</strong> involved tickets unresolved for more than 48 hours. By writing rolling time-series window functions, we created an engine that calculates engagement degradation over time.
                         </p>
                         
                         <div class="grid grid-cols-2 gap-4">
                             <div class="p-6 bg-brand-purple/5 rounded-2xl border border-brand-purple/10">
-                                <span class="text-2xl font-bold text-brand-purple block mb-1">M Query</span>
-                                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">ETL Optimization</p>
+                                <span class="text-2xl font-bold text-brand-purple block mb-1">Star Schema</span>
+                                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Data Architecture</p>
                             </div>
                             <div class="p-6 bg-brand-blue/5 rounded-2xl border border-brand-blue/10">
-                                <span class="text-2xl font-bold text-brand-blue block mb-1">DAX</span>
-                                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Time Intelligence</p>
+                                <span class="text-2xl font-bold text-brand-blue block mb-1">Self-Joins</span>
+                                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Market Basket Analysis</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="md:w-1/2">
-                        <!-- Abstract Visual: The Grid -->
                         <div class="glass-panel p-8 rounded-[3rem] shadow-2xl relative overflow-hidden group">
                             <div class="absolute inset-0 bg-brand-slate opacity-[0.02] group-hover:opacity-[0.05] transition-opacity"></div>
-                            <div class="map-container rounded-2xl h-[450px] shadow-inner">
-                                <!-- INTERACTIVE MAP VISUAL GOES HERE -->
-                                <svg class="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 100 100">
-                                    <path d="M10,10 L90,10 L90,90 L10,90 Z" fill="none" stroke="#8B5CF6" stroke-width="0.5" stroke-dasharray="2,2"/>
-                                    <circle cx="50" cy="50" r="30" fill="none" stroke="#8B5CF6" stroke-width="0.1"/>
+                            <div class="map-container rounded-2xl h-[450px] shadow-inner flex items-center justify-center">
+                                <svg class="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 100 100">
+                                    <path class="drawing-line" d="M10,20 Q30,20 50,50 T90,80" fill="none" stroke="#1E00D9" stroke-width="2" stroke-linecap="round"/>
+                                    <circle cx="10" cy="20" r="3" fill="#8B5CF6" class="animate-pulse" />
+                                    <circle cx="50" cy="50" r="3" fill="#8B5CF6" />
+                                    <circle cx="90" cy="80" r="4" fill="#F97316" />
                                 </svg>
                             </div>
-                            <p class="mt-6 text-[10px] text-gray-400 font-bold text-center uppercase tracking-widest">Visualization Layer: Seattle Geo-Spatial Heat Map</p>
+                            <p class="mt-6 text-[10px] text-gray-400 font-bold text-center uppercase tracking-widest">Time-Series Engagement Degradation Curve</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Impact Section: High-Visibility Metrics -->
         <section class="py-24 bg-brand-slate relative overflow-hidden">
             <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-purple/10 rounded-full blur-[180px]"></div>
             
             <div class="max-w-6xl mx-auto px-6 relative z-10">
                 <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8 fade-in">
                     <div class="max-w-xl">
-                        <h2 class="font-heading text-5xl font-bold text-white mb-6 tracking-tighter">Quantifying the Shift.</h2>
-                        <p class="text-gray-400 font-body leading-relaxed">By connecting registration volume to physical coordinates, we moved from "guessing" where EVs were to "seeing" the adoption wave in real-time.</p>
+                        <h2 class="font-heading text-5xl font-bold text-white mb-6 tracking-tighter">Quantifying the Hemorrhage.</h2>
+                        <p class="text-gray-400 font-body leading-relaxed">By rigorously testing the data logic against raw events, we moved the company from reactive guessing to proactive saving.</p>
                     </div>
                     <div class="flex gap-4">
                         <div class="w-12 h-1 bg-brand-purple rounded-full"></div>
@@ -234,56 +226,58 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-10 fade-in">
                     <div class="relative p-10 bg-white/5 border border-white/10 rounded-[2.5rem] backdrop-blur-sm group hover:bg-white/10 transition-all">
-                        <div class="text-brand-purple text-4xl font-heading font-extrabold mb-4">150K+</div>
-                        <h4 class="text-xs font-bold text-white uppercase tracking-[0.3em] mb-4">Records Parsed</h4>
-                        <p class="text-gray-500 text-xs leading-relaxed">Massive-scale geo-data cleaning ensuring 99% zip-code accuracy.</p>
+                        <div class="text-brand-pink text-4xl font-heading font-extrabold mb-4">80.7%</div>
+                        <h4 class="text-xs font-bold text-white uppercase tracking-[0.3em] mb-4">SLA Failures</h4>
+                        <p class="text-gray-500 text-xs leading-relaxed">Of all support-based cancellations were caused by response times > 48 hours.</p>
                     </div>
                     <div class="relative p-10 bg-white/5 border border-white/10 rounded-[2.5rem] backdrop-blur-sm group hover:bg-white/10 transition-all translate-y-6">
-                        <div class="text-brand-orange text-4xl font-heading font-extrabold mb-4">Heat Map</div>
-                        <h4 class="text-xs font-bold text-white uppercase tracking-[0.3em] mb-4">Core Visual</h4>
-                        <p class="text-gray-500 text-xs leading-relaxed">Dynamic choropleth revealing high-adoption clusters in North Seattle.</p>
+                        <div class="text-brand-orange text-4xl font-heading font-extrabold mb-4">$9.8M</div>
+                        <h4 class="text-xs font-bold text-white uppercase tracking-[0.3em] mb-4">Lost Enterprise MRR</h4>
+                        <p class="text-gray-500 text-xs leading-relaxed">Identified catastrophic revenue drain from large accounts vs. Basic tiers.</p>
                     </div>
                     <div class="relative p-10 bg-white/5 border border-white/10 rounded-[2.5rem] backdrop-blur-sm group hover:bg-white/10 transition-all">
-                        <div class="text-brand-blue text-4xl font-heading font-extrabold mb-4">Optimized</div>
-                        <h4 class="text-xs font-bold text-white uppercase tracking-[0.3em] mb-4">UX Design</h4>
-                        <p class="text-gray-500 text-xs leading-relaxed">Drill-through functionality from County down to individual Model trends.</p>
+                        <div class="text-brand-purple text-4xl font-heading font-extrabold mb-4">34.5 Days</div>
+                        <h4 class="text-xs font-bold text-white uppercase tracking-[0.3em] mb-4">Dev Tools TTV</h4>
+                        <p class="text-gray-500 text-xs leading-relaxed">Calculated Time-to-Value, revealing the fastest-converting, highest MRR sector.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- The Actionable Insight Section -->
         <section class="py-24 bg-white">
             <div class="max-w-6xl mx-auto px-6">
                 <div class="bg-brand-bg rounded-[3.5rem] p-12 md:p-20 flex flex-col md:flex-row gap-16 items-center shadow-sm border border-gray-100">
                     <div class="md:w-1/2">
-                        <span class="inline-block px-3 py-1 rounded-lg bg-brand-orange/10 text-brand-orange text-[10px] font-extrabold uppercase tracking-widest mb-6">Actionable Intelligence</span>
-                        <h3 class="font-heading text-4xl md:text-5xl font-bold text-brand-slate mb-8 tracking-tighter">Solving the <br/>"Charging Desert."</h3>
+                        <span class="inline-block px-3 py-1 rounded-lg bg-brand-blue/10 text-brand-blue text-[10px] font-extrabold uppercase tracking-widest mb-6">Actionable Intelligence</span>
+                        <h3 class="font-heading text-4xl md:text-5xl font-bold text-brand-slate mb-8 tracking-tighter">Curing the <br/>"Silent Churn."</h3>
                         <p class="text-gray-600 leading-relaxed mb-8 font-body">
-                            The visual analysis instantly revealed a critical policy failure: <strong>Zip Code X</strong> had the city's second-highest EV density but ranked last in public charging availability. This allowed the city planning department to re-allocate $2M in infrastructure funding to the precise underserved block, maximizing the utility of taxpayer investment.
+                            The analysis pinpointed <strong>feature_32</strong> as the undisputed "Aha! Moment", ranking as the top retention driver with 6,686 uses. By restructuring Day-1 onboarding to push this feature, and enforcing a strict 24-hour SLA for Enterprise support tickets, Customer Success can systematically intervene before high-value accounts cancel.
                         </p>
                         <div class="flex gap-6">
                             <div class="flex items-center gap-3">
                                 <div class="w-3 h-3 bg-brand-purple rounded-full"></div>
-                                <span class="text-xs font-bold text-gray-700">Policy Shift</span>
+                                <span class="text-xs font-bold text-gray-700">Proactive Outreach</span>
                             </div>
                             <div class="flex items-center gap-3">
-                                <div class="w-3 h-3 bg-brand-blue rounded-full"></div>
-                                <span class="text-xs font-bold text-gray-700">Cost Savings</span>
+                                <div class="w-3 h-3 bg-brand-orange rounded-full"></div>
+                                <span class="text-xs font-bold text-gray-700">Onboarding Tweaks</span>
                             </div>
                         </div>
                     </div>
                     <div class="md:w-1/2 relative group">
-                        <div class="chart-module rounded-[2.5rem] h-[400px] shadow-2xl relative z-10 bg-white">
-                            <!-- INSIGHT GRAPHIC GOES HERE -->
+                        <div class="chart-module rounded-[2.5rem] h-[400px] shadow-2xl relative z-10 bg-white flex items-center justify-center border border-gray-100">
+                            <div class="text-center p-8">
+                                <span class="text-6xl mb-4 block">⚙️</span>
+                                <h4 class="font-heading font-bold text-xl text-brand-slate">03_predictive_warning.sql</h4>
+                                <p class="text-gray-400 text-xs mt-2 uppercase tracking-widest">Scheduled Job • 6:00 AM</p>
+                            </div>
                         </div>
-                        <div class="absolute -bottom-6 -right-6 w-40 h-40 bg-brand-purple/10 rounded-full blur-3xl group-hover:scale-125 transition-transform duration-1000"></div>
+                        <div class="absolute -bottom-6 -right-6 w-40 h-40 bg-brand-blue/10 rounded-full blur-3xl group-hover:scale-125 transition-transform duration-1000"></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Reflections & Final Actions -->
         <section class="py-24">
             <div class="max-w-4xl mx-auto px-6">
                 <div class="text-center mb-16 fade-in">
@@ -295,21 +289,21 @@
                     <div class="space-y-4">
                         <h4 class="font-bold text-brand-purple text-xs uppercase tracking-widest">Technical Lesson</h4>
                         <p class="text-gray-500 text-sm leading-relaxed">
-                            For big data viz, the <strong>Data Model</strong> is the invisible foundation. Without rigorous query optimization and star-schema principles, the most beautiful map becomes unusable in a production environment.
+                            SQL is incredibly powerful for behavioral modeling. Leveraging complex self-joins, CTEs, and time-series logic natively inside BigQuery allows you to uncover predictive signals directly from raw event logs without heavy Python processing.
                         </p>
                     </div>
                     <div class="space-y-4">
-                        <h4 class="font-bold text-brand-blue text-xs uppercase tracking-widest">Public Sector Strategy</h4>
+                        <h4 class="font-bold text-brand-blue text-xs uppercase tracking-widest">Business Strategy</h4>
                         <p class="text-gray-500 text-sm leading-relaxed">
-                            Data in the public sector must be <strong>tangible</strong>. Connecting numeric records to physical neighborhoods turned an abstract report into a decisive planning tool for city officials.
+                            Data must drive action. Moving from "what happened yesterday" to "who is going to churn tomorrow" transforms a database from a static storage unit into an active, revenue-saving engine.
                         </p>
                     </div>
                 </div>
 
                 <div class="flex flex-col sm:flex-row gap-6 justify-center fade-in">
-                    <a href="https://drive.google.com/file/d/1mkLFYlgLVlaBLLbTvuB74XVIIClnt-8Q/view?usp=sharing" target="_blank" class="px-12 py-5 bg-brand-slate text-white font-bold rounded-2xl shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center group">
-                        <svg class="w-5 h-5 mr-3 group-hover:rotate-6 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-                        View Dashboard Visuals
+                    <a href="https://github.com/emilyxxhy/SaaS-Retention-Analytics-RavenStack" target="_blank" class="px-12 py-5 bg-brand-slate text-white font-bold rounded-2xl shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center group">
+                        <svg class="w-5 h-5 mr-3 group-hover:rotate-6 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.293c0 .319.192.694.805.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        View GitHub Repo
                     </a>
                     <a href="../index.html#projects" class="px-12 py-5 bg-white border-2 border-brand-purple text-brand-purple font-bold rounded-2xl hover:bg-purple-50 transition-all flex items-center justify-center">
                         Back to Portfolio
@@ -320,7 +314,7 @@
     </main>
 
     <footer class="py-20 bg-white border-t border-gray-100 text-center">
-        <p class="text-[9px] text-gray-400 font-extrabold uppercase tracking-[0.5em]">Mapping the Future • Emily Huynh • 2025</p>
+        <p class="text-[9px] text-gray-400 font-extrabold uppercase tracking-[0.5em]">Predicting the Future • Emily Huynh • 2026</p>
     </footer>
 
     <script>

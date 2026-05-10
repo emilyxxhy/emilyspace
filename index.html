@@ -534,53 +534,116 @@
 </section>
 
 <section id="experience" class="py-32 bg-white relative border-y border-slate-100">
-    <div class="max-w-5xl mx-auto px-6">
+    <div class="max-w-6xl mx-auto px-6">
         
-        <div class="mb-16 md:flex md:items-end md:justify-between relative">
-            <div>
-                <span class="text-[#1E00D9] font-bold text-xs uppercase tracking-widest mb-2 block">Career Timeline</span>
-                <h2 class="text-5xl md:text-6xl font-black text-slate-900 tracking-tighter">Experience.</h2>
-                <svg class="absolute -left-8 -bottom-4 w-32 h-6 text-[#F97316]" viewBox="0 0 100 20" preserveAspectRatio="none">
-                    <path class="drawing-line" d="M0,10 Q10,0 20,10 T40,10 T60,10 T80,10 T100,10" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-                </svg>
-            </div>
+        <!-- Header -->
+        <div class="mb-24 relative text-center md:text-left">
+            <span class="text-[#1E00D9] font-bold text-xs uppercase tracking-widest mb-2 block">Career Journey</span>
+            <h2 class="text-5xl md:text-6xl font-black text-slate-900 tracking-tighter">Experience.</h2>
+            <svg class="absolute left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 -bottom-4 w-32 h-6 text-[#F97316]" viewBox="0 0 100 20" preserveAspectRatio="none">
+                <path class="drawing-line" d="M0,10 Q10,0 20,10 T40,10 T60,10 T80,10 T100,10" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            </svg>
         </div>
 
-        <div class="bg-[#FDFCF8] border-[3px] border-slate-900 p-8 md:p-10 rounded-2xl shadow-[8px_8px_0px_#1E00D9] transition-all hover:-translate-y-1 hover:shadow-[12px_12px_0px_#1E00D9]">
+        <!-- Timeline Container -->
+        <div class="relative">
+            <!-- Center Spine (Hidden on mobile, visible on MD+) -->
+            <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-slate-900"></div>
             
-            <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-10">
-                <div>
-                    <h3 class="text-3xl font-black text-slate-900 tracking-tight">Data Analyst Intern</h3>
-                    <p class="text-xl font-bold text-[#F97316] mt-1">AASCS Company</p>
+            <div class="space-y-12 md:space-y-24">
+                
+                <!-- 1. IT Technician (Left Side) -->
+                <div class="relative flex flex-col md:flex-row items-center">
+                    <div class="flex justify-start w-full md:w-1/2 md:pr-12">
+                        <div class="w-full bg-[#FDFCF8] border-[3px] border-slate-900 p-8 rounded-2xl shadow-[8px_8px_0px_#1E00D9] transition-all hover:-translate-y-1 hover:shadow-[12px_12px_0px_#1E00D9]">
+                            <div class="flex flex-col gap-2 mb-4">
+                                <span class="w-fit px-3 py-1 bg-[#1E00D9] text-white text-[10px] font-black uppercase tracking-widest rounded">Incoming</span>
+                                <h3 class="text-3xl font-black text-slate-900 tracking-tight">IT Technician</h3>
+                                <p class="text-xl font-bold text-[#F97316]">CREOL IT UCF</p>
+                                <span class="text-slate-500 font-black text-xs uppercase tracking-widest">Starting May 2026</span>
+                            </div>
+                            <p class="font-sans text-slate-700 text-[17px] leading-relaxed">Incoming role supporting college-wide IT infrastructure and technical operations at the College of Optics and Photonics.</p>
+                            <div class="mt-6 pt-6 border-t-2 border-slate-100 flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-white border-2 border-slate-200 text-slate-600 rounded text-[10px] font-bold uppercase">IT Infrastructure</span>
+                                <span class="px-2 py-1 bg-white border-2 border-slate-200 text-slate-600 rounded text-[10px] font-bold uppercase">Technical Support</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Node Dot -->
+                    <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-[#1E00D9] border-4 border-white shadow-[0_0_0_4px_#1E00D9]"></div>
                 </div>
-                <div class="px-5 py-2 bg-slate-900 text-white rounded-lg text-xs font-bold uppercase tracking-widest shrink-0">
-                    Jun 2025 – Aug 2025
+
+                <!-- 2. Research Assistant (Right Side) -->
+                <div class="relative flex flex-col md:flex-row items-center">
+                    <div class="hidden md:block w-1/2"></div> <!-- Spacer -->
+                    <div class="flex justify-end w-full md:w-1/2 md:pl-12">
+                        <div class="w-full bg-[#FDFCF8] border-[3px] border-slate-900 p-8 rounded-2xl shadow-[8px_8px_0px_#1E00D9] transition-all hover:-translate-y-1 hover:shadow-[12px_12px_0px_#1E00D9]">
+                            <div class="flex flex-col gap-2 mb-4">
+                                <h3 class="text-3xl font-black text-slate-900 tracking-tight">Undergraduate Research Assistant</h3>
+                                <p class="text-xl font-bold text-[#F97316]">Office of Undergraduate Research at UCF</p>
+                                <span class="text-slate-500 font-black text-xs uppercase tracking-widest">Mar 2026 – Present</span>
+                            </div>
+                            <ul class="space-y-4 mb-6 text-slate-700 font-sans text-[17px]">
+                                <li class="flex items-start gap-3">
+                                    <span class="text-[#1E00D9] font-bold mt-1">→</span>
+                                    <span>Benchmarked <strong class="text-slate-900">open-source LLMs (Gemma-3-1B-IT, Qwen3-0.6B, SmolLM-135M)</strong> to evaluate critical trade-offs between inference latency and response accuracy, analyzing base vs. instruction-tuned architectures for local deployment viability.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-[#1E00D9] font-bold mt-1">→</span>
+                                    <span>Designed an <strong class="text-[#1E00D9]">end-to-end LLM evaluation framework</strong>, tracking system-level metrics (latency, JSON formatting accuracy for API integration) alongside linguistic quality (semantic similarity, exact match, n-gram overlap) to determine production readiness.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-[#1E00D9] font-bold mt-1">→</span>
+                                    <span>Optimized model hyperparameters (temperature, top-p) to <strong class="text-[#1E00D9]">mitigate hallucinations</strong> and recurring edge-case errors, translating complex output analysis into weekly strategic reports that guided final model selection.</span>
+                                </li>
+                            </ul>
+                            <div class="mt-4 pt-6 border-t-2 border-slate-100 flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-white border-2 border-slate-200 text-slate-600 rounded text-[10px] font-bold uppercase tracking-wide">Large Language Models (LLM)</span>
+                                <span class="px-2 py-1 bg-white border-2 border-slate-200 text-slate-600 rounded text-[10px] font-bold uppercase tracking-wide">Data Science</span>
+                                <span class="px-2 py-1 bg-white border-2 border-slate-200 text-slate-600 rounded text-[10px] font-bold uppercase tracking-wide">Benchmarking</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Node Dot -->
+                    <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-slate-900 border-4 border-white shadow-[0_0_0_4px_#1E00D9]"></div>
                 </div>
-            </div>
 
-            <ul class="space-y-6 font-sans text-slate-700 text-[17px] leading-relaxed">
-                <li class="flex items-start gap-4">
-                    <svg class="w-6 h-6 text-[#1E00D9] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
-                    <span>Collected and analyzed income statements, balance sheets, and cash flow statements of <strong class="text-slate-900 font-bold">20+ publicly listed companies</strong> to identify performance trends and propose tailored strategies.</span>
-                </li>
-                <li class="flex items-start gap-4">
-                    <svg class="w-6 h-6 text-[#1E00D9] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
-                    <span>Applied statistical methods in Excel (variance analysis, trend analysis, and ratio comparisons) to clean and structure <strong class="text-[#1E00D9] font-bold">10,000+ financial data points</strong>, improving reporting efficiency by <strong class="text-[#1E00D9] font-bold">35%</strong>.</span>
-                </li>
-                <li class="flex items-start gap-4">
-                    <svg class="w-6 h-6 text-[#1E00D9] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
-                    <span>Collaborated with the audit team to evaluate monthly financial performance and strengthen stakeholder relationships by preparing client-ready summaries and visualizations using Excel.</span>
-                </li>
-            </ul>
+                <!-- 3. Data Analyst (Left Side) -->
+                <div class="relative flex flex-col md:flex-row items-center">
+                    <div class="flex justify-start w-full md:w-1/2 md:pr-12">
+                        <div class="w-full bg-[#FDFCF8] border-[3px] border-slate-900 p-8 rounded-2xl shadow-[8px_8px_0px_#1E00D9] transition-all hover:-translate-y-1 hover:shadow-[12px_12px_0px_#1E00D9]">
+                            <div class="flex flex-col gap-2 mb-4">
+                                <h3 class="text-3xl font-black text-slate-900 tracking-tight">Data Analyst Intern</h3>
+                                <p class="text-xl font-bold text-[#F97316]">AASCS Company</p>
+                                <span class="text-slate-500 font-black text-xs uppercase tracking-widest">Jun 2025 – Aug 2025</span>
+                            </div>
+                            <ul class="space-y-4 mb-6 text-slate-700 font-sans text-[17px]">
+                                <li class="flex items-start gap-3">
+                                    <span class="text-[#1E00D9] font-bold mt-1">→</span>
+                                    <span>Collected and analyzed income statements, balance sheets, and cash flow statements of <strong class="text-slate-900">20+ publicly listed companies</strong> to identify performance trends and propose tailored strategies.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-[#1E00D9] font-bold mt-1">→</span>
+                                    <span>Applied statistical methods in Excel (variance analysis, trend analysis, and ratio comparisons) to clean and structure <strong class="text-[#1E00D9]">10,000+ financial data points</strong>, improving reporting efficiency by <strong class="text-[#1E00D9]">35%</strong>.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-[#1E00D9] font-bold mt-1">→</span>
+                                    <span>Collaborated with the audit team to evaluate monthly financial performance and strengthen stakeholder relationships by preparing client-ready summaries and visualizations using Excel.</span>
+                                </li>
+                            </ul>
+                            <div class="mt-4 pt-6 border-t-2 border-slate-100 flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-white border-2 border-slate-200 text-slate-600 rounded text-[10px] font-bold uppercase tracking-wide">Excel</span>
+                                <span class="px-2 py-1 bg-white border-2 border-slate-200 text-slate-600 rounded text-[10px] font-bold uppercase tracking-wide">Financial Analysis</span>
+                                <span class="px-2 py-1 bg-white border-2 border-slate-200 text-slate-600 rounded text-[10px] font-bold uppercase tracking-wide">Statistical Methods</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Node Dot -->
+                    <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-slate-900 border-4 border-white shadow-[0_0_0_4px_#1E00D9]"></div>
+                </div>
 
-            <div class="mt-10 pt-6 border-t-2 border-slate-200 flex flex-wrap gap-2 font-sans">
-                <span class="px-3 py-1.5 bg-white border-2 border-slate-200 text-slate-600 rounded-md text-xs font-bold uppercase tracking-wide">Excel</span>
-                <span class="px-3 py-1.5 bg-white border-2 border-slate-200 text-slate-600 rounded-md text-xs font-bold uppercase tracking-wide">Financial Analysis</span>
-                <span class="px-3 py-1.5 bg-white border-2 border-slate-200 text-slate-600 rounded-md text-xs font-bold uppercase tracking-wide">Data Visualization</span>
-                <span class="px-3 py-1.5 bg-white border-2 border-slate-200 text-slate-600 rounded-md text-xs font-bold uppercase tracking-wide">Statistical Methods</span>
             </div>
         </div>
-
     </div>
 </section>
 
